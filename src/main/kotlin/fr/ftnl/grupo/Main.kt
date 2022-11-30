@@ -1,3 +1,13 @@
+package fr.ftnl.grupo
+
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+
+
+val GSON: Gson = GsonBuilder().setPrettyPrinting().serializeNulls().create()
+
+
+
 fun main(args : Array<String>) {
 	println("Hello World!")
 	
