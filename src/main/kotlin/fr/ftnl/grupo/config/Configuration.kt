@@ -3,10 +3,12 @@ package fr.ftnl.grupo.config
 import com.google.gson.Gson
 import fr.ftnl.grupo.GSON
 import fr.ftnl.grupo.config.dependent.BotConfig
+import fr.ftnl.grupo.config.dependent.DatabaseConfig
 import java.io.File
 
 data class Configuration(
 	val botConfig : BotConfig = BotConfig(),
+	val dbConfig: DatabaseConfig = DatabaseConfig(),
 ){
 	class ConfigurationException(message : String) : Exception(message)
 	

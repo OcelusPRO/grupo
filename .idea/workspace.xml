@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="✨ Introduce new features -- Lang manager">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/config/Configuration.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/config/dependent/BotConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/Main.kt" afterDir="false" />
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="✨ Introduce new features -- Configuration manager">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/Bot.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/listeners/Dispatcher.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1669805851111</updated>
       <workItem from="1669805852519" duration="720000" />
-      <workItem from="1669806591360" duration="3370000" />
+      <workItem from="1669806591360" duration="3899000" />
     </task>
     <task id="LOCAL-00001" summary="🎉 Begin a project.">
       <created>1669806667582</created>
@@ -145,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669809585479</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="✨ Introduce new features -- Configuration manager">
+      <created>1669810204999</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1669810204999</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +173,7 @@
     <MESSAGE value=":wrench: Add logger configuration file" />
     <MESSAGE value="✨ Introduce new features -- GSON serialization" />
     <MESSAGE value="✨ Introduce new features -- Lang manager" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ Introduce new features -- Lang manager" />
+    <MESSAGE value="✨ Introduce new features -- Configuration manager" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ Introduce new features -- Configuration manager" />
   </component>
 </project>
