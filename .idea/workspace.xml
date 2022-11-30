@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="🎉 Begin a project.">
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="✨ Introduce new features -- Lang manager">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/lang/LangFile.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/lang/LangKey.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/lang/LangLoader.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/lang/LangManager.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +21,13 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -65,6 +76,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "node.js.detected.package.eslint": "true",
@@ -83,7 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1669805851111</updated>
       <workItem from="1669805852519" duration="720000" />
-      <workItem from="1669806591360" duration="1715000" />
+      <workItem from="1669806591360" duration="2578000" />
     </task>
     <task id="LOCAL-00001" summary="🎉 Begin a project.">
       <created>1669806667582</created>
@@ -106,7 +118,28 @@
       <option name="project" value="LOCAL" />
       <updated>1669806784447</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="➕ Add project dependency's.">
+      <created>1669808593873</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669808593873</updated>
+    </task>
+    <task id="LOCAL-00005" summary=":wrench: Add logger configuration file">
+      <created>1669808722719</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669808722719</updated>
+    </task>
+    <task id="LOCAL-00006" summary="✨ Introduce new features -- GSON serialization">
+      <created>1669809265959</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669809265959</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +158,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value=" Begin a project." />
-    <option name="LAST_COMMIT_MESSAGE" value=" Begin a project." />
+    <MESSAGE value="➕ Add project dependency's." />
+    <MESSAGE value=":wrench: Add logger configuration file" />
+    <MESSAGE value="✨ Introduce new features -- GSON serialization" />
+    <MESSAGE value="✨ Introduce new features -- Lang manager" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ Introduce new features -- Lang manager" />
   </component>
 </project>
