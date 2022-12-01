@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment=":recycle: Reformat code by IDE">
-      <change afterPath="$PROJECT_DIR$/.github/dependabot.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment=":fountain: Update github workflow. -- Add permission to execute command">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +63,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2IGRHpsezn7GNPOvCSHHjN7Wdj4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -218,7 +219,7 @@
       <workItem from="1669805852519" duration="720000" />
       <workItem from="1669806591360" duration="9436000" />
       <workItem from="1669842250010" duration="2715000" />
-      <workItem from="1669902798686" duration="4352000" />
+      <workItem from="1669902798686" duration="5003000" />
     </task>
     <task id="LOCAL-00001" summary="🎉 Begin a project.">
       <created>1669806667582</created>
@@ -346,7 +347,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669906467523</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary=":fountain: Add github workflow and dependabot.yml">
+      <created>1669907213178</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1669907213179</updated>
+    </task>
+    <task id="LOCAL-00020" summary=":fountain: Update github workflow. -- Add permission to execute command">
+      <created>1669907477575</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1669907477575</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,6 +395,8 @@
     <MESSAGE value=". update a .gitignore file. -- ignore config file" />
     <MESSAGE value="✨ Introduce new features. -- CommandManager" />
     <MESSAGE value=":recycle: Reformat code by IDE" />
-    <option name="LAST_COMMIT_MESSAGE" value=":recycle: Reformat code by IDE" />
+    <MESSAGE value=":fountain: Add github workflow and dependabot.yml" />
+    <MESSAGE value=":fountain: Update github workflow. -- Add permission to execute command" />
+    <option name="LAST_COMMIT_MESSAGE" value=":fountain: Update github workflow. -- Add permission to execute command" />
   </component>
 </project>
