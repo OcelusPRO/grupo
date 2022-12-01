@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="♻️ Refactor code. -- Command manager - add cooldown to commands">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/extentions/StringExt.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/CommandManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/CommandManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/ICmd.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/ICmd.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/listeners/Dispatcher.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/listeners/Dispatcher.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/fr/ftnl/grupo/Tests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/fr/ftnl/grupo/Tests.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +118,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "vcs.Git",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -133,7 +130,7 @@
       <recent name="fr.ftnl.grupo" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests.database connection test">
+  <component name="RunManager" selected="Gradle.Tests">
     <configuration name="Tests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -235,9 +232,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests.database connection test" />
         <item itemvalue="Gradle.Tests" />
         <item itemvalue="Gradle.Tests.languages tests (1)" />
+        <item itemvalue="Gradle.Tests.database connection test" />
         <item itemvalue="Gradle.Tests.languages tests" />
         <item itemvalue="Kotlin.MainKt" />
       </list>
@@ -255,7 +252,7 @@
       <workItem from="1669806591360" duration="9436000" />
       <workItem from="1669842250010" duration="2715000" />
       <workItem from="1669902798686" duration="6487000" />
-      <workItem from="1669911253973" duration="3687000" />
+      <workItem from="1669911253973" duration="9119000" />
     </task>
     <task id="LOCAL-00001" summary="🎉 Begin a project.">
       <created>1669806667582</created>
@@ -411,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669911327006</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="♻️ Refactor code. -- Command manager - add cooldown to commands">
+      <created>1669919145772</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1669919145772</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
