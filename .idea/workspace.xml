@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="✨ Introduce new features -- Database connection">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/fr/ftnl/grupo/Tests.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/Bot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/Bot.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/listeners/Dispatcher.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/listeners/Dispatcher.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/DBManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/DBManager.kt" afterDir="false" />
-    </list>
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="🌐 Internationalization and localization. -- add base lang files" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -216,7 +209,7 @@
       <workItem from="1669805852519" duration="720000" />
       <workItem from="1669806591360" duration="9436000" />
       <workItem from="1669842250010" duration="2715000" />
-      <workItem from="1669902798686" duration="2236000" />
+      <workItem from="1669902798686" duration="2585000" />
     </task>
     <task id="LOCAL-00001" summary="🎉 Begin a project.">
       <created>1669806667582</created>
@@ -288,7 +281,35 @@
       <option name="project" value="LOCAL" />
       <updated>1669811003032</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="✅ Add tests. -- setup first tests">
+      <created>1669905146452</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669905146452</updated>
+    </task>
+    <task id="LOCAL-00012" summary="🙈 update .gitignore file. -- remove sonarlint files">
+      <created>1669905240106</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1669905240106</updated>
+    </task>
+    <task id="LOCAL-00013" summary="🔥 Remove files. -- index.pb -- sonarlint">
+      <created>1669905312599</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1669905312599</updated>
+    </task>
+    <task id="LOCAL-00014" summary="🌐 Internationalization and localization. -- add base lang files">
+      <created>1669905387498</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1669905387498</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,6 +335,10 @@
     <MESSAGE value="✨ Introduce new features -- Configuration manager" />
     <MESSAGE value="✨ Introduce new features -- Bot discord connection + event dispatcher" />
     <MESSAGE value="✨ Introduce new features -- Database connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ Introduce new features -- Database connection" />
+    <MESSAGE value="✅ Add tests. -- setup first tests" />
+    <MESSAGE value=" update .gitignore file. -- remove sonarlint files" />
+    <MESSAGE value=" Remove files. -- index.pb -- sonarlint" />
+    <MESSAGE value=" Internationalization and localization. -- add base lang files" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Internationalization and localization. -- add base lang files" />
   </component>
 </project>
