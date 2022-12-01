@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment=".🙈 update a .gitignore file. -- ignore config file">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/CommandManager.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/ICmd.kt" afterDir="false" />
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment=":recycle: Reformat code by IDE">
+      <change afterPath="$PROJECT_DIR$/.github/dependabot.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -218,7 +218,7 @@
       <workItem from="1669805852519" duration="720000" />
       <workItem from="1669806591360" duration="9436000" />
       <workItem from="1669842250010" duration="2715000" />
-      <workItem from="1669902798686" duration="3316000" />
+      <workItem from="1669902798686" duration="4352000" />
     </task>
     <task id="LOCAL-00001" summary="🎉 Begin a project.">
       <created>1669806667582</created>
@@ -332,7 +332,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669905601557</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="✨ Introduce new features. -- CommandManager">
+      <created>1669906422196</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1669906422196</updated>
+    </task>
+    <task id="LOCAL-00018" summary=":recycle: Reformat code by IDE">
+      <created>1669906467523</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1669906467523</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,6 +378,8 @@
     <MESSAGE value=" Internationalization and localization. -- add base lang files" />
     <MESSAGE value=" Add or update configuration files. -- add config sample to git" />
     <MESSAGE value=". update a .gitignore file. -- ignore config file" />
-    <option name="LAST_COMMIT_MESSAGE" value=". update a .gitignore file. -- ignore config file" />
+    <MESSAGE value="✨ Introduce new features. -- CommandManager" />
+    <MESSAGE value=":recycle: Reformat code by IDE" />
+    <option name="LAST_COMMIT_MESSAGE" value=":recycle: Reformat code by IDE" />
   </component>
 </project>
