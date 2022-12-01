@@ -17,10 +17,16 @@ import net.dv8tion.jda.api.interactions.commands.build.Commands
 import net.dv8tion.jda.api.interactions.commands.build.OptionData
 import net.dv8tion.jda.api.interactions.modals.Modal
 import org.reflections.Reflections
+import org.slf4j.Logger
+import kotlin.time.Duration
+import kotlin.time.Duration.Companion.seconds
 
 interface ICmd {
 	val name : String
 	val userPermissions : List<Permission>
+	val allowDM : Boolean
+	val cooldown: Duration
+		get() = 0.seconds
 	
 	companion object {
 		val cmd = getCommands()
@@ -36,7 +42,7 @@ interface ICmd {
 			}
 		}
 		
-		fun postDataCmd(jda : JDA) {
+		fun postDataCmd(jda : JDA, logger: Logger) {
 			if (posted) return
 			val commands = cmd.filterIsInstance(IDataCmd::class.java)
 			val toGlobalPostCommand : MutableList<IDataCmd> = mutableListOf()
