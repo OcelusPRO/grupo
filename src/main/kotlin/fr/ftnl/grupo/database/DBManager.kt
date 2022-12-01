@@ -10,8 +10,8 @@ import org.jetbrains.exposed.sql.transactions.transaction
  * Initializes the database.
  * @author Ocelus
  */
-class DBManager(cfg: Configuration = CONFIG) {
-	lateinit var connection: Database
+class DBManager(cfg : Configuration = CONFIG) {
+	lateinit var connection : Database
 	
 	init {
 		connection = Database.connect(

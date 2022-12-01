@@ -8,11 +8,11 @@ import java.io.File
 
 data class Configuration(
 	val botConfig : BotConfig = BotConfig(),
-	val dbConfig: DatabaseConfig = DatabaseConfig(),
-){
+	val dbConfig : DatabaseConfig = DatabaseConfig(),
+) {
 	class ConfigurationException(message : String) : Exception(message)
 	
-	fun saveConfiguration(): Configuration {
+	fun saveConfiguration() : Configuration {
 		if (!configFile.exists()) configFile.createNewFile()
 		configFile.writeText(GSON.toJson(this))
 		return this
