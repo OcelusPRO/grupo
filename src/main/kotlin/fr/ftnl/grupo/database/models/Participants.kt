@@ -13,7 +13,13 @@ import org.joda.time.DateTime
 object Participants : IntIdTable("${CONFIG.dbConfig.prefix}participants") {
     val matchmakingEvent: Column<EntityID<Int>> = reference("matchmaking_event", MatchmakingEvents)
     val user: Column<EntityID<Int>> = reference("user", Users)
+    val type: Column<ParticipantType> = enumeration<ParticipantType>("type")
     val registerAt: Column<DateTime> = datetime("register_at").defaultExpression(CurrentDateTime)
+}
+
+enum class ParticipantType {
+    PARTICIPANT,
+    WAITING
 }
 
 class Participant(id: EntityID<Int>) : IntEntity(id) {
@@ -22,5 +28,6 @@ class Participant(id: EntityID<Int>) : IntEntity(id) {
     
     val matchmakingEvent by MatchmakingEvent referencedOn Participants.matchmakingEvent
     val user by User referencedOn Participants.user
+    val type by Participants.type
     val registerAt by Participants.registerAt
 }
