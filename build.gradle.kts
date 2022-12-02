@@ -37,7 +37,7 @@ dependencies {
     // Exposed
     implementation("org.jetbrains.exposed:exposed-jodatime:0.39.2")
     implementation("org.jetbrains.exposed:exposed-core:0.39.2")
-    implementation("org.jetbrains.exposed:exposed-jdbc:0.39.2")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.41.1")
     implementation("org.jetbrains.exposed:exposed-dao:0.39.2")
     implementation("mysql:mysql-connector-java:8.0.30")
     
