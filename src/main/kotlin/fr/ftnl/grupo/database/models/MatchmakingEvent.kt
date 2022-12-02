@@ -11,17 +11,17 @@ import org.jetbrains.exposed.sql.jodatime.datetime
 import org.joda.time.DateTime
 
 object MatchmakingEvents : IntIdTable("${CONFIG.dbConfig.prefix}matchmaking_events") {
-    val game : Column<EntityID<Int>> = reference("game", Games)
+    val game: Column<EntityID<Int>> = reference("game", Games)
     
-    val startDateTime : Column<DateTime> = datetime("start_date_time")
-    val endDateTime : Column<DateTime> = datetime("end_date_time")
-    val createdAt : Column<DateTime> = datetime("created_at").defaultExpression(CurrentDateTime)
+    val startDateTime: Column<DateTime> = datetime("start_date_time")
+    val endDateTime: Column<DateTime> = datetime("end_date_time")
+    val createdAt: Column<DateTime> = datetime("created_at").defaultExpression(CurrentDateTime)
     
-    val guildInvite : Column<String> = text("guild_invite")
-    val voiceChannelId : Column<String> = text("voice_channel_id")
+    val guildInvite: Column<String> = text("guild_invite")
+    val voiceChannelId: Column<String> = text("voice_channel_id")
 }
 
-class MatchmakingEvent(id : EntityID<Int>) : IntEntity(id) {
+class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
     
     companion object : IntEntityClass<MatchmakingEvent>(MatchmakingEvents)
     
@@ -31,6 +31,6 @@ class MatchmakingEvent(id : EntityID<Int>) : IntEntity(id) {
     val createdAt by MatchmakingEvents.createdAt
     val guildInvite by MatchmakingEvents.guildInvite
     val voiceChannelId by MatchmakingEvents.voiceChannelId
-    
+
     val participants by Participant referrersOn Participants.matchmakingEvent
 }

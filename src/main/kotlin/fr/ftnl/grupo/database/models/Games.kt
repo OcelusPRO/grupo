@@ -11,17 +11,17 @@ import org.jetbrains.exposed.sql.jodatime.datetime
 import org.joda.time.DateTime
 
 object Games : IntIdTable("${CONFIG.dbConfig.prefix}games") {
-    val name : Column<String> = varchar("name", 255)
-    val description : Column<String> = text("description")
-    val image : Column<String> = text("image")
-    val url : Column<String> = text("url")
-    val platform : Column<GamePlatform> = enumeration<GamePlatform>("platform")
-    val players : Column<Int> = integer("players")
+    val name: Column<String> = varchar("name", 255)
+    val description: Column<String> = text("description")
+    val image: Column<String> = text("image")
+    val url: Column<String> = text("url")
+    val platform: Column<GamePlatform> = enumeration<GamePlatform>("platform")
+    val players: Column<Int> = integer("players")
     
-    val createdAt : Column<DateTime> = datetime("created_at").defaultExpression(CurrentDateTime)
+    val createdAt: Column<DateTime> = datetime("created_at").defaultExpression(CurrentDateTime)
 }
 
-enum class GamePlatform(val value : String) {
+enum class GamePlatform(val value: String) {
     PC_STEAM("PC_STEAM"), PC_ORIGIN("PC_ORIGIN"), PC_EPIC("PC_EPIC"), PC_UBISOFT("PC_UBISOFT"), PC_BATTLE_NET("PC_BATTLE_NET"),
     
     PS4("PS4"), XBOX("XBOX"), SWITCH("SWITCH"),
@@ -29,7 +29,7 @@ enum class GamePlatform(val value : String) {
     OTHER("OTHER")
 }
 
-class Game(id : EntityID<Int>) : IntEntity(id) {
+class Game(id: EntityID<Int>) : IntEntity(id) {
     
     companion object : IntEntityClass<Game>(Games)
     

@@ -12,19 +12,19 @@ import kotlin.time.Duration.Companion.hours
  */
 class LangManager(private val lang: String) {
     private val internalLangCache = Cache.Builder().expireAfterWrite(6.hours).build<LangManager, LangFile>()
-	
+    
     init {
         refreshCacheLangFile(LangFile.load(lang))
     }
-	
+    
     private fun refreshCacheLangFile(langFile: LangFile): LangFile {
         internalLangCache.put(this, langFile)
         return langFile
     }
-	
+    
     private fun getLangFile(): LangFile = internalLangCache.get(this)
         ?: refreshCacheLangFile(LangFile.load(lang))
-	
+    
     /**
      * Get a [String] from the lang file
      * @param key [String] key
@@ -33,10 +33,10 @@ class LangManager(private val lang: String) {
      * @return [String] value
      */
     fun getString(key: LangKey, default: String): String = getString(key.toString(), default)
-	
+    
     private fun getString(key: String, default: String): String {
         val langFile = getLangFile()
-		
+        
         fun createMissingKeys(): String {
             val missing = key.split(".")
             val newObject = langFile.data
@@ -55,9 +55,9 @@ class LangManager(private val lang: String) {
             langFile.data = newObject
             return default
         }
-		
+        
         val queue: LinkedList<String> = LinkedList(key.split("."))
-		
+        
         var currentElement: Any = langFile.data
         for (i in 0 until queue.size) {
             val current = queue.poll()

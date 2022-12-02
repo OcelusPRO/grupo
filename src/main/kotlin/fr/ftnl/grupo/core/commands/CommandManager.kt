@@ -28,7 +28,7 @@ class CommandManager {
     private fun reply(e: GenericInteractionCreateEvent, message: MessageCreateData, ephemeral: Boolean = true) {
         if (e is IReplyCallback) e.reply(message).setEphemeral(ephemeral).queue()
     }
-	
+
     @OptIn(ExperimentalTime::class)
     private inline fun <reified T : ICmd, U : GenericInteractionCreateEvent> execCmd(
         e: U,
@@ -37,7 +37,7 @@ class CommandManager {
     ) {
         val cmd = ICmd.cmd.filterIsInstance<T>().find { it.name.startsWith(filter.invoke(e)) }
             ?: return
-		
+    
         if (!cmd.allowDM && !e.isFromGuild) {
             return reply(
                 e,
@@ -49,22 +49,20 @@ class CommandManager {
                 ).build()
             )
         }
-		
+    
         val key = Pair(cmd, e.user.id)
         val entry = lastCommandUsageMap.getOrDefault(key, DateTime(0))
-		
+    
         val canDate = entry.plus(cmd.cooldown.toLong(DurationUnit.MILLISECONDS)).toDateTime().millis
         val canInDuration = DateTime.now().minus(canDate).millis.toDuration(DurationUnit.MILLISECONDS)
         val cooldownMessage = MessageCreateBuilder().setContent(
             ":timer: Vous devez encore attendre %ss avant de pouvoir utiliser cette commande.".toLang(
-                e.userLocale,
-                LangKey.keyBuilder(this, "handle.interaction", "cooldownMessage")
-            )
-                .format(canInDuration.toLong(DurationUnit.SECONDS))
+                e.userLocale, LangKey.keyBuilder(this, "handle.interaction", "cooldownMessage")
+            ).format(canInDuration.toLong(DurationUnit.SECONDS))
         ).build()
-		
+    
         if (entry.plusSeconds(cmd.cooldown.toInt(DurationUnit.SECONDS)).isAfterNow) return reply(e, cooldownMessage)
-		
+    
         val time = measureTime {
             try {
                 action.invoke(cmd)
@@ -73,7 +71,7 @@ class CommandManager {
             }
         }
         lastCommandUsageMap[key] = DateTime.now()
-		
+    
         logger.info(
             """
             	${T::class.jvmName.uppercase()} :
@@ -88,7 +86,7 @@ class CommandManager {
             """.trimIndent()
         )
     }
-	
+    
     suspend fun dispatch(event: GenericInteractionCreateEvent) {
         when (event) {
             is SlashCommandInteractionEvent -> execCmd<ISlashCmd, SlashCommandInteractionEvent>(event, { it.name }) {
@@ -96,6 +94,7 @@ class CommandManager {
                     event
                 )
             }
+    
             is MessageContextInteractionEvent -> execCmd<IMessageCmd, MessageContextInteractionEvent>(
                 event,
                 { it.name }
@@ -104,11 +103,13 @@ class CommandManager {
                     event
                 )
             }
+    
             is UserContextInteractionEvent -> execCmd<IUserCmd, UserContextInteractionEvent>(event, { it.name }) {
                 it.action(
                     event
                 )
             }
+    
             is CommandAutoCompleteInteractionEvent -> execCmd<ISlashCmd, CommandAutoCompleteInteractionEvent>(
                 event,
                 { it.name }
@@ -117,11 +118,13 @@ class CommandManager {
                     event
                 )
             }
+    
             is ButtonInteractionEvent -> execCmd<IButtonCmd, ButtonInteractionEvent>(event, { it.componentId }) {
                 it.action(
                     event
                 )
             }
+    
             is StringSelectInteractionEvent -> execCmd<ISelectCmd, StringSelectInteractionEvent>(
                 event,
                 { it.componentId }
@@ -130,6 +133,7 @@ class CommandManager {
                     event
                 )
             }
+    
             is ModalInteractionEvent -> execCmd<IModalCmd, ModalInteractionEvent>(event, { it.id }) { it.action(event) }
         }
     }

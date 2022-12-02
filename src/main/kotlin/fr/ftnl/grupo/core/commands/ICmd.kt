@@ -27,20 +27,21 @@ interface ICmd {
     val allowDM: Boolean
     val cooldown: Duration
         get() = 0.seconds
-	
+
     companion object {
         val cmd = getCommands()
         private var posted = false
-		
+
         private fun getCommands(): List<ICmd> {
             println("Loading commands...")
-            val reflections: Set<Class<out ICmd>> = Reflections(ICmd::class.java.`package`.name + ".list")
-                .getSubTypesOf(ICmd::class.java)
+            val reflections: Set<Class<out ICmd>> = Reflections(ICmd::class.java.`package`.name + ".list").getSubTypesOf(
+                ICmd::class.java
+            )
             return reflections.filter { !it.isInterface }.map {
                 it.getConstructor().newInstance()
             }
         }
-		
+    
         fun postDataCmd(jda: JDA, logger: Logger) {
             if (posted) return
             val commands = cmd.filterIsInstance(IDataCmd::class.java)
@@ -76,14 +77,12 @@ interface ISlashCmd : IDataCmd {
     val description: String
     val localizedDescriptions: Map<DiscordLocale, String>
     val options: List<OptionData>
-	
+    
     override val data: CommandData
-        get() = Commands
-            .slash(name, description)
-            .setDescriptionLocalizations(localizedDescriptions).setNameLocalizations(localizedNames)
-            .addOptions(options)
-            .setDefaultPermissions(DefaultMemberPermissions.enabledFor(userPermissions))
-	
+        get() = Commands.slash(name, description).setDescriptionLocalizations(localizedDescriptions).setNameLocalizations(
+            localizedNames
+        ).addOptions(options).setDefaultPermissions(DefaultMemberPermissions.enabledFor(userPermissions))
+    
     suspend fun action(event: SlashCommandInteractionEvent)
     suspend fun action(event: CommandAutoCompleteInteractionEvent) = Unit
 }
@@ -93,7 +92,7 @@ interface IMessageCmd : IDataCmd {
         get() = Commands.message(name).setNameLocalizations(localizedNames).setDefaultPermissions(
             DefaultMemberPermissions.enabledFor(userPermissions)
         )
-	
+    
     suspend fun action(event: MessageContextInteractionEvent)
 }
 
@@ -102,7 +101,7 @@ interface IUserCmd : IDataCmd {
         get() = Commands.user(name).setNameLocalizations(localizedNames).setDefaultPermissions(
             DefaultMemberPermissions.enabledFor(userPermissions)
         )
-	
+    
     suspend fun action(event: UserContextInteractionEvent)
 }
 

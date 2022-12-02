@@ -10,7 +10,7 @@ package fr.ftnl.grupo.lang
  */
 data class LangKey(val pkg: String, val clazz: String, val func: String, val key: String) {
     override fun toString(): String = "$pkg.$clazz.$func.$key"
-	
+    
     companion object {
         /**
          * Create a LangKey

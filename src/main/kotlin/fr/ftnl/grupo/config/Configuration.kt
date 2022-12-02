@@ -12,16 +12,16 @@ data class Configuration(
     val dbConfig: DatabaseConfig = DatabaseConfig(),
 ) {
     class ConfigurationException(message: String) : Exception(message)
-	
+    
     fun saveConfiguration(): Configuration {
         if (!configFile.exists()) configFile.createNewFile()
         configFile.writeText(GSON.toJson(this))
         return this
     }
-	
+    
     companion object {
         var configFile = File("./config.json")
-		
+        
         /**
          * Loads the configuration from the given file.
          * @param file [File] The file to load the configuration from.

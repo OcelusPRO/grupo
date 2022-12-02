@@ -1,7 +1,5 @@
 package fr.ftnl.grupo.lang
 
-import net.dv8tion.jda.api.entities.Guild
-import net.dv8tion.jda.api.entities.User
 import net.dv8tion.jda.api.interactions.DiscordLocale
 import java.io.File
 
@@ -23,11 +21,10 @@ class LangLoader {
             }
         }
     }
-	
+
     /**
      * Get langManager by name.
-     * @param user [User] user.
-     * @param guild [Guild] guild.
+     * @param locals [DiscordLocale] guild.
      * @return [LangManager] langManager.
      */
     fun getLangManager(locals: DiscordLocale?): LangManager {
@@ -36,7 +33,7 @@ class LangLoader {
         if (!LangManagers.LANG_MANAGERS.containsKey(code)) LangManagers.LANG_MANAGERS[code] = LangManager(code)
         return LangManagers.LANG_MANAGERS[code]!!
     }
-	
+    
     private fun getLangByLocals(locals: DiscordLocale?): String? {
         return locals?.locale?.split("-")?.firstOrNull()
     }

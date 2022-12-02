@@ -16,7 +16,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
  */
 class DBManager(cfg: Configuration = CONFIG) {
     lateinit var connection: Database
-	
+
     init {
         connection = Database.connect(
             url = "jdbc:mysql://${cfg.dbConfig.host}:${cfg.dbConfig.port}/${cfg.dbConfig.database}?useSSL=false",
@@ -24,7 +24,7 @@ class DBManager(cfg: Configuration = CONFIG) {
             user = cfg.dbConfig.user,
             password = cfg.dbConfig.password,
         )
-		
+    
         transaction {
             SchemaUtils.createMissingTablesAndColumns(
                 Games, MatchmakingEvents, Participants, Users

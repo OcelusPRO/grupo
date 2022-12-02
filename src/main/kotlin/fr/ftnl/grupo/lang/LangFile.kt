@@ -15,16 +15,16 @@ class LangFile(private val lang: String, data: JsonObject) {
             field = value
             save()
         }
-	
+    
     private fun save() = File("./lang/$lang.json").writeText(GSON.toJson(data))
-	
+    
     companion object {
         private val LANG_DIR = File("./lang/")
-		
+        
         init {
             LANG_DIR.mkdirs()
         }
-		
+        
         /**
          * Load lang file
          * @param lang [String] lang code
