@@ -1,6 +1,8 @@
 package fr.ftnl.grupo.database.models
 
 import fr.ftnl.grupo.CONFIG
+import fr.ftnl.grupo.objects.NullableObject
+import io.github.reactivecircus.cache4k.Cache
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.id.EntityID
@@ -9,11 +11,12 @@ import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.jodatime.CurrentDateTime
 import org.jetbrains.exposed.sql.jodatime.datetime
 import org.joda.time.DateTime
+import kotlin.time.Duration.Companion.hours
 
 object Users : IntIdTable("${CONFIG.dbConfig.prefix}users") {
     val discordId: Column<Long> = long("discord_id")
     val discordUsername: Column<String> = varchar("discord_username", 255)
-    
+
     val steamGameTag: Column<String?> = varchar("steam_game_tag", 255).nullable().default(null)
     val originGameTag: Column<String?> = varchar("origin_game_tag", 255).nullable().default(null)
     val epicGameTag: Column<String?> = varchar("epic_game_tag", 255).nullable().default(null)
@@ -29,21 +32,37 @@ object Users : IntIdTable("${CONFIG.dbConfig.prefix}users") {
 }
 
 class User(id: EntityID<Int>) : IntEntity(id) {
-    companion object : IntEntityClass<User>(Users)
+    companion object : IntEntityClass<User>(Users) {
+        private val cache = Cache.Builder().expireAfterAccess(6.hours).build<Long, NullableObject<User?>>()
+        
+        suspend fun getUserByDiscordId(id: Long, username: String): User {
+            val result = cache.get(id) { NullableObject(find { Users.discordId eq id }.firstOrNull()) }
+            val final = result.value
+                ?: User.new {
+                    discordId = id
+                    discordUsername = username
+                }
+            if (final.discordUsername != username) {
+                final.discordUsername = username
+            }
+            cache.put(id, NullableObject(final))
+            return final
+        }
+    }
     
-    val discordId by Users.discordId
-    val discordUsername by Users.discordUsername
+    var discordId by Users.discordId
+    var discordUsername by Users.discordUsername
     
-    val steamGameTag by Users.steamGameTag
-    val originGameTag by Users.originGameTag
-    val epicGameTag by Users.epicGameTag
-    val battleNetGameTag by Users.battleNetGameTag
-    val ubisoftGameTag by Users.ubisoftGameTag
-    val psnGameTag by Users.psnGameTag
-    val xboxGameTag by Users.xboxGameTag
-    val switchGameTag by Users.switchGameTag
+    var steamGameTag by Users.steamGameTag
+    var originGameTag by Users.originGameTag
+    var epicGameTag by Users.epicGameTag
+    var battleNetGameTag by Users.battleNetGameTag
+    var ubisoftGameTag by Users.ubisoftGameTag
+    var psnGameTag by Users.psnGameTag
+    var xboxGameTag by Users.xboxGameTag
+    var switchGameTag by Users.switchGameTag
     
-    val karma by Users.karma
+    var karma by Users.karma
     
     val createdAt by Users.createdAt
 }

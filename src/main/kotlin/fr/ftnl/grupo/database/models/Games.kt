@@ -21,12 +21,24 @@ object Games : IntIdTable("${CONFIG.dbConfig.prefix}games") {
     val createdAt: Column<DateTime> = datetime("created_at").defaultExpression(CurrentDateTime)
 }
 
-enum class GamePlatform(val value: String) {
-    PC_STEAM("PC_STEAM"), PC_ORIGIN("PC_ORIGIN"), PC_EPIC("PC_EPIC"), PC_UBISOFT("PC_UBISOFT"), PC_BATTLE_NET("PC_BATTLE_NET"),
+enum class GamePlatform(val value: String, val showValue: String) {
+    PC_STEAM("PC_STEAM", "steam"),
+    PC_ORIGIN("PC_ORIGIN", "origin"),
+    PC_EPIC("PC_EPIC", "epic-game"),
+    PC_UBISOFT("PC_UBISOFT", "ubisoft connect"),
+    PC_BATTLE_NET("PC_BATTLE_NET", "battle.net"),
     
-    PS4("PS4"), XBOX("XBOX"), SWITCH("SWITCH"),
+    PS4("PS4", "playstation network"),
+    XBOX("XBOX", "xbox live"),
+    SWITCH("SWITCH", "nintendo"),
     
-    OTHER("OTHER")
+    OTHER("OTHER", "autre");
+    
+    companion object {
+        fun getByValue(value: String): GamePlatform {
+            return values().first { it.value == value }
+        }
+    }
 }
 
 class Game(id: EntityID<Int>) : IntEntity(id) {

@@ -4,26 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="🗃️ DAO. -- Création des schémas">
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="♻️ Reformat code. -- by detekt and IDE">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/AddGameTag.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/MyProfile.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/config/Configuration.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/config/Configuration.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/config/dependent/BotConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/config/dependent/BotConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/config/dependent/DatabaseConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/config/dependent/DatabaseConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/Bot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/Bot.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/CommandManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/CommandManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/ICmd.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/ICmd.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/listeners/Dispatcher.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/listeners/Dispatcher.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/DBManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/DBManager.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Games.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Games.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Participants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Participants.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Users.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Users.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/extentions/StringExt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/extentions/StringExt.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/lang/LangFile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/lang/LangFile.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/lang/LangKey.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/lang/LangKey.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/lang/LangLoader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/lang/LangLoader.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/lang/LangManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/lang/LangManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/fr/ftnl/grupo/Tests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/fr/ftnl/grupo/Tests.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,8 +59,8 @@
         <option value="Kotlin Interface" />
         <option value="Kotlin File" />
         <option value="Kotlin Data Class" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Object" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -136,7 +123,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/OcelusPRO/IdeaProjects/FTNL",
+    "last_opened_file_path": "C:/Users/OcelusPRO/IdeaProjects/grupo/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -148,6 +135,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo\src\main\resources" />
       <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
@@ -279,7 +267,7 @@
       <workItem from="1669911253973" duration="10034000" />
       <workItem from="1669970162316" duration="8347000" />
       <workItem from="1669987382505" duration="57000" />
-      <workItem from="1669987455028" duration="7798000" />
+      <workItem from="1669987455028" duration="12571000" />
     </task>
     <task id="LOCAL-00001" summary="🎉 Begin a project.">
       <created>1669806667582</created>
@@ -470,7 +458,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669995329445</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="♻️ Reformat code. -- by detekt and IDE">
+      <created>1669995820048</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1669995820048</updated>
+    </task>
+    <task id="LOCAL-00029" summary="♻️ Reformat code. -- by detekt and IDE">
+      <created>1669995895746</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1669995895746</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,7 +518,8 @@
     <MESSAGE value=" Remove files. -- detekt.yml" />
     <MESSAGE value="♻️ Reformat code with detekt plugin" />
     <MESSAGE value="️ DAO. -- Création des schémas" />
-    <option name="LAST_COMMIT_MESSAGE" value="️ DAO. -- Création des schémas" />
+    <MESSAGE value="♻️ Reformat code. -- by detekt and IDE" />
+    <option name="LAST_COMMIT_MESSAGE" value="♻️ Reformat code. -- by detekt and IDE" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
