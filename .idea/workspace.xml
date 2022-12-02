@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="♻️ Reformat code. -- by detekt and IDE">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/AddGameTag.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/MyProfile.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="✨ Introduce new features. -- Profile utilisateurs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Games.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Games.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Users.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Users.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Participants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Participants.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +119,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/OcelusPRO/IdeaProjects/grupo/src/main/resources",
+    "last_opened_file_path": "C:/Users/OcelusPRO/IdeaProjects/grupo/src/main/kotlin/fr/ftnl/grupo/database/models",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -135,6 +131,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo\src\main\kotlin\fr\ftnl\grupo\database\models" />
       <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo\src\main\resources" />
       <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo" />
     </key>
@@ -267,7 +264,7 @@
       <workItem from="1669911253973" duration="10034000" />
       <workItem from="1669970162316" duration="8347000" />
       <workItem from="1669987382505" duration="57000" />
-      <workItem from="1669987455028" duration="12571000" />
+      <workItem from="1669987455028" duration="14373000" />
     </task>
     <task id="LOCAL-00001" summary="🎉 Begin a project.">
       <created>1669806667582</created>
@@ -472,7 +469,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669995895746</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="✨ Introduce new features. -- Profile utilisateurs">
+      <created>1670000591103</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1670000591103</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -494,7 +498,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value=" Begin a project." />
     <MESSAGE value="➕ Add project dependency's." />
     <MESSAGE value=":wrench: Add logger configuration file" />
     <MESSAGE value="✨ Introduce new features -- GSON serialization" />
@@ -519,7 +522,8 @@
     <MESSAGE value="♻️ Reformat code with detekt plugin" />
     <MESSAGE value="️ DAO. -- Création des schémas" />
     <MESSAGE value="♻️ Reformat code. -- by detekt and IDE" />
-    <option name="LAST_COMMIT_MESSAGE" value="♻️ Reformat code. -- by detekt and IDE" />
+    <MESSAGE value="✨ Introduce new features. -- Profile utilisateurs" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ Introduce new features. -- Profile utilisateurs" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

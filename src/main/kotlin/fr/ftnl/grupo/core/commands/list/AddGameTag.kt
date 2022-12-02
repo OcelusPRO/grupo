@@ -16,9 +16,11 @@ class AddGameTag : ISlashCmd {
     override val localizedDescriptions: Map<DiscordLocale, String>
         get() = mapOf()
     override val options: List<OptionData>
-        get() = listOf(OptionData(OptionType.STRING, "platform", "La plateforme du jeu", true).addChoices(GamePlatform.values().filterNot { it == GamePlatform.OTHER }
-                                                                                                              .map { Command.Choice(it.name, it.value) }),
-                       OptionData(OptionType.STRING, "tag", "Votre tag sur cette platform", true))
+        get() = listOf(OptionData(OptionType.STRING, "platform", "La plateforme du jeu", true).addChoices(GamePlatform.values().filterNot { it == GamePlatform.OTHER }.map {
+                Command.Choice(
+                    it.name, it.value
+                )
+            }), OptionData(OptionType.STRING, "tag", "Votre tag sur cette platform", true))
     
     override suspend fun action(event: SlashCommandInteractionEvent) {
         val platform = GamePlatform.getByValue(event.getOption("platform")?.asString!!)
