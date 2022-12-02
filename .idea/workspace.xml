@@ -4,24 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="🔥 Remove files. -- detekt.yml">
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="♻️ Reformat code with detekt plugin">
       <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Games.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Participants.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Users.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/objects/NullableObject.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/config/Configuration.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/config/Configuration.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/config/dependent/BotConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/config/dependent/BotConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/config/dependent/DatabaseConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/config/dependent/DatabaseConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/Bot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/Bot.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/CommandManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/CommandManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/ICmd.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/ICmd.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/listeners/Dispatcher.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/listeners/Dispatcher.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/DBManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/DBManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/extentions/StringExt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/extentions/StringExt.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/lang/LangFile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/lang/LangFile.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +260,7 @@
       <workItem from="1669911253973" duration="10034000" />
       <workItem from="1669970162316" duration="8347000" />
       <workItem from="1669987382505" duration="57000" />
-      <workItem from="1669987455028" duration="1046000" />
+      <workItem from="1669987455028" duration="7251000" />
     </task>
     <task id="LOCAL-00001" summary="🎉 Begin a project.">
       <created>1669806667582</created>
@@ -448,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669971201242</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="♻️ Reformat code with detekt plugin">
+      <created>1669988787417</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1669988787417</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,7 +484,8 @@
     <MESSAGE value="♻️ Refactor code. -- Command manager - add cooldown to commands" />
     <MESSAGE value="update ✅ update tests. -- remove useless assert not equals" />
     <MESSAGE value=" Remove files. -- detekt.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Remove files. -- detekt.yml" />
+    <MESSAGE value="♻️ Reformat code with detekt plugin" />
+    <option name="LAST_COMMIT_MESSAGE" value="♻️ Reformat code with detekt plugin" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
