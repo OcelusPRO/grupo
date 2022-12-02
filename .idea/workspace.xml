@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="✨ Introduce new features. -- Profile utilisateurs">
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="♻️ Reformat code.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Participants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Participants.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -264,7 +265,7 @@
       <workItem from="1669911253973" duration="10034000" />
       <workItem from="1669970162316" duration="8347000" />
       <workItem from="1669987382505" duration="57000" />
-      <workItem from="1669987455028" duration="14373000" />
+      <workItem from="1669987455028" duration="20341000" />
     </task>
     <task id="LOCAL-00001" summary="🎉 Begin a project.">
       <created>1669806667582</created>
@@ -476,7 +477,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670000591103</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="♻️ Reformat code.">
+      <created>1670007985248</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1670007985248</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +506,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="➕ Add project dependency's." />
     <MESSAGE value=":wrench: Add logger configuration file" />
     <MESSAGE value="✨ Introduce new features -- GSON serialization" />
     <MESSAGE value="✨ Introduce new features -- Lang manager" />
@@ -523,7 +530,8 @@
     <MESSAGE value="️ DAO. -- Création des schémas" />
     <MESSAGE value="♻️ Reformat code. -- by detekt and IDE" />
     <MESSAGE value="✨ Introduce new features. -- Profile utilisateurs" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ Introduce new features. -- Profile utilisateurs" />
+    <MESSAGE value="♻️ Reformat code." />
+    <option name="LAST_COMMIT_MESSAGE" value="♻️ Reformat code." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
