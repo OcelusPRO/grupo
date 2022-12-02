@@ -24,7 +24,7 @@ class DBManager(cfg: Configuration = CONFIG) {
             user = cfg.dbConfig.user,
             password = cfg.dbConfig.password,
         )
-    
+
         transaction {
             SchemaUtils.createMissingTablesAndColumns(
                 Games, MatchmakingEvents, Participants, Users

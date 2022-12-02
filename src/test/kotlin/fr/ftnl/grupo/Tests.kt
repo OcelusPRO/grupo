@@ -28,10 +28,10 @@ class Tests {
         assertDoesNotThrow {
             val frLang = LangLoader().getLangManager(DiscordLocale.FRENCH)
             val enLang = LangLoader().getLangManager(DiscordLocale.ENGLISH_US)
-            
+        
             val frString = frLang.getString(LangKey.keyBuilder(this, "unite", "langTest"), "test en francais")
             val enString = enLang.getString(LangKey.keyBuilder(this, "unite", "langTest"), "test en francais")
-            
+        
             assertEquals("test en francais", frString)
             assertEquals("english test", enString)
         }

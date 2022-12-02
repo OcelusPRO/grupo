@@ -41,7 +41,7 @@ interface ICmd {
                 it.getConstructor().newInstance()
             }
         }
-    
+
         fun postDataCmd(jda: JDA, logger: Logger) {
             if (posted) return
             val commands = cmd.filterIsInstance(IDataCmd::class.java)

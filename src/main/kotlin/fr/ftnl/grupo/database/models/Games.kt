@@ -17,7 +17,7 @@ object Games : IntIdTable("${CONFIG.dbConfig.prefix}games") {
     val url: Column<String> = text("url")
     val platform: Column<GamePlatform> = enumeration<GamePlatform>("platform")
     val players: Column<Int> = integer("players")
-    
+
     val createdAt: Column<DateTime> = datetime("created_at").defaultExpression(CurrentDateTime)
 }
 

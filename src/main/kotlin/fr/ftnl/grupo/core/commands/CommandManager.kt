@@ -37,7 +37,7 @@ class CommandManager {
     ) {
         val cmd = ICmd.cmd.filterIsInstance<T>().find { it.name.startsWith(filter.invoke(e)) }
             ?: return
-    
+
         if (!cmd.allowDM && !e.isFromGuild) {
             return reply(
                 e,
