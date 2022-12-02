@@ -39,7 +39,7 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-core:0.39.2")
     implementation("org.jetbrains.exposed:exposed-jdbc:0.41.1")
     implementation("org.jetbrains.exposed:exposed-dao:0.41.1")
-    implementation("mysql:mysql-connector-java:8.0.30")
+    implementation("mysql:mysql-connector-java:8.0.31")
     
     // Cache
     implementation("io.github.reactivecircus.cache4k:cache4k:0.9.0")
