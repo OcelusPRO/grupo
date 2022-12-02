@@ -42,7 +42,7 @@ dependencies {
     implementation("mysql:mysql-connector-java:8.0.30")
     
     // Cache
-    implementation("io.github.reactivecircus.cache4k:cache4k:0.7.0")
+    implementation("io.github.reactivecircus.cache4k:cache4k:0.9.0")
     
     implementation(kotlin("scripting-jsr223"))
     
