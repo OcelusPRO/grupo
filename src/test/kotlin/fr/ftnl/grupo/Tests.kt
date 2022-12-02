@@ -34,8 +34,6 @@ class Tests {
 			val frString = frLang.getString(LangKey.keyBuilder(this, "unite", "langTest"), "test en francais")
 			val enString = enLang.getString(LangKey.keyBuilder(this, "unite", "langTest"), "test en francais")
 			
-			assertNotEquals(enString, frString)
-			
 			assertEquals("test en francais", frString)
 			assertEquals("english test", enString)
 		}

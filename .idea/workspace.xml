@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment=".🙈 update a .gitignore file. -- ignore config file">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/CommandManager.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/ICmd.kt" afterDir="false" />
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="update ✅ update tests. -- remove useless assert not equals">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,13 +17,44 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="grupo" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="grupo" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="grupo" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="shadow" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Data Class" />
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
         <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -66,6 +95,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2IGRHpsezn7GNPOvCSHHjN7Wdj4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -73,22 +105,22 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/OcelusPRO/IdeaProjects/grupo",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/OcelusPRO/IdeaProjects/FTNL&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo" />
@@ -97,7 +129,7 @@
       <recent name="fr.ftnl.grupo" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests.database connection test">
+  <component name="RunManager" selected="Gradle.Tests">
     <configuration name="Tests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -199,9 +231,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests.database connection test" />
         <item itemvalue="Gradle.Tests" />
         <item itemvalue="Gradle.Tests.languages tests (1)" />
+        <item itemvalue="Gradle.Tests.database connection test" />
         <item itemvalue="Gradle.Tests.languages tests" />
         <item itemvalue="Kotlin.MainKt" />
       </list>
@@ -218,7 +250,9 @@
       <workItem from="1669805852519" duration="720000" />
       <workItem from="1669806591360" duration="9436000" />
       <workItem from="1669842250010" duration="2715000" />
-      <workItem from="1669902798686" duration="3316000" />
+      <workItem from="1669902798686" duration="6487000" />
+      <workItem from="1669911253973" duration="10034000" />
+      <workItem from="1669970162316" duration="910000" />
     </task>
     <task id="LOCAL-00001" summary="🎉 Begin a project.">
       <created>1669806667582</created>
@@ -332,7 +366,63 @@
       <option name="project" value="LOCAL" />
       <updated>1669905601557</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="✨ Introduce new features. -- CommandManager">
+      <created>1669906422196</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1669906422196</updated>
+    </task>
+    <task id="LOCAL-00018" summary=":recycle: Reformat code by IDE">
+      <created>1669906467523</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1669906467523</updated>
+    </task>
+    <task id="LOCAL-00019" summary=":fountain: Add github workflow and dependabot.yml">
+      <created>1669907213178</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1669907213179</updated>
+    </task>
+    <task id="LOCAL-00020" summary=":fountain: Update github workflow. -- Add permission to execute command">
+      <created>1669907477575</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1669907477575</updated>
+    </task>
+    <task id="LOCAL-00021" summary=":fountain: Update github workflow. -- Change build to shadowJar action">
+      <created>1669907979666</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1669907979666</updated>
+    </task>
+    <task id="LOCAL-00022" summary=":fountain: Update github workflow. -- Change build to shadowJar action">
+      <created>1669911327006</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1669911327006</updated>
+    </task>
+    <task id="LOCAL-00023" summary="♻️ Refactor code. -- Command manager - add cooldown to commands">
+      <created>1669919145772</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1669919145772</updated>
+    </task>
+    <task id="LOCAL-00024" summary="update ✅ update tests. -- remove useless assert not equals">
+      <created>1669938072692</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1669938072692</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,6 +454,13 @@
     <MESSAGE value=" Internationalization and localization. -- add base lang files" />
     <MESSAGE value=" Add or update configuration files. -- add config sample to git" />
     <MESSAGE value=". update a .gitignore file. -- ignore config file" />
-    <option name="LAST_COMMIT_MESSAGE" value=". update a .gitignore file. -- ignore config file" />
+    <MESSAGE value="✨ Introduce new features. -- CommandManager" />
+    <MESSAGE value=":recycle: Reformat code by IDE" />
+    <MESSAGE value=":fountain: Add github workflow and dependabot.yml" />
+    <MESSAGE value=":fountain: Update github workflow. -- Add permission to execute command" />
+    <MESSAGE value=":fountain: Update github workflow. -- Change build to shadowJar action" />
+    <MESSAGE value="♻️ Refactor code. -- Command manager - add cooldown to commands" />
+    <MESSAGE value="update ✅ update tests. -- remove useless assert not equals" />
+    <option name="LAST_COMMIT_MESSAGE" value="update ✅ update tests. -- remove useless assert not equals" />
   </component>
 </project>
