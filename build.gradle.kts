@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.google.code.gson:gson:2.9.0")
+    implementation("com.google.code.gson:gson:2.10")
     
     // discord
     implementation("net.dv8tion:JDA:5.0.0-beta.1") { exclude("opus-java") }
