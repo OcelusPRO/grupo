@@ -2,11 +2,22 @@
   "fr": {
     "ftnl": {
       "grupo": {
-        "Tests": {
-          "unite": {
-            "langTest": "test en francais"
+          "Tests": {
+              "unite": {
+                  "langTest": "test en francais"
+              }
+          },
+          "core": {
+              "commands": {
+                  "CommandManager": {
+                      "handle": {
+                          "interaction": {
+                              "cooldownMessage": ":timer: Vous devez encore attendre %ss avant de pouvoir utiliser cette commande."
+                          }
+                      }
+                  }
+              }
           }
-        }
       }
     }
   }

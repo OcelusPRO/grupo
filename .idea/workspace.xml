@@ -4,15 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="♻️ Reformat code.">
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="🎨 Improve structure / format of the code. -- Add EventPassthrough for command logs">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Participants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Participants.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/lang/fr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/Bot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/Bot.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/CommandManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/CommandManager.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DetektSettingsMigration">
+    <option name="stateVersion" value="2" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -113,23 +119,28 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/OcelusPRO/IdeaProjects/grupo/src/main/kotlin/fr/ftnl/grupo/database/models",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.detekt",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/OcelusPRO/IdeaProjects/grupo/src/main/kotlin/fr/ftnl/grupo/database/models&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.detekt&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo\src\main\kotlin\fr\ftnl\grupo\database\models" />
@@ -140,7 +151,7 @@
       <recent name="fr.ftnl.grupo" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests">
+  <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="Tests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -242,11 +253,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Gradle.Tests" />
         <item itemvalue="Gradle.Tests.languages tests (1)" />
         <item itemvalue="Gradle.Tests.database connection test" />
         <item itemvalue="Gradle.Tests.languages tests" />
-        <item itemvalue="Kotlin.MainKt" />
       </list>
     </recent_temporary>
   </component>
@@ -265,7 +276,9 @@
       <workItem from="1669911253973" duration="10034000" />
       <workItem from="1669970162316" duration="8347000" />
       <workItem from="1669987382505" duration="57000" />
-      <workItem from="1669987455028" duration="20341000" />
+      <workItem from="1669987455028" duration="22767000" />
+      <workItem from="1670058941847" duration="2915000" />
+      <workItem from="1670153264268" duration="3249000" />
     </task>
     <task id="LOCAL-00001" summary="🎉 Begin a project.">
       <created>1669806667582</created>
@@ -484,7 +497,42 @@
       <option name="project" value="LOCAL" />
       <updated>1670007985248</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary=":triangular_flag_on_post: Ajout du type de participation dans les participants">
+      <created>1670015988066</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1670015988066</updated>
+    </task>
+    <task id="LOCAL-00033" summary=":triangular_flag_on_post: Ajout de la génération du message avec embed pour l'évènement">
+      <created>1670016045662</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1670016045662</updated>
+    </task>
+    <task id="LOCAL-00034" summary="🎨 Improve structure / format of the code.">
+      <created>1670162818720</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1670162818720</updated>
+    </task>
+    <task id="LOCAL-00035" summary="🗃️ Perform database related changes. -- remove table prefix">
+      <created>1670162872011</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1670162872011</updated>
+    </task>
+    <task id="LOCAL-00036" summary="🗃️ Perform database related changes. -- add transaction on AddGameTag command">
+      <created>1670162930886</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1670162930886</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,12 +554,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value=":wrench: Add logger configuration file" />
-    <MESSAGE value="✨ Introduce new features -- GSON serialization" />
-    <MESSAGE value="✨ Introduce new features -- Lang manager" />
-    <MESSAGE value="✨ Introduce new features -- Configuration manager" />
-    <MESSAGE value="✨ Introduce new features -- Bot discord connection + event dispatcher" />
-    <MESSAGE value="✨ Introduce new features -- Database connection" />
     <MESSAGE value="✅ Add tests. -- setup first tests" />
     <MESSAGE value=" update .gitignore file. -- remove sonarlint files" />
     <MESSAGE value=" Remove files. -- index.pb -- sonarlint" />
@@ -531,10 +573,62 @@
     <MESSAGE value="♻️ Reformat code. -- by detekt and IDE" />
     <MESSAGE value="✨ Introduce new features. -- Profile utilisateurs" />
     <MESSAGE value="♻️ Reformat code." />
-    <option name="LAST_COMMIT_MESSAGE" value="♻️ Reformat code." />
+    <MESSAGE value=":triangular_flag_on_post: Ajout du type de participation dans les participants" />
+    <MESSAGE value=":triangular_flag_on_post: Ajout de la génération du message avec embed pour l'évènement" />
+    <MESSAGE value=" Improve structure / format of the code." />
+    <MESSAGE value="️ Perform database related changes. -- remove table prefix" />
+    <MESSAGE value="️ Perform database related changes. -- add transaction on AddGameTag command" />
+    <MESSAGE value=" Improve structure / format of the code. -- Add EventPassthrough for command logs" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Improve structure / format of the code. -- Add EventPassthrough for command logs" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Users.kt</url>
+          <line>38</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Users.kt</url>
+          <line>39</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Users.kt</url>
+          <line>40</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Users.kt</url>
+          <line>41</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Users.kt</url>
+          <line>46</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
