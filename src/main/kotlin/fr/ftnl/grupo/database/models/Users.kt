@@ -67,4 +67,17 @@ class User(id: EntityID<Int>) : IntEntity(id) {
     var karma by Users.karma
     
     val createdAt by Users.createdAt
+
+    fun getGameTagMap() = setOfNotNull(
+        "Steam" to steamGameTag,
+        "Origin" to originGameTag,
+        "Epic game" to epicGameTag,
+        "Battle.net" to battleNetGameTag,
+        "Ubisoft connect" to ubisoftGameTag,
+        "Play station network" to psnGameTag,
+        "xbox" to xboxGameTag,
+        "switch" to switchGameTag
+    )
+        .filter { it.second != null }
+        .associate { it.first to it.second!! }
 }

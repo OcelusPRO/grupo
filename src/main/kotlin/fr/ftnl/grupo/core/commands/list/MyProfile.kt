@@ -21,61 +21,10 @@ class MyProfile : ISlashCmd {
         val embed = Embed {
             title = "Profile de ${event.user.asTag}"
             description = "Voici votre profile"
-            when {
-                (user.steamGameTag != null)     -> {
-                    field {
-                        name = "Steam"
-                        value = user.steamGameTag!!
-                    }
-                }
-        
-                (user.originGameTag != null)    -> {
-                    field {
-                        name = "Origin"
-                        value = user.originGameTag!!
-                    }
-                }
-        
-                (user.epicGameTag != null)      -> {
-                    field {
-                        name = "Epic Games"
-                        value = user.epicGameTag!!
-                    }
-                }
-        
-                (user.ubisoftGameTag != null)   -> {
-                    field {
-                        name = "Ubisoft"
-                        value = user.ubisoftGameTag!!
-                    }
-                }
-        
-                (user.battleNetGameTag != null) -> {
-                    field {
-                        name = "Battle Net"
-                        value = user.battleNetGameTag!!
-                    }
-                }
-        
-                (user.psnGameTag != null)       -> {
-                    field {
-                        name = "PSN"
-                        value = user.psnGameTag!!
-                    }
-                }
-        
-                (user.xboxGameTag != null)      -> {
-                    field {
-                        name = "Xbox"
-                        value = user.xboxGameTag!!
-                    }
-                }
-        
-                (user.switchGameTag != null)    -> {
-                    field {
-                        name = "Switch"
-                        value = user.switchGameTag!!
-                    }
+            user.getGameTagMap().forEach {
+                field {
+                    name = it.key
+                    value = "|** **%-25s** **|".format("`" + it.value + "`")
                 }
             }
         }
