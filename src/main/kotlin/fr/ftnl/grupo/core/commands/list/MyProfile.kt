@@ -15,62 +15,71 @@ class MyProfile : ISlashCmd {
         get() = mapOf()
     override val options: List<OptionData>
         get() = listOf()
-    
+
     override suspend fun action(event: SlashCommandInteractionEvent) {
         val user = User.getUserByDiscordId(event.user.idLong, event.user.asTag)
         val embed = Embed {
             title = "Profile de ${event.user.asTag}"
             description = "Voici votre profile"
-            
-            if (user.steamGameTag != null) {
-                field {
-                    name = "Steam"
-                    value = user.steamGameTag!!
+            when {
+                (user.steamGameTag != null)     -> {
+                    field {
+                        name = "Steam"
+                        value = user.steamGameTag!!
+                    }
                 }
-            }
-            if (user.originGameTag != null) {
-                field {
-                    name = "Origin"
-                    value = user.originGameTag!!
+        
+                (user.originGameTag != null)    -> {
+                    field {
+                        name = "Origin"
+                        value = user.originGameTag!!
+                    }
                 }
-            }
-            if (user.epicGameTag != null) {
-                field {
-                    name = "Epic Games"
-                    value = user.epicGameTag!!
+        
+                (user.epicGameTag != null)      -> {
+                    field {
+                        name = "Epic Games"
+                        value = user.epicGameTag!!
+                    }
                 }
-            }
-            if (user.ubisoftGameTag != null) {
-                field {
-                    name = "Ubisoft"
-                    value = user.ubisoftGameTag!!
+        
+                (user.ubisoftGameTag != null)   -> {
+                    field {
+                        name = "Ubisoft"
+                        value = user.ubisoftGameTag!!
+                    }
                 }
-            }
-            if (user.battleNetGameTag != null) {
-                field {
-                    name = "Battle Net"
-                    value = user.battleNetGameTag!!
+        
+                (user.battleNetGameTag != null) -> {
+                    field {
+                        name = "Battle Net"
+                        value = user.battleNetGameTag!!
+                    }
                 }
-            }
-            if (user.psnGameTag != null) {
-                field {
-                    name = "PSN"
-                    value = user.psnGameTag!!
+        
+                (user.psnGameTag != null)       -> {
+                    field {
+                        name = "PSN"
+                        value = user.psnGameTag!!
+                    }
                 }
-            }
-            if (user.xboxGameTag != null) {
-                field {
-                    name = "Xbox"
-                    value = user.xboxGameTag!!
+        
+                (user.xboxGameTag != null)      -> {
+                    field {
+                        name = "Xbox"
+                        value = user.xboxGameTag!!
+                    }
                 }
-            }
-            if (user.switchGameTag != null) {
-                field {
-                    name = "Switch"
-                    value = user.switchGameTag!!
+        
+                (user.switchGameTag != null)    -> {
+                    field {
+                        name = "Switch"
+                        value = user.switchGameTag!!
+                    }
                 }
             }
         }
+        event.replyEmbeds(embed).queue()
     }
     
     override val localizedNames: Map<DiscordLocale, String>
