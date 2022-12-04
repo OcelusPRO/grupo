@@ -1,6 +1,5 @@
 package fr.ftnl.grupo.database.models
 
-import fr.ftnl.grupo.CONFIG
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.id.EntityID
@@ -10,14 +9,14 @@ import org.jetbrains.exposed.sql.jodatime.CurrentDateTime
 import org.jetbrains.exposed.sql.jodatime.datetime
 import org.joda.time.DateTime
 
-object Games : IntIdTable("${CONFIG.dbConfig.prefix}games") {
+object Games : IntIdTable("games") {
     val name: Column<String> = varchar("name", 255)
     val description: Column<String> = text("description")
     val image: Column<String> = text("image")
     val url: Column<String> = text("url")
     val platform: Column<GamePlatform> = enumeration<GamePlatform>("platform")
     val players: Column<Int> = integer("players")
-
+    
     val createdAt: Column<DateTime> = datetime("created_at").defaultExpression(CurrentDateTime)
 }
 

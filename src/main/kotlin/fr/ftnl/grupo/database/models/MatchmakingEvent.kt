@@ -1,7 +1,6 @@
 package fr.ftnl.grupo.database.models
 
 import dev.minn.jda.ktx.messages.MessageCreate
-import fr.ftnl.grupo.CONFIG
 import fr.ftnl.grupo.extentions.toLang
 import fr.ftnl.grupo.lang.LangKey
 import net.dv8tion.jda.api.interactions.DiscordLocale
@@ -15,7 +14,7 @@ import org.jetbrains.exposed.sql.jodatime.CurrentDateTime
 import org.jetbrains.exposed.sql.jodatime.datetime
 import org.joda.time.DateTime
 
-object MatchmakingEvents : IntIdTable("${CONFIG.dbConfig.prefix}matchmaking_events") {
+object MatchmakingEvents : IntIdTable("matchmaking_events") {
     val game: Column<EntityID<Int>> = reference("game", Games)
     
     val message: Column<String> = text("message")
