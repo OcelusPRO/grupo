@@ -21,6 +21,7 @@ class Bot(cfg: Configuration = CONFIG) {
         builder.injectKTX()
         
         builder.addEventListeners(Dispatcher())
+        builder.setEventPassthrough(true)
         
         manager = builder.build()
     }

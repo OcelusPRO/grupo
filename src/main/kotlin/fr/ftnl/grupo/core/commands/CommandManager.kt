@@ -74,7 +74,8 @@ class CommandManager {
     
         logger.info(
             """
-            	${T::class.jvmName.uppercase()} :
+                ---- COMMANDE ----
+            	${T::class.jvmName.split(".").last().uppercase()} :
             	-	${cmd.name}
             	TEMPS :
             	-	${time.toDouble(DurationUnit.MILLISECONDS)}ms
@@ -82,7 +83,7 @@ class CommandManager {
             	-	[${e.user.id}] ${e.user.asTag}
             	RAW :
             	-	${e.rawData}
-            }---------------------------------------------------------------------------
+                ---------------------------------------------------------------------------
             """.trimIndent()
         )
     }
