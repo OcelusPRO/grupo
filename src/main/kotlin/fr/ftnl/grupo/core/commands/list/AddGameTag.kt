@@ -9,6 +9,7 @@ import net.dv8tion.jda.api.interactions.DiscordLocale
 import net.dv8tion.jda.api.interactions.commands.Command
 import net.dv8tion.jda.api.interactions.commands.OptionType
 import net.dv8tion.jda.api.interactions.commands.build.OptionData
+import org.jetbrains.exposed.sql.transactions.transaction
 
 class AddGameTag : ISlashCmd {
     override val description: String
@@ -17,10 +18,10 @@ class AddGameTag : ISlashCmd {
         get() = mapOf()
     override val options: List<OptionData>
         get() = listOf(OptionData(OptionType.STRING, "platform", "La plateforme du jeu", true).addChoices(GamePlatform.values().filterNot { it == GamePlatform.OTHER }.map {
-                Command.Choice(
-                    it.name, it.value
-                )
-            }), OptionData(OptionType.STRING, "tag", "Votre tag sur cette platform", true))
+            Command.Choice(
+                it.name, it.value
+            )
+        }), OptionData(OptionType.STRING, "tag", "Votre tag sur cette platform", true))
     
     override suspend fun action(event: SlashCommandInteractionEvent) {
         val platform = GamePlatform.getByValue(event.getOption("platform")?.asString!!)
@@ -28,14 +29,14 @@ class AddGameTag : ISlashCmd {
         
         val user = User.getUserByDiscordId(event.user.idLong, event.user.asTag)
         when (platform) {
-            GamePlatform.PC_STEAM      -> user.steamGameTag = tag
-            GamePlatform.PC_ORIGIN     -> user.originGameTag = tag
-            GamePlatform.PC_EPIC       -> user.epicGameTag = tag
-            GamePlatform.PC_UBISOFT    -> user.ubisoftGameTag = tag
-            GamePlatform.PC_BATTLE_NET -> user.battleNetGameTag = tag
-            GamePlatform.PS4           -> user.psnGameTag = tag
-            GamePlatform.XBOX          -> user.xboxGameTag = tag
-            GamePlatform.SWITCH        -> user.switchGameTag = tag
+            GamePlatform.PC_STEAM      -> transaction { user.steamGameTag = tag }
+            GamePlatform.PC_ORIGIN     -> transaction { user.originGameTag = tag }
+            GamePlatform.PC_EPIC       -> transaction { user.epicGameTag = tag }
+            GamePlatform.PC_UBISOFT    -> transaction { user.ubisoftGameTag = tag }
+            GamePlatform.PC_BATTLE_NET -> transaction { user.battleNetGameTag = tag }
+            GamePlatform.PS4           -> transaction { user.psnGameTag = tag }
+            GamePlatform.XBOX          -> transaction { user.xboxGameTag = tag }
+            GamePlatform.SWITCH        -> transaction { user.switchGameTag = tag }
             else                       -> return event.reply("Cette plateforme n'est pas supporté").setEphemeral(event.isFromGuild).queue()
         }
         event.reply("Votre tag `${platform.showValue}` a bien été enregistré !").setEphemeral(event.isFromGuild).queue()
