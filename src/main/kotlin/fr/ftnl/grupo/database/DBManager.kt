@@ -15,7 +15,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
  * @author Ocelus
  */
 class DBManager(cfg: Configuration = CONFIG) {
-    lateinit var connection: Database
+    val connection: Database
 
     init {
         connection = Database.connect(
@@ -26,9 +26,7 @@ class DBManager(cfg: Configuration = CONFIG) {
         )
 
         transaction {
-            SchemaUtils.createMissingTablesAndColumns(
-                Games, MatchmakingEvents, Participants, Users
-            )
+            SchemaUtils.createMissingTablesAndColumns(Games, MatchmakingEvents, Participants, Users)
         }
     }
 }

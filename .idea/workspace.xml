@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="🗃️ Start bot and database connection">
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="🎨 Improve structure / format of the code. -- Add getGameTagMap() function for user profile">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/CreateMatchmaking.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/utils/DateTimeUtils.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/MyProfile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/MyProfile.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/DBManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/DBManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Users.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Users.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,28 +221,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Tests.languages tests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;Tests.languages tests&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
+    <configuration name="DateTimeUtilsKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.ftnl.grupo.core.utils.DateTimeUtilsKt" />
+      <module name="grupo.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="fr.ftnl.grupo.MainKt" />
@@ -252,10 +238,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Kotlin.DateTimeUtilsKt" />
         <item itemvalue="Gradle.Tests" />
         <item itemvalue="Gradle.Tests.languages tests (1)" />
         <item itemvalue="Gradle.Tests.database connection test" />
-        <item itemvalue="Gradle.Tests.languages tests" />
       </list>
     </recent_temporary>
   </component>
@@ -276,7 +262,10 @@
       <workItem from="1669987382505" duration="57000" />
       <workItem from="1669987455028" duration="22767000" />
       <workItem from="1670058941847" duration="2915000" />
-      <workItem from="1670153264268" duration="5871000" />
+      <workItem from="1670153264268" duration="8660000" />
+      <workItem from="1670171317617" duration="53000" />
+      <workItem from="1670171423185" duration="5999000" />
+      <workItem from="1670233306115" duration="17010000" />
     </task>
     <task id="LOCAL-00001" summary="🎉 Begin a project.">
       <created>1669806667582</created>
@@ -544,7 +533,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670163845928</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="🎨 Improve structure / format of the code. -- Add getGameTagMap() function for user profile">
+      <created>1670166769904</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1670166769904</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,8 +562,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value=" update .gitignore file. -- remove sonarlint files" />
-    <MESSAGE value=" Remove files. -- index.pb -- sonarlint" />
     <MESSAGE value=" Internationalization and localization. -- add base lang files" />
     <MESSAGE value=" Add or update configuration files. -- add config sample to git" />
     <MESSAGE value=". update a .gitignore file. -- ignore config file" />
@@ -591,7 +585,9 @@
     <MESSAGE value="️ Perform database related changes. -- add transaction on AddGameTag command" />
     <MESSAGE value=" Improve structure / format of the code. -- Add EventPassthrough for command logs" />
     <MESSAGE value="️ Start bot and database connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="️ Start bot and database connection" />
+    <MESSAGE value=" Improve structure / format of the code. -- new line on table creation" />
+    <MESSAGE value=" Improve structure / format of the code. -- Add getGameTagMap() function for user profile" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Improve structure / format of the code. -- Add getGameTagMap() function for user profile" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

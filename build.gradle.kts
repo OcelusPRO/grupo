@@ -1,5 +1,5 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.7.22"
@@ -25,6 +25,10 @@ dependencies {
     
     // TODO : Débatre de l'utilisation d'un webhook pour posté les messages
     implementation("club.minnced:discord-webhooks:0.8.2")
+    
+    // https://mvnrepository.com/artifact/com.github.sisyphsu/dateparser
+    implementation("com.github.sisyphsu:dateparser:1.0.0")
+    
     
     // reflection
     implementation("org.reflections:reflections:0.10.2")

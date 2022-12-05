@@ -12,36 +12,53 @@ import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.jodatime.CurrentDateTime
 import org.jetbrains.exposed.sql.jodatime.datetime
+import org.jetbrains.exposed.sql.transactions.transaction
 import org.joda.time.DateTime
 
 object MatchmakingEvents : IntIdTable("matchmaking_events") {
     val game: Column<EntityID<Int>> = reference("game", Games)
-    
+
     val message: Column<String> = text("message")
-    
+
     val startDateTime: Column<DateTime> = datetime("start_date_time")
     val createdAt: Column<DateTime> = datetime("created_at").defaultExpression(CurrentDateTime)
-    
+
     val guildInvite: Column<String> = text("guild_invite")
     val voiceChannelId: Column<String> = text("voice_channel_id")
     
     val localEvent: Column<Boolean> = bool("local_event")
+    val repeatableDays: Column<Int?> = integer("repeatable_days").nullable().default(null)
 }
 
 class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
     
-    companion object : IntEntityClass<MatchmakingEvent>(MatchmakingEvents)
+    companion object : IntEntityClass<MatchmakingEvent>(MatchmakingEvents) {
+        fun createEvent(
+            game: Game, message: String, startDateTime: DateTime, guildInvite: String, voiceChannelId: String, localEvent: Boolean, repeatableDays: Int? = null
+        ) = transaction {
+            new {
+                this.game = game
+                this.message = message
+                this.startDateTime = startDateTime
+                this.guildInvite = guildInvite
+                this.voiceChannelId = voiceChannelId
+                this.localEvent = localEvent
+                this.repeatableDays = repeatableDays
+            }
+        }
+    }
     
-    val game by Game referencedOn MatchmakingEvents.game
+    var game by Game referencedOn MatchmakingEvents.game
     
-    val message by MatchmakingEvents.message
+    var message by MatchmakingEvents.message
     
-    val startDateTime by MatchmakingEvents.startDateTime
-    val createdAt by MatchmakingEvents.createdAt
-    val guildInvite by MatchmakingEvents.guildInvite
-    val voiceChannelId by MatchmakingEvents.voiceChannelId
+    var startDateTime by MatchmakingEvents.startDateTime
+    var createdAt by MatchmakingEvents.createdAt
+    var guildInvite by MatchmakingEvents.guildInvite
+    var voiceChannelId by MatchmakingEvents.voiceChannelId
     
-    val localEvent by MatchmakingEvents.localEvent
+    var localEvent by MatchmakingEvents.localEvent
+    var repeatableDays by MatchmakingEvents.repeatableDays
     
     val participants by Participant referrersOn Participants.matchmakingEvent
     
@@ -60,11 +77,11 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
         }
             ?: participant.user.discordUsername
     }
-    
+
     fun makeEventMessage(locale: DiscordLocale): MessageCreateData {
         val active = getParticipantsByType(ParticipantType.PARTICIPANT)
         val waiting = getParticipantsByType(ParticipantType.WAITING)
-        
+    
         return MessageCreate {
             content = message
             embed {
@@ -73,25 +90,22 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
                 image = game.image
                 timestamp = createdAt.toDate().toInstant()
                 color = 0x000000
-                
                 field {
                     name = "✅ - Participants (%d)".toLang(
-                            locale, LangKey.keyBuilder(this@MatchmakingEvent, "eventMessage", "participants")
-                        ).format(active.size)
+                        locale, LangKey.keyBuilder(this@MatchmakingEvent, "eventMessage", "participants")
+                    ).format(active.size)
                     value = active.joinToString("\n") { p ->
                         "`-` [${getParticipantsPlatformName(p, game)}](https://discord.gg/ \"${p.user.discordUsername}\")"
                     }
                 }
-                
                 field {
                     name = "❔ - En réserve (%d)".toLang(
-                            locale, LangKey.keyBuilder(this@MatchmakingEvent, "eventMessage", "reserve")
-                        ).format(waiting.size)
+                        locale, LangKey.keyBuilder(this@MatchmakingEvent, "eventMessage", "reserve")
+                    ).format(waiting.size)
                     value = waiting.joinToString("\n") { p ->
                         "`-` [${getParticipantsPlatformName(p, game)}](https://discord.gg/ \"${p.user.discordUsername}\")"
                     }
                 }
-                
                 field {
                     name = "📅 - On se retrouve :".toLang(
                         locale, LangKey.keyBuilder(this@MatchmakingEvent, "eventMessage", "date")
@@ -104,7 +118,6 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
                         locale, LangKey.keyBuilder(this@MatchmakingEvent, "eventMessage", "dateValue")
                     ).format(guildInvite, voiceChannelId, startDateTime.millis / 1000, startDateTime.millis / 1000)
                 }
-                
                 footer {
                     name = "Cet évènement est %s".toLang(
                         locale, LangKey.keyBuilder(this@MatchmakingEvent, "eventMessage", "local")
@@ -112,5 +125,15 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
                 }
             }
         }
+    }
+    
+    fun endEvent() {
+        if (repeatableDays != null) {
+            createEvent(
+                game, message, startDateTime.plusDays(repeatableDays!!), guildInvite, voiceChannelId, localEvent, repeatableDays
+            )
+        }
+        
+        
     }
 }
