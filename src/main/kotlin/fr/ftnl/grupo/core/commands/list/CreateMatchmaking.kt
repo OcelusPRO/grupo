@@ -22,6 +22,7 @@ import net.dv8tion.jda.api.interactions.commands.build.OptionData
 import net.dv8tion.jda.api.interactions.components.buttons.Button
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.joda.time.DateTime
+import java.time.Instant
 import kotlin.time.Duration.Companion.seconds
 
 class CreateMatchmaking : ISlashCmd {
@@ -41,15 +42,15 @@ class CreateMatchmaking : ISlashCmd {
                 OptionType.INTEGER, "repeat", "Si le matchmaking est répétable, le nombre de jours entre chaque répétition", false
             )
         )
-    
+
     override suspend fun action(event: SlashCommandInteractionEvent) {
         val channel = event.getOption("channel")!!.asChannel
         if (channel !is AudioChannel) {
             return event.reply(
-                    "Le channel doit être un channel vocal".toLang(
-                        event.userLocale, LangKey.keyBuilder(this, "action", "channel_not_voice")
-                    )
-                ).setEphemeral(false).queue()
+                "Le channel doit être un channel vocal".toLang(
+                    event.userLocale, LangKey.keyBuilder(this, "action", "channel_not_voice")
+                )
+            ).setEphemeral(false).queue()
         }
         val game = transaction {
             Game.findById(event.getOption("game")!!.asString.toInt())!!
@@ -57,43 +58,71 @@ class CreateMatchmaking : ISlashCmd {
         val invite = event.getOption("invite")?.asString
             ?: generateInvite(event.guild!!, channel)
             ?: return event.reply(
-                    "Impossible de générer une invitation".toLang(
-                        event.userLocale, LangKey.keyBuilder(this, "action", "invite_generation_failed")
-                    )
-                ).setEphemeral(false).queue()
+                "Impossible de générer une invitation".toLang(
+                    event.userLocale, LangKey.keyBuilder(this, "action", "invite_generation_failed")
+                )
+            ).setEphemeral(false).queue()
         val vc: AudioChannel = channel
         val date = fr.ftnl.grupo.core.utils.DateTimeUtils().parseFromString(event.getOption("debut")!!.asString)
             ?: return event.reply(
-                    "Je n'ait pas réussi a lire la date de l'évenement, pouriez vous la formulé autrement (via https://r.3v.fi/discord-timestamps/ par exemple)".toLang(
-                        event.userLocale, LangKey.keyBuilder(this, "action", "date_parsing_failed")
-                    )
-                ).setEphemeral(false).queue()
-        val nonce = System.currentTimeMillis() // TODO add lang systeme on embed
-        event.reply(
+                "Je n'ait pas réussi a lire la date de l'évenement, pouriez vous la formulé autrement (via https://r.3v.fi/discord-timestamps/ par exemple)".toLang(
+                    event.userLocale, LangKey.keyBuilder(this, "action", "date_parsing_failed")
+                )
+            ).setEphemeral(false).queue()
+        val nonce = System.currentTimeMillis()
+        val locale = event.userLocale
+        val reply = event.reply(
             MessageCreateBuilder {
-                content = "**Est ce que cela vous conviens ?**"
+                content = "**Voici un apperci de votre evenement, est ce que cela vous conviens ?**\n\n\n${
+                    event.getOption(
+                        "message"
+                    )!!.asString
+                }"
                 embed {
-                    title = "Résumé de votre évènement :"
-                    val repeatDays = event.getOption("repeat")
-                    
-                    description = """
-                Sur le jeu : ${game.name} sur ${game.platform.name}
-                Avec ${game.players} joueurs
-                Se déroulera le <t:${date.time / 1000}:f>
-                Sur le serveur : ${event.guild!!.name}
-                Dans le channel vocal : ${vc.asMention}
-                Avec l'invitation : $invite
-                ${if (repeatDays != null) "Répétable tous les ${repeatDays.asLong} jours" else ""}
-                ${if (event.getOption("local")!!.asBoolean) "Uniquement sur ce serveur" else "Sera diffusé aux autres serveurs"}
-                Message : ${event.getOption("message")!!.asString}
-                    """.trimIndent()
+                    title = game.name
+                    description = game.description
+                    image = game.image
+                    timestamp = Instant.now()
+                    color = 0x000000
+                    field {
+                        name = "✅ - Participants (%d/${game.players})".toLang(
+                            locale, LangKey.keyBuilder(this@CreateMatchmaking, "eventMessage", "participants")
+                        ).format(0)
+                        value = "[sample_user](https://discord/gg/ \"DiscordUserName#0001\")"
+                    }
+                    field {
+                        name = "❔ - En réserve (%d)".toLang(
+                            locale, LangKey.keyBuilder(this@CreateMatchmaking, "eventMessage", "reserve")
+                        ).format(0)
+                        value = "[another_user](https://discord/gg/ \"DiscordUserName#0001\")"
+                    }
+                    field {
+                        name = "📅 - On se retrouve :".toLang(
+                            locale, LangKey.keyBuilder(this@CreateMatchmaking, "eventMessage", "date")
+                        )
+                        value = """
+                        Sur le serveur : %s
+                        Dans le salon vocal <#%s>
+                        le <t:%s:f> (<t:%s:R>)
+                        """.trimIndent().toLang(
+                            locale, LangKey.keyBuilder(this@CreateMatchmaking, "eventMessage", "dateValue")
+                        ).format(
+                            invite, vc.id, DateTime.parse(date.toInstant().toString()).millis / 1000, DateTime.parse(date.toInstant().toString()).millis / 1000
+                        )
+                        inline = false
+                    }
+                    footer {
+                        name = "Cet évènement est %s".toLang(
+                            locale, LangKey.keyBuilder(this@CreateMatchmaking, "eventMessage", "local")
+                        ).format(if (event.getOption("local")!!.asBoolean) "local" else "global")
+                    }
                 }
             }.build()
         ).addActionRow(
             Button.success("confirm-$nonce", "Confirmer"), Button.danger("cancel-$nonce", "Annuler")
-        ).setEphemeral(false).queue()
-        
-        withTimeoutOrNull(30.seconds) {
+        ).setEphemeral(false).await()
+    
+        withTimeoutOrNull(60.seconds) {
             val e = event.jda.await<ButtonInteractionEvent> {
                 (it.user.id == event.user.id) && (it.componentId.split("-")[1] == nonce.toString())
             }
@@ -110,17 +139,18 @@ class CreateMatchmaking : ISlashCmd {
                     )
                     e.editMessage("Votre évènement a été enregistré !").setSuppressEmbeds(true).setActionRow(null).queue()
                 }
-                
+            
                 "cancel"  -> {
                     e.editMessage("Votre évènement a été annulé !").setSuppressEmbeds(true).setActionRow(null).queue()
                 }
             }
         }
+            ?: reply.editOriginal("Le temps est écoulé, votre évènement a été annulé !").setSuppressEmbeds(true).setActionRow(null).queue()
     }
     
     private suspend fun generateInvite(guild: Guild, vc: AudioChannel): String? {
-        val invite = guild.retrieveInvites().await().firstOrNull()
-            ?: vc.createInvite().await()
+        val invite = guild.retrieveInvites().await().firstOrNull { it.maxAge == 0 }
+            ?: vc.createInvite().setMaxAge(0).await()
             ?: return null
         return "https://discord.gg/${invite.code}"
     }
