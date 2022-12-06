@@ -27,7 +27,7 @@ dependencies {
     implementation("club.minnced:discord-webhooks:0.8.2")
     
     // https://mvnrepository.com/artifact/com.github.sisyphsu/dateparser
-    implementation("com.github.sisyphsu:dateparser:1.0.0")
+    implementation("com.github.sisyphsu:dateparser:1.0.11")
     
     
     // reflection
