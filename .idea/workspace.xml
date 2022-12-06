@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="💩 Write bad code that needs to be improved. -- start event command">
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="🎨 Improve structure / format of the code. -- Show a good representation of event embed">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lang/fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/lang/fr.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/CreateMatchmaking.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/CreateMatchmaking.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +261,8 @@
       <workItem from="1670153264268" duration="8660000" />
       <workItem from="1670171317617" duration="53000" />
       <workItem from="1670171423185" duration="5999000" />
-      <workItem from="1670233306115" duration="21302000" />
+      <workItem from="1670233306115" duration="22336000" />
+      <workItem from="1670326479246" duration="1449000" />
     </task>
     <task id="LOCAL-00001" summary="🎉 Begin a project.">
       <created>1669806667582</created>
@@ -544,7 +544,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670282551181</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="🎨 Improve structure / format of the code. -- Show a good representation of event embed">
+      <created>1670326074109</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1670326074109</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,7 +573,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value=" Add or update configuration files. -- add config sample to git" />
     <MESSAGE value=". update a .gitignore file. -- ignore config file" />
     <MESSAGE value="✨ Introduce new features. -- CommandManager" />
     <MESSAGE value=":recycle: Reformat code by IDE" />
@@ -591,7 +597,8 @@
     <MESSAGE value=" Improve structure / format of the code. -- new line on table creation" />
     <MESSAGE value=" Improve structure / format of the code. -- Add getGameTagMap() function for user profile" />
     <MESSAGE value=" Write bad code that needs to be improved. -- start event command" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Write bad code that needs to be improved. -- start event command" />
+    <MESSAGE value=" Improve structure / format of the code. -- Show a good representation of event embed" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Improve structure / format of the code. -- Show a good representation of event embed" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
