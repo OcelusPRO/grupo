@@ -25,13 +25,13 @@ object MatchmakingEvents : IntIdTable("matchmaking_events") {
 
     val guildInvite: Column<String> = text("guild_invite")
     val voiceChannelId: Column<String> = text("voice_channel_id")
-    
+
     val localEvent: Column<Boolean> = bool("local_event")
     val repeatableDays: Column<Int?> = integer("repeatable_days").nullable().default(null)
 }
 
 class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
-    
+
     companion object : IntEntityClass<MatchmakingEvent>(MatchmakingEvents) {
         fun createEvent(
             game: Game, message: String, startDateTime: DateTime, guildInvite: String, voiceChannelId: String, localEvent: Boolean, repeatableDays: Int? = null
@@ -47,21 +47,21 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
             }
         }
     }
-    
+
     var game by Game referencedOn MatchmakingEvents.game
-    
+
     var message by MatchmakingEvents.message
-    
+
     var startDateTime by MatchmakingEvents.startDateTime
     var createdAt by MatchmakingEvents.createdAt
     var guildInvite by MatchmakingEvents.guildInvite
     var voiceChannelId by MatchmakingEvents.voiceChannelId
-    
+
     var localEvent by MatchmakingEvents.localEvent
     var repeatableDays by MatchmakingEvents.repeatableDays
-    
+
     val participants by Participant referrersOn Participants.matchmakingEvent
-    
+
     private fun getParticipantsByType(type: ParticipantType) = participants.filter { it.type == type }
     private fun getParticipantsPlatformName(participant: Participant, game: Game): String {
         return when (game.platform) {
@@ -77,11 +77,11 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
         }
             ?: participant.user.discordUsername
     }
-
-    fun makeEventMessage(locale: DiscordLocale): MessageCreateData {
+    
+    fun makeEventMessage(locale: DiscordLocale, channelLink: String): MessageCreateData {
         val active = getParticipantsByType(ParticipantType.PARTICIPANT)
         val waiting = getParticipantsByType(ParticipantType.WAITING)
-    
+        
         return MessageCreate {
             content = message
             embed {
@@ -95,7 +95,7 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
                         locale, LangKey.keyBuilder(this@MatchmakingEvent, "eventMessage", "participants")
                     ).format(active.size)
                     value = active.joinToString("\n") { p ->
-                        "`-` [${getParticipantsPlatformName(p, game)}](https://discord.gg/ \"${p.user.discordUsername}\")"
+                        "`-` [${getParticipantsPlatformName(p, game)}]($channelLink \"${p.user.discordUsername}\")"
                     }
                 }
                 field {
@@ -103,7 +103,7 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
                         locale, LangKey.keyBuilder(this@MatchmakingEvent, "eventMessage", "reserve")
                     ).format(waiting.size)
                     value = waiting.joinToString("\n") { p ->
-                        "`-` [${getParticipantsPlatformName(p, game)}](https://discord.gg/ \"${p.user.discordUsername}\")"
+                        "`-` [${getParticipantsPlatformName(p, game)}]($channelLink \"${p.user.discordUsername}\")"
                     }
                 }
                 field {
@@ -121,7 +121,17 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
                 footer {
                     name = "Cet évènement est %s".toLang(
                         locale, LangKey.keyBuilder(this@MatchmakingEvent, "eventMessage", "local")
-                    ).format(if (localEvent) "local" else "global")
+                    ).format(
+                        if (localEvent) {
+                            "local".toLang(
+                                locale, LangKey.keyBuilder(this@MatchmakingEvent, "eventMessage", "localValue")
+                            )
+                        } else {
+                            "global".toLang(
+                                locale, LangKey.keyBuilder(this@MatchmakingEvent, "eventMessage", "globalValue")
+                            )
+                        }
+                    )
                 }
             }
         }
@@ -133,7 +143,5 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
                 game, message, startDateTime.plusDays(repeatableDays!!), guildInvite, voiceChannelId, localEvent, repeatableDays
             )
         }
-        
-        
     }
 }

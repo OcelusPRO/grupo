@@ -88,13 +88,13 @@ class CreateMatchmaking : ISlashCmd {
                         name = "✅ - Participants (%d/${game.players})".toLang(
                             locale, LangKey.keyBuilder(this@CreateMatchmaking, "eventMessage", "participants")
                         ).format(0)
-                        value = "[sample_user](https://discord/gg/ \"DiscordUserName#0001\")"
+                        value = "[sample_user](https://discord.com/channels/" + "${event.guild!!.id}/" + "${event.channel.id}  \"DiscordUserName#0001\")"
                     }
                     field {
                         name = "❔ - En réserve (%d)".toLang(
                             locale, LangKey.keyBuilder(this@CreateMatchmaking, "eventMessage", "reserve")
                         ).format(0)
-                        value = "[another_user](https://discord/gg/ \"DiscordUserName#0001\")"
+                        value = "[another_user](https://discord.com/channels/" + "${event.guild!!.id}/" + "${event.channel.id} \"DiscordUserName#0001\")"
                     }
                     field {
                         name = "📅 - On se retrouve :".toLang(
