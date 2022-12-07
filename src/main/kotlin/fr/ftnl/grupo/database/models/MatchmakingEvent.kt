@@ -3,6 +3,7 @@ package fr.ftnl.grupo.database.models
 import dev.minn.jda.ktx.messages.MessageCreate
 import fr.ftnl.grupo.extentions.toLang
 import fr.ftnl.grupo.lang.LangKey
+import io.github.reactivecircus.cache4k.Cache
 import net.dv8tion.jda.api.interactions.DiscordLocale
 import net.dv8tion.jda.api.utils.messages.MessageCreateData
 import org.jetbrains.exposed.dao.IntEntity
@@ -14,6 +15,7 @@ import org.jetbrains.exposed.sql.jodatime.CurrentDateTime
 import org.jetbrains.exposed.sql.jodatime.datetime
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.joda.time.DateTime
+import kotlin.time.Duration.Companion.minutes
 
 object MatchmakingEvents : IntIdTable("matchmaking_events") {
     val game: Column<EntityID<Int>> = reference("game", Games)
@@ -33,19 +35,35 @@ object MatchmakingEvents : IntIdTable("matchmaking_events") {
 class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
 
     companion object : IntEntityClass<MatchmakingEvent>(MatchmakingEvents) {
+        val cache = Cache.Builder().expireAfterWrite(30.minutes).build<Int, MatchmakingEvent>()
+    
         fun createEvent(
             game: Game, message: String, startDateTime: DateTime, guildInvite: String, voiceChannelId: String, localEvent: Boolean, repeatableDays: Int? = null
-        ) = transaction {
-            new {
-                this.game = game
-                this.message = message
-                this.startDateTime = startDateTime
-                this.guildInvite = guildInvite
-                this.voiceChannelId = voiceChannelId
-                this.localEvent = localEvent
-                this.repeatableDays = repeatableDays
+        ): MatchmakingEvent {
+            val event = transaction {
+                new {
+                    this.game = game
+                    this.message = message
+                    this.startDateTime = startDateTime
+                    this.guildInvite = guildInvite
+                    this.voiceChannelId = voiceChannelId
+                    this.localEvent = localEvent
+                    this.repeatableDays = repeatableDays
+                }
+            }
+            cache.put(event.id.value, event)
+            return event
+        }
+    
+        fun updateCache() {
+            cache.invalidateAll()
+            transaction {
+                find { MatchmakingEvents.startDateTime greaterEq DateTime.now().minusHours(24) }.forEach {
+                    cache.put(it.id.value, it)
+                }
             }
         }
+    
     }
 
     var game by Game referencedOn MatchmakingEvents.game
@@ -59,8 +77,9 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
 
     var localEvent by MatchmakingEvents.localEvent
     var repeatableDays by MatchmakingEvents.repeatableDays
-
+    
     val participants by Participant referrersOn Participants.matchmakingEvent
+    val sendedMessages by SendedMessage referrersOn SendedMessages.matchmakingEvent
 
     private fun getParticipantsByType(type: ParticipantType) = participants.filter { it.type == type }
     private fun getParticipantsPlatformName(participant: Participant, game: Game): String {
@@ -77,11 +96,11 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
         }
             ?: participant.user.discordUsername
     }
-    
+
     fun makeEventMessage(locale: DiscordLocale, channelLink: String): MessageCreateData {
         val active = getParticipantsByType(ParticipantType.PARTICIPANT)
         val waiting = getParticipantsByType(ParticipantType.WAITING)
-        
+
         return MessageCreate {
             content = message
             embed {

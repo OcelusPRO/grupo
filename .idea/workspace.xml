@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment=":camera_flash: Add gource export video">
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="🚸 Improve user experience / usability. -- use channel link for matchmaking pseudo link">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/SendedMessages.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/CreateMatchmaking.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/CreateMatchmaking.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +124,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/OcelusPRO/IdeaProjects/grupo",
+    "last_opened_file_path": "C:/Users/OcelusPRO/IdeaProjects/grupo/src/main/kotlin/fr/ftnl/grupo/database/models",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -140,8 +141,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo" />
       <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo\src\main\kotlin\fr\ftnl\grupo\database\models" />
+      <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo" />
       <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -270,7 +271,7 @@
       <workItem from="1670400533092" duration="76000" />
       <workItem from="1670400682531" duration="477000" />
       <workItem from="1670401179331" duration="99000" />
-      <workItem from="1670401308676" duration="4875000" />
+      <workItem from="1670401308676" duration="7931000" />
     </task>
     <task id="LOCAL-00001" summary="🎉 Begin a project.">
       <created>1669806667582</created>
@@ -573,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670402321087</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="🚸 Improve user experience / usability. -- use channel link for matchmaking pseudo link">
+      <created>1670419354508</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1670419354508</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -595,7 +603,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value=":recycle: Reformat code by IDE" />
     <MESSAGE value=":fountain: Add github workflow and dependabot.yml" />
     <MESSAGE value=":fountain: Update github workflow. -- Add permission to execute command" />
     <MESSAGE value=":fountain: Update github workflow. -- Change build to shadowJar action" />
@@ -620,7 +627,8 @@
     <MESSAGE value=" Improve structure / format of the code. -- Show a good representation of event embed" />
     <MESSAGE value=":memo: Add README.md file" />
     <MESSAGE value=":camera_flash: Add gource export video" />
-    <option name="LAST_COMMIT_MESSAGE" value=":camera_flash: Add gource export video" />
+    <MESSAGE value=" Improve user experience / usability. -- use channel link for matchmaking pseudo link" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Improve user experience / usability. -- use channel link for matchmaking pseudo link" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
