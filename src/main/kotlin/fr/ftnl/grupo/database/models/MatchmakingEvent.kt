@@ -4,7 +4,11 @@ import dev.minn.jda.ktx.messages.MessageCreate
 import fr.ftnl.grupo.extentions.toLang
 import fr.ftnl.grupo.lang.LangKey
 import io.github.reactivecircus.cache4k.Cache
+import net.dv8tion.jda.api.entities.Guild
+import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel
+import net.dv8tion.jda.api.entities.emoji.Emoji
 import net.dv8tion.jda.api.interactions.DiscordLocale
+import net.dv8tion.jda.api.interactions.components.buttons.Button
 import net.dv8tion.jda.api.utils.messages.MessageCreateData
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
@@ -36,7 +40,7 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
 
     companion object : IntEntityClass<MatchmakingEvent>(MatchmakingEvents) {
         val cache = Cache.Builder().expireAfterWrite(30.minutes).build<Int, MatchmakingEvent>()
-    
+
         fun createEvent(
             game: Game, message: String, startDateTime: DateTime, guildInvite: String, voiceChannelId: String, localEvent: Boolean, repeatableDays: Int? = null
         ): MatchmakingEvent {
@@ -54,7 +58,7 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
             cache.put(event.id.value, event)
             return event
         }
-    
+
         fun updateCache() {
             cache.invalidateAll()
             transaction {
@@ -63,7 +67,6 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
                 }
             }
         }
-    
     }
 
     var game by Game referencedOn MatchmakingEvents.game
@@ -77,7 +80,7 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
 
     var localEvent by MatchmakingEvents.localEvent
     var repeatableDays by MatchmakingEvents.repeatableDays
-    
+
     val participants by Participant referrersOn Participants.matchmakingEvent
     val sendedMessages by SendedMessage referrersOn SendedMessages.matchmakingEvent
 
@@ -110,9 +113,9 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
                 timestamp = createdAt.toDate().toInstant()
                 color = 0x000000
                 field {
-                    name = "✅ - Participants (%d)".toLang(
+                    name = "✅ - Participants (%d/%d)".toLang(
                         locale, LangKey.keyBuilder(this@MatchmakingEvent, "eventMessage", "participants")
-                    ).format(active.size)
+                    ).format(active.size, game.players)
                     value = active.joinToString("\n") { p ->
                         "`-` [${getParticipantsPlatformName(p, game)}]($channelLink \"${p.user.discordUsername}\")"
                     }
@@ -162,5 +165,63 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
                 game, message, startDateTime.plusDays(repeatableDays!!), guildInvite, voiceChannelId, localEvent, repeatableDays
             )
         }
+    }
+    
+    suspend fun diffuseEvent(guild: Guild): Boolean {
+        var success = true
+        if (!localEvent) {
+            guild.jda.guilds.forEach {
+                val isLocalGuild = guild == it
+                val result = sendEventMessage(it, isLocalGuild)
+                if (!result && isLocalGuild) success = false
+            }
+        } else {
+            success = sendEventMessage(guild, true)
+        }
+        return success
+    }
+    
+    private suspend fun sendEventMessage(guild: Guild, localGuild: Boolean): Boolean {
+        val config = GuildConfiguration.findGuildConfiguration(guild.idLong)
+        
+        var channelId = config.eventsChannels.firstOrNull { it.game == this.game }?.channelId
+        
+        if (localGuild) channelId = channelId
+            ?: config.defaultEventsChannel
+                    ?: return false
+        
+        val chanel = guild.channels.firstOrNull { it.idLong == channelId && it is MessageChannel }
+            ?: return false
+        chanel as MessageChannel
+        chanel.sendMessage(
+            makeEventMessage(
+                guild.locale, "https://discord.com/channels/${guild.id}/$channelId"
+            )
+        ).addActionRow(
+            Button.success(
+                "MATCHMAKING_JOIN::${this.id.value}", Emoji.fromUnicode("✅")
+            ).withLabel(
+                "Participer".toLang(
+                    guild.locale, LangKey.keyBuilder(this, "eventMessage", "joinButton")
+                )
+            ), Button.secondary(
+                "MATCHMAKING_WAIT::${this.id.value}", Emoji.fromUnicode("❔")
+            ).withLabel(
+                "En réserve".toLang(
+                    guild.locale, LangKey.keyBuilder(this, "eventMessage", "reserveButton")
+                )
+            ), Button.primary("MATCHMAKING_CONFIG::${this.id.value}", Emoji.fromUnicode("⚙️")), Button.danger("MATCHMAKING_CANCEL::${this.id.value}", Emoji.fromUnicode("🗑️"))
+        ).queue {
+            val event = this@MatchmakingEvent
+            transaction {
+                SendedMessage.new {
+                    this.matchmakingEvent = event
+                    this.messageId = it.idLong
+                    this.channelId = it.channel.idLong
+                    this.guild = config
+                }
+            }
+        }
+        return true
     }
 }

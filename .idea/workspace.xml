@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="🚸 Improve user experience / usability. -- use channel link for matchmaking pseudo link">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/SendedMessages.kt" afterDir="false" />
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="✨ Introduce new features. -- update eventMessage every minutes">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/GuildConfiguration.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/GuildEventsChannel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/en.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/lang/fr.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/CreateMatchmaking.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/CreateMatchmaking.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/SendedMessages.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/SendedMessages.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +129,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/OcelusPRO/IdeaProjects/grupo/src/main/kotlin/fr/ftnl/grupo/database/models",
+    "last_opened_file_path": "C:/Users/OcelusPRO/IdeaProjects/ChillBot",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -271,7 +276,8 @@
       <workItem from="1670400533092" duration="76000" />
       <workItem from="1670400682531" duration="477000" />
       <workItem from="1670401179331" duration="99000" />
-      <workItem from="1670401308676" duration="7931000" />
+      <workItem from="1670401308676" duration="9933000" />
+      <workItem from="1670487506947" duration="10557000" />
     </task>
     <task id="LOCAL-00001" summary="🎉 Begin a project.">
       <created>1669806667582</created>
@@ -581,7 +587,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670419354508</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="✨ Introduce new features. -- update eventMessage every minutes">
+      <created>1670422329110</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1670422329110</updated>
+    </task>
+    <task id="LOCAL-00046" summary="✨ Introduce new features. -- update eventMessage every minutes">
+      <created>1670422367736</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1670422367736</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -603,7 +623,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value=":fountain: Add github workflow and dependabot.yml" />
     <MESSAGE value=":fountain: Update github workflow. -- Add permission to execute command" />
     <MESSAGE value=":fountain: Update github workflow. -- Change build to shadowJar action" />
     <MESSAGE value="♻️ Refactor code. -- Command manager - add cooldown to commands" />
@@ -628,7 +647,8 @@
     <MESSAGE value=":memo: Add README.md file" />
     <MESSAGE value=":camera_flash: Add gource export video" />
     <MESSAGE value=" Improve user experience / usability. -- use channel link for matchmaking pseudo link" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Improve user experience / usability. -- use channel link for matchmaking pseudo link" />
+    <MESSAGE value="✨ Introduce new features. -- update eventMessage every minutes" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ Introduce new features. -- update eventMessage every minutes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

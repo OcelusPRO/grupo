@@ -71,7 +71,7 @@ suspend fun updateEvents(manager: ShardManager) {
                 if ((eventParticipants.size != participants) || (eventWaitedUsers.size != waitedUsers)) {
                     val newMessage = event.value.makeEventMessage(
                         locale = discordMessage.guild.locale,
-                        channelLink = "https://discord.com/channels/${msg.guildId}/${msg.channelId}",
+                        channelLink = "https://discord.com/channels/${msg.guild}/${msg.channelId}",
                     )
                     discordMessage.editMessage(MessageEditBuilder.fromCreateData(newMessage).build()).queue()
                 }
@@ -80,3 +80,11 @@ suspend fun updateEvents(manager: ShardManager) {
         }
     }
 }
+
+
+// TODO : Ajouter les button command pour inscription aux events
+// TODO : Ajouter les button command pour configuration des event
+// TODO : Ajouter les button command pour suppression des events
+// TODO : Ajouter les Commandes de configuration des channels pour events
+
+// TODO : lancer une beta test

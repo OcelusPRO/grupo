@@ -2,37 +2,28 @@
   "fr": {
     "ftnl": {
       "grupo": {
-          "Tests": {
-              "unite": {
-                  "langTest": "test en francais"
+        "core": {
+          "commands": {
+            "CommandManager": {
+              "handle": {
+                "interaction": {
+                  "cooldownMessage": ":timer: Vous devez encore attendre %ss avant de pouvoir utiliser cette commande."
+                }
               }
-          },
-          "core": {
-              "commands": {
-                  "CommandManager": {
-                      "handle": {
-                          "interaction": {
-                              "cooldownMessage": ":timer: Vous devez encore attendre %ss avant de pouvoir utiliser cette commande."
-                          }
-                      }
-                  },
-                  "list": {
-                      "CreateMatchmaking": {
-                          "action": {
-                              "channel_not_voice": "Le channel doit être un channel vocal",
-                              "date_parsing_failed": "Je n\u0027ait pas réussi a lire la date de l\u0027évenement, pouriez vous la formulé autrement (via https://r.3v.fi/discord-timestamps/ par exemple)"
-                          },
-                          "eventMessage": {
-                              "participants": "✅ - Participants (%d/4)",
-                              "reserve": "❔ - En réserve (%d)",
-                              "date": "📅 - On se retrouve :",
-                              "dateValue": "Sur le serveur : %s\nDans le salon vocal \u003c#%s\u003e\nle \u003ct:%s:f\u003e (\u003ct:%s:R\u003e)",
-                              "local": "Cet évènement est %s"
-                          }
-                      }
-                  }
+            },
+            "list": {
+              "CreateMatchmaking": {
+                "eventMessage": {
+                  "participants": "✅ - Participants (%d/%d)",
+                  "reserve": "❔ - En réserve (%d)",
+                  "date": "📅 - On se retrouve :",
+                  "dateValue": "Sur le serveur : %s\nDans le salon vocal \u003c#%s\u003e\nle \u003ct:%s:f\u003e (\u003ct:%s:R\u003e)",
+                  "local": "Cet évènement est %s"
+                }
               }
+            }
           }
+        }
       }
     }
   }

@@ -13,16 +13,16 @@ object SendedMessages : IntIdTable("sent_messages") {
     val matchmakingEvent: Column<EntityID<Int>> = reference("matchmaking_event", MatchmakingEvents)
     val messageId: Column<Long> = long("message_id")
     val channelId: Column<Long> = long("channel_id")
-    val guildId: Column<Long> = long("guild_id")
+    val guild: Column<EntityID<Int>> = reference("guild", GuildConfigurations)
     val registerAt: Column<DateTime> = datetime("register_at").defaultExpression(CurrentDateTime)
 }
 
 class SendedMessage(id: EntityID<Int>) : IntEntity(id) {
     companion object : IntEntityClass<SendedMessage>(SendedMessages)
     
-    val matchmakingEvent by MatchmakingEvent referencedOn SendedMessages.matchmakingEvent
-    val messageId by SendedMessages.messageId
-    val channelId by SendedMessages.channelId
-    val guildId by SendedMessages.guildId
+    var matchmakingEvent by MatchmakingEvent referencedOn SendedMessages.matchmakingEvent
+    var messageId by SendedMessages.messageId
+    var channelId by SendedMessages.channelId
+    var guild by GuildConfiguration referencedOn SendedMessages.guild
     val registerAt by SendedMessages.registerAt
 }

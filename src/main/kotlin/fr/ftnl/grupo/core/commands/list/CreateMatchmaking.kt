@@ -85,9 +85,9 @@ class CreateMatchmaking : ISlashCmd {
                     timestamp = Instant.now()
                     color = 0x000000
                     field {
-                        name = "✅ - Participants (%d/${game.players})".toLang(
+                        name = "✅ - Participants (%d/%d)".toLang(
                             locale, LangKey.keyBuilder(this@CreateMatchmaking, "eventMessage", "participants")
-                        ).format(0)
+                        ).format(0, game.players)
                         value = "[sample_user](https://discord.com/channels/" + "${event.guild!!.id}/" + "${event.channel.id}  \"DiscordUserName#0001\")"
                     }
                     field {
@@ -121,7 +121,7 @@ class CreateMatchmaking : ISlashCmd {
         ).addActionRow(
             Button.success("confirm-$nonce", "Confirmer"), Button.danger("cancel-$nonce", "Annuler")
         ).setEphemeral(false).await()
-    
+
         withTimeoutOrNull(60.seconds) {
             val e = event.jda.await<ButtonInteractionEvent> {
                 (it.user.id == event.user.id) && (it.componentId.split("-")[1] == nonce.toString())
@@ -137,15 +137,15 @@ class CreateMatchmaking : ISlashCmd {
                         localEvent = event.getOption("local")!!.asBoolean,
                         repeatableDays = event.getOption("repeat")?.asLong?.toInt()
                     )
-                    e.editMessage("Votre évènement a été enregistré !").setSuppressEmbeds(true).setActionRow(null).queue()
+                    e.editMessage("Votre évènement a été enregistré !").setSuppressEmbeds(true).setComponents().queue()
                 }
-            
+    
                 "cancel"  -> {
-                    e.editMessage("Votre évènement a été annulé !").setSuppressEmbeds(true).setActionRow(null).queue()
+                    e.editMessage("Votre évènement a été annulé !").setSuppressEmbeds(true).setComponents().queue()
                 }
             }
         }
-            ?: reply.editOriginal("Le temps est écoulé, votre évènement a été annulé !").setSuppressEmbeds(true).setActionRow(null).queue()
+            ?: reply.editOriginal("Le temps est écoulé, votre évènement a été annulé !").setSuppressEmbeds(true).setComponents().queue()
     }
     
     private suspend fun generateInvite(guild: Guild, vc: AudioChannel): String? {
@@ -158,7 +158,9 @@ class CreateMatchmaking : ISlashCmd {
     override suspend fun action(event: CommandAutoCompleteInteractionEvent) {
         transaction {
             val games = Game.all()
-            val filteredGames = games.filter { it.name.contains(event.focusedOption.value) }.chunked(25).first()
+            val filteredGames = games.filter {
+                it.name.lowercase().contains(event.focusedOption.value.lowercase())
+            }.chunked(25).first()
             val choices = filteredGames.map { Command.Choice(it.name, it.id.value.toString()) }
             println(choices)
             event.replyChoices(choices).queue()
