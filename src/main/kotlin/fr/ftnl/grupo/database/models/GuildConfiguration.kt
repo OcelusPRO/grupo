@@ -44,4 +44,11 @@ class GuildConfiguration(id: EntityID<Int>) : IntEntity(id) {
     var createdAt by GuildConfigurations.createdAt
     
     val eventsChannels by GuildEventsChannel referrersOn GuildEventsChannels.guild
+    
+    
+    fun setDefaultEventChannel(channel: Long) {
+        transaction {
+            defaultEventsChannel = channel
+        }
+    }
 }

@@ -80,11 +80,3 @@ suspend fun updateEvents(manager: ShardManager) {
         }
     }
 }
-
-
-// TODO : Ajouter les button command pour inscription aux events
-// TODO : Ajouter les button command pour configuration des event
-// TODO : Ajouter les button command pour suppression des events
-// TODO : Ajouter les Commandes de configuration des channels pour events
-
-// TODO : lancer une beta test

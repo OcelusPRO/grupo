@@ -20,7 +20,15 @@ object GuildEventsChannels : IntIdTable("guild_events_channel") {
 
 class GuildEventsChannel(id: EntityID<Int>) : IntEntity(id) {
     
-    companion object : IntEntityClass<GuildEventsChannel>(GuildEventsChannels)
+    companion object : IntEntityClass<GuildEventsChannel>(GuildEventsChannels) {
+        fun createChannelEvent(guild: GuildConfiguration, game: Game, channelId: Long) {
+            GuildEventsChannel.new {
+                this.guild = guild
+                this.game = game
+                this.channelId = channelId
+            }
+        }
+    }
     
     var guild by GuildConfiguration referencedOn GuildEventsChannels.guild
     var game by Game referencedOn GuildEventsChannels.game
