@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="✨ Introduce new features. -- update eventMessage every minutes">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/GuildConfiguration.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/GuildEventsChannel.kt" afterDir="false" />
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="✨ Introduce new features. -- Channels configuration">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/modal/NewGame.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/CreateNewGame.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lang/en.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lang/fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/lang/fr.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/CreateMatchmaking.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/CreateMatchmaking.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/SendedMessages.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/SendedMessages.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Games.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Games.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +108,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2IGRHpsezn7GNPOvCSHHjN7Wdj4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -135,6 +130,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "terminal",
     "vue.rearranger.settings.migration": "true"
   },
@@ -154,7 +150,12 @@
       <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="fr.ftnl.grupo.core.commands.list.slash" />
       <recent name="fr.ftnl.grupo" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="fr.ftnl.grupo.core.commands.list.slash" />
+      <recent name="fr.ftnl.grupo.core.commands.list.buttons" />
     </key>
   </component>
   <component name="RunManager" selected="Kotlin.MainKt">
@@ -277,28 +278,8 @@
       <workItem from="1670400682531" duration="477000" />
       <workItem from="1670401179331" duration="99000" />
       <workItem from="1670401308676" duration="9933000" />
-      <workItem from="1670487506947" duration="10557000" />
-    </task>
-    <task id="LOCAL-00001" summary="🎉 Begin a project.">
-      <created>1669806667582</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1669806667582</updated>
-    </task>
-    <task id="LOCAL-00002" summary="🎉 Begin a project.">
-      <created>1669806767683</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1669806767683</updated>
-    </task>
-    <task id="LOCAL-00003" summary="🎉 Begin a project.">
-      <created>1669806784447</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1669806784447</updated>
+      <workItem from="1670487506947" duration="11103000" />
+      <workItem from="1670662038211" duration="8688000" />
     </task>
     <task id="LOCAL-00004" summary="➕ Add project dependency's.">
       <created>1669808593873</created>
@@ -601,7 +582,49 @@
       <option name="project" value="LOCAL" />
       <updated>1670422367736</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="✨ Introduce new features. -- send message to guilds">
+      <created>1670600529546</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1670600529546</updated>
+    </task>
+    <task id="LOCAL-00048" summary="📦️ Move slash commands to dedicated packages.">
+      <created>1670685290821</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1670685290821</updated>
+    </task>
+    <task id="LOCAL-00049" summary=":card_file_box: Make mutable Participant class variables">
+      <created>1670685396869</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1670685396870</updated>
+    </task>
+    <task id="LOCAL-00050" summary="✨ Introduce new features. -- Add, Remove and update event participants">
+      <created>1670685459394</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1670685459394</updated>
+    </task>
+    <task id="LOCAL-00051" summary="✨ Introduce new features. -- Delete event button">
+      <created>1670685479278</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1670685479278</updated>
+    </task>
+    <task id="LOCAL-00052" summary="✨ Introduce new features. -- Channels configuration">
+      <created>1670686768098</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1670686768098</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -623,12 +646,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value=":fountain: Update github workflow. -- Add permission to execute command" />
-    <MESSAGE value=":fountain: Update github workflow. -- Change build to shadowJar action" />
-    <MESSAGE value="♻️ Refactor code. -- Command manager - add cooldown to commands" />
-    <MESSAGE value="update ✅ update tests. -- remove useless assert not equals" />
-    <MESSAGE value=" Remove files. -- detekt.yml" />
-    <MESSAGE value="♻️ Reformat code with detekt plugin" />
     <MESSAGE value="️ DAO. -- Création des schémas" />
     <MESSAGE value="♻️ Reformat code. -- by detekt and IDE" />
     <MESSAGE value="✨ Introduce new features. -- Profile utilisateurs" />
@@ -648,7 +665,13 @@
     <MESSAGE value=":camera_flash: Add gource export video" />
     <MESSAGE value=" Improve user experience / usability. -- use channel link for matchmaking pseudo link" />
     <MESSAGE value="✨ Introduce new features. -- update eventMessage every minutes" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ Introduce new features. -- update eventMessage every minutes" />
+    <MESSAGE value="✨ Introduce new features. -- send message to guilds" />
+    <MESSAGE value="️ Move slash commands to dedicated packages." />
+    <MESSAGE value=":card_file_box: Make mutable Participant class variables" />
+    <MESSAGE value="✨ Introduce new features. -- Add, Remove and update event participants" />
+    <MESSAGE value="✨ Introduce new features. -- Delete event button" />
+    <MESSAGE value="✨ Introduce new features. -- Channels configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ Introduce new features. -- Channels configuration" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

@@ -44,11 +44,11 @@ class Game(id: EntityID<Int>) : IntEntity(id) {
     
     companion object : IntEntityClass<Game>(Games)
     
-    val name by Games.name
-    val description by Games.description
-    val image by Games.image
-    val url by Games.url
-    val platform by Games.platform
-    val players by Games.players
+    var name by Games.name
+    var description by Games.description
+    var image by Games.image
+    var url by Games.url
+    var platform by Games.platform
+    var players by Games.players
     val createdAt by Games.createdAt
 }
