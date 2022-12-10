@@ -25,8 +25,8 @@ class Participant(id: EntityID<Int>) : IntEntity(id) {
     
     companion object : IntEntityClass<Participant>(Participants)
     
-    val matchmakingEvent by MatchmakingEvent referencedOn Participants.matchmakingEvent
-    val user by User referencedOn Participants.user
-    val type by Participants.type
+    var matchmakingEvent by MatchmakingEvent referencedOn Participants.matchmakingEvent
+    var user by User referencedOn Participants.user
+    var type by Participants.type
     val registerAt by Participants.registerAt
 }
