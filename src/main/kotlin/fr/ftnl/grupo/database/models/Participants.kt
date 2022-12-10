@@ -7,6 +7,7 @@ import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.jodatime.CurrentDateTime
 import org.jetbrains.exposed.sql.jodatime.datetime
+import org.jetbrains.exposed.sql.transactions.transaction
 import org.joda.time.DateTime
 
 object Participants : IntIdTable("participants") {
@@ -29,4 +30,8 @@ class Participant(id: EntityID<Int>) : IntEntity(id) {
     var user by User referencedOn Participants.user
     var type by Participants.type
     val registerAt by Participants.registerAt
+    
+    fun editParticipantType(type: ParticipantType) {
+        transaction { this@Participant.type = type }
+    }
 }

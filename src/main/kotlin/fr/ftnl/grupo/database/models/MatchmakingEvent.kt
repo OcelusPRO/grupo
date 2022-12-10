@@ -1,5 +1,6 @@
 package fr.ftnl.grupo.database.models
 
+import dev.minn.jda.ktx.coroutines.await
 import dev.minn.jda.ktx.messages.MessageCreate
 import fr.ftnl.grupo.extentions.toLang
 import fr.ftnl.grupo.lang.LangKey
@@ -9,7 +10,9 @@ import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel
 import net.dv8tion.jda.api.entities.emoji.Emoji
 import net.dv8tion.jda.api.interactions.DiscordLocale
 import net.dv8tion.jda.api.interactions.components.buttons.Button
+import net.dv8tion.jda.api.sharding.ShardManager
 import net.dv8tion.jda.api.utils.messages.MessageCreateData
+import net.dv8tion.jda.api.utils.messages.MessageEditBuilder
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.id.EntityID
@@ -31,6 +34,7 @@ object MatchmakingEvents : IntIdTable("matchmaking_events") {
 
     val guildInvite: Column<String> = text("guild_invite")
     val voiceChannelId: Column<String> = text("voice_channel_id")
+    val guildId: Column<String> = text("guild_id")
 
     val localEvent: Column<Boolean> = bool("local_event")
     val repeatableDays: Column<Int?> = integer("repeatable_days").nullable().default(null)
@@ -42,7 +46,7 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
         val cache = Cache.Builder().expireAfterWrite(30.minutes).build<Int, MatchmakingEvent>()
 
         fun createEvent(
-            game: Game, message: String, startDateTime: DateTime, guildInvite: String, voiceChannelId: String, localEvent: Boolean, repeatableDays: Int? = null
+            game: Game, message: String, startDateTime: DateTime, guildInvite: String, voiceChannelId: String, guildId: String, localEvent: Boolean, repeatableDays: Int? = null
         ): MatchmakingEvent {
             val event = transaction {
                 new {
@@ -51,6 +55,7 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
                     this.startDateTime = startDateTime
                     this.guildInvite = guildInvite
                     this.voiceChannelId = voiceChannelId
+                    this.guildId = guildId
                     this.localEvent = localEvent
                     this.repeatableDays = repeatableDays
                 }
@@ -77,6 +82,7 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
     var createdAt by MatchmakingEvents.createdAt
     var guildInvite by MatchmakingEvents.guildInvite
     var voiceChannelId by MatchmakingEvents.voiceChannelId
+    var guildId by MatchmakingEvents.guildId
 
     var localEvent by MatchmakingEvents.localEvent
     var repeatableDays by MatchmakingEvents.repeatableDays
@@ -158,19 +164,19 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
             }
         }
     }
-    
+
     fun endEvent() {
         if (repeatableDays != null) {
             createEvent(
-                game, message, startDateTime.plusDays(repeatableDays!!), guildInvite, voiceChannelId, localEvent, repeatableDays
+                game, message, startDateTime.plusDays(repeatableDays!!), guildInvite, voiceChannelId, guildId, localEvent, repeatableDays
             )
         }
     }
-    
+
     suspend fun diffuseEvent(guild: Guild): Boolean {
         var success = true
         if (!localEvent) {
-            guild.jda.guilds.forEach {
+            guild.jda.shardManager!!.guilds.forEach {
                 val isLocalGuild = guild == it
                 val result = sendEventMessage(it, isLocalGuild)
                 if (!result && isLocalGuild) success = false
@@ -186,9 +192,11 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
         
         var channelId = config.eventsChannels.firstOrNull { it.game == this.game }?.channelId
         
-        if (localGuild) channelId = channelId
-            ?: config.defaultEventsChannel
-                    ?: return false
+        if (localGuild) {
+            channelId = channelId
+                ?: config.defaultEventsChannel
+                        ?: return false
+        }
         
         val chanel = guild.channels.firstOrNull { it.idLong == channelId && it is MessageChannel }
             ?: return false
@@ -223,5 +231,40 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
             }
         }
         return true
+    }
+    
+    fun addParticipant(user: User, type: ParticipantType) {
+        transaction {
+            Participant.new {
+                this.user = user
+                this.type = type
+                this.matchmakingEvent = this@MatchmakingEvent
+            }
+        }
+    }
+    
+    fun removeParticipant(user: User) {
+        transaction {
+            this@MatchmakingEvent.participants.find { it.user.discordId == user.discordId }?.delete()
+        }
+    }
+    
+    suspend fun diffuseMessageUpdate(manager: ShardManager) {
+        this.sendedMessages.forEach {
+            val channel = manager.getTextChannelById(it.channelId)
+            if (channel != null) {
+                try {
+                    val message = channel.retrieveMessageById(it.messageId).await()
+                    message.editMessage(
+                        MessageEditBuilder.fromCreateData(
+                            makeEventMessage(
+                                channel.guild.locale, "https://discord.com/channels/${channel.guild.id}/${channel.id}"
+                            )
+                        ).build()
+                    ).queue()
+                } catch (e: Exception) {
+                }
+            }
+        }
     }
 }
