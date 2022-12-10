@@ -35,7 +35,7 @@ class CommandManager {
         filter: (U) -> String,
         action: (T) -> Unit
     ) {
-        val cmd = ICmd.cmd.filterIsInstance<T>().find { it.name.startsWith(filter.invoke(e)) }
+        val cmd = ICmd.cmd.filterIsInstance<T>().find { filter.invoke(e).startsWith(it.name) }
             ?: return
 
         if (!cmd.allowDM && !e.isFromGuild) {
@@ -135,7 +135,7 @@ class CommandManager {
                 )
             }
     
-            is ModalInteractionEvent -> execCmd<IModalCmd, ModalInteractionEvent>(event, { it.id }) { it.action(event) }
+            is ModalInteractionEvent -> execCmd<IModalCmd, ModalInteractionEvent>(event, { it.modalId }) { it.action(event) }
         }
     }
 }
