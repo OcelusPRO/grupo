@@ -1,4 +1,4 @@
-package fr.ftnl.grupo.core.commands.list
+package fr.ftnl.grupo.core.commands.list.slash
 
 import dev.minn.jda.ktx.messages.Embed
 import fr.ftnl.grupo.core.commands.ISlashCmd

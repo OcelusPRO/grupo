@@ -1,4 +1,4 @@
-package fr.ftnl.grupo.core.commands.list
+package fr.ftnl.grupo.core.commands.list.slash
 
 import fr.ftnl.grupo.core.commands.ISlashCmd
 import fr.ftnl.grupo.database.models.GamePlatform

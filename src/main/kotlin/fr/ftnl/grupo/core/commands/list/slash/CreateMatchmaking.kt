@@ -1,4 +1,4 @@
-package fr.ftnl.grupo.core.commands.list
+package fr.ftnl.grupo.core.commands.list.slash
 
 import dev.minn.jda.ktx.coroutines.await
 import dev.minn.jda.ktx.events.await
@@ -134,6 +134,7 @@ class CreateMatchmaking : ISlashCmd {
                         startDateTime = DateTime.parse(date.toInstant().toString()),
                         guildInvite = invite,
                         voiceChannelId = vc.id,
+                        guildId = event.guild!!.id,
                         localEvent = event.getOption("local")!!.asBoolean,
                         repeatableDays = event.getOption("repeat")?.asLong?.toInt()
                     )
