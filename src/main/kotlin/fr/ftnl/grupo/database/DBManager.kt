@@ -2,10 +2,7 @@ package fr.ftnl.grupo.database
 
 import fr.ftnl.grupo.CONFIG
 import fr.ftnl.grupo.config.Configuration
-import fr.ftnl.grupo.database.models.Games
-import fr.ftnl.grupo.database.models.MatchmakingEvents
-import fr.ftnl.grupo.database.models.Participants
-import fr.ftnl.grupo.database.models.Users
+import fr.ftnl.grupo.database.models.*
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -26,7 +23,15 @@ class DBManager(cfg: Configuration = CONFIG) {
         )
 
         transaction {
-            SchemaUtils.createMissingTablesAndColumns(Games, MatchmakingEvents, Participants, Users)
+            SchemaUtils.createMissingTablesAndColumns(
+                Games,
+                MatchmakingEvents,
+                Participants,
+                Users,
+                GuildConfigurations,
+                GuildEventsChannels,
+                SendedMessages,
+            )
         }
     }
 }

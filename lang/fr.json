@@ -20,6 +20,17 @@
                   "dateValue": "Sur le serveur : %s\nDans le salon vocal \u003c#%s\u003e\nle \u003ct:%s:f\u003e (\u003ct:%s:R\u003e)",
                   "local": "Cet évènement est %s"
                 }
+              },
+              "slash": {
+                "CreateMatchmaking": {
+                  "eventMessage": {
+                    "participants": "✅ - Participants (%d/%d)",
+                    "reserve": "❔ - En réserve (%d)",
+                    "date": "📅 - On se retrouve :",
+                    "dateValue": "Sur le serveur : %s\nDans le salon vocal \u003c#%s\u003e\nle \u003ct:%s:f\u003e (\u003ct:%s:R\u003e)",
+                    "local": "Cet évènement est %s"
+                  }
+                }
               }
             }
           }

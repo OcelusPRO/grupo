@@ -218,7 +218,13 @@ class MatchmakingEvent(id: EntityID<Int>) : IntEntity(id) {
                 "En réserve".toLang(
                     guild.locale, LangKey.keyBuilder(this, "eventMessage", "reserveButton")
                 )
-            ), Button.primary("MATCHMAKING_CONFIG::${this.id.value}", Emoji.fromUnicode("⚙️")), Button.danger("MATCHMAKING_CANCEL::${this.id.value}", Emoji.fromUnicode("🗑️"))
+            ), Button.primary(
+                "MATCHMAKING_CONFIG::${this.id.value}", Emoji.fromUnicode("⚙️")
+            ).asDisabled(),
+    
+            Button.danger(
+                "MATCHMAKING_CANCEL::${this.id.value}", Emoji.fromUnicode("🗑️")
+            )
         ).queue {
             val event = this@MatchmakingEvent
             transaction {
