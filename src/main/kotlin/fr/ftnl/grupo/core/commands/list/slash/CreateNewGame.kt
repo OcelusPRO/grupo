@@ -32,7 +32,7 @@ class CreateNewGame : ISlashCmd {
     override val localizedNames: Map<DiscordLocale, String>
         get() = mapOf()
     override val name: String
-        get() = "add-game"
+        get() = "add-game-db"
     override val userPermissions: List<Permission>
         get() = listOf(Permission.ADMINISTRATOR)
     override val allowDM: Boolean
