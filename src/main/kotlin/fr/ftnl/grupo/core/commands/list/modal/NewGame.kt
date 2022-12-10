@@ -39,10 +39,9 @@ class NewGame : IModalCmd {
         val platformeName = event.modalId.split("::")[1]
         val gamePlayers = event.modalId.split("::")[2].toInt()
         
-        val gamePlatform = GamePlatform.getByValue(event.getValue("platform")!!.asString)
-        
+        val gamePlatform = GamePlatform.getByValue(platformeName)
+    
         transaction {
-            
             Game.new {
                 name = gameName
                 description = gameDescription
@@ -52,10 +51,12 @@ class NewGame : IModalCmd {
                 platform = gamePlatform
             }
         }
+    
+        event.reply("Le jeu a bien été ajouté").setEphemeral(true).queue()
     }
     
     override val name: String
-        get() = modal.id
+        get() = "NEW_GAME_MODAL::"
     override val userPermissions: List<Permission>
         get() = listOf(Permission.ADMINISTRATOR)
     override val allowDM: Boolean

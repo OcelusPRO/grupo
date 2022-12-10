@@ -128,7 +128,7 @@ class CreateMatchmaking : ISlashCmd {
             }
             when (e.componentId.split("-")[0]) {
                 "confirm" -> {
-                    MatchmakingEvent.createEvent(
+                    val newEventId = MatchmakingEvent.createEvent(
                         game = game,
                         message = event.getOption("message")!!.asString,
                         startDateTime = DateTime.parse(date.toInstant().toString()),
@@ -138,14 +138,21 @@ class CreateMatchmaking : ISlashCmd {
                         localEvent = event.getOption("local")!!.asBoolean,
                         repeatableDays = event.getOption("repeat")?.asLong?.toInt()
                     )
-                    e.editMessage("Votre évènement a été enregistré !").setSuppressEmbeds(true).setComponents().queue()
+                    val newEvent = MatchmakingEvent.cache.get(newEventId.id.value)
+                    if (newEvent?.diffuseEvent(event.guild!!) != true) {
+                        e.editMessage(
+                            "Aucun salon de diffusion n'a été trouvé sur ce serveur !".toLang(
+                                event.userLocale, LangKey.keyBuilder(this, "action", "event_diffusion_failed")
+                            )
+                        ).queue()
+                    } else e.editMessage("Votre évènement a été enregistré !").setSuppressEmbeds(true).setComponents().queue()
                 }
     
                 "cancel"  -> {
                     e.editMessage("Votre évènement a été annulé !").setSuppressEmbeds(true).setComponents().queue()
                 }
             }
-        }
+        } as? MatchmakingEvent
             ?: reply.editOriginal("Le temps est écoulé, votre évènement a été annulé !").setSuppressEmbeds(true).setComponents().queue()
     }
     

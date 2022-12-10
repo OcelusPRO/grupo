@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="✨ Introduce new features. -- Channels configuration">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/modal/NewGame.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/CreateNewGame.kt" afterDir="false" />
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="✨ Introduce new features. -- Add game command">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Games.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Games.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/lang/fr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/CommandManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/CommandManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/modal/NewGame.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/modal/NewGame.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/CreateMatchmaking.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/CreateMatchmaking.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/CreateNewGame.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/CreateNewGame.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/DBManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/DBManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,14 +283,7 @@
       <workItem from="1670401179331" duration="99000" />
       <workItem from="1670401308676" duration="9933000" />
       <workItem from="1670487506947" duration="11103000" />
-      <workItem from="1670662038211" duration="8688000" />
-    </task>
-    <task id="LOCAL-00004" summary="➕ Add project dependency's.">
-      <created>1669808593873</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1669808593873</updated>
+      <workItem from="1670662038211" duration="12399000" />
     </task>
     <task id="LOCAL-00005" summary=":wrench: Add logger configuration file">
       <created>1669808722719</created>
@@ -624,7 +621,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670686768098</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="✨ Introduce new features. -- Add game command">
+      <created>1670688196189</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1670688196189</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -646,7 +650,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="️ DAO. -- Création des schémas" />
     <MESSAGE value="♻️ Reformat code. -- by detekt and IDE" />
     <MESSAGE value="✨ Introduce new features. -- Profile utilisateurs" />
     <MESSAGE value="♻️ Reformat code." />
@@ -671,10 +674,32 @@
     <MESSAGE value="✨ Introduce new features. -- Add, Remove and update event participants" />
     <MESSAGE value="✨ Introduce new features. -- Delete event button" />
     <MESSAGE value="✨ Introduce new features. -- Channels configuration" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ Introduce new features. -- Channels configuration" />
+    <MESSAGE value="✨ Introduce new features. -- Add game command" />
+    <option name="LAST_COMMIT_MESSAGE" value="✨ Introduce new features. -- Add game command" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/CreateNewGame.kt</url>
+          <line>24</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/modal/NewGame.kt</url>
+          <line>33</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="fr.ftnl.grupo.core.commands.list.modal.NewGame" memberName="modal" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
