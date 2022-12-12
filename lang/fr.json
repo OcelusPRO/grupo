@@ -30,10 +30,47 @@
                     "dateValue": "Sur le serveur : %s\nDans le salon vocal \u003c#%s\u003e\nle \u003ct:%s:f\u003e (\u003ct:%s:R\u003e)",
                     "local": "Cet évènement est %s"
                   }
+                },
+                "DefaultEventChannel": {
+                  "action": {
+                    "defaultChannelSet": "Le salon par défaut pour les événements est maintenant \u003c#1047993031468519508\u003e"
+                  }
+                }
+              },
+              "buttons": {
+                "JoinEvent": {
+                  "action": {
+                    "joinEvent": "Vous êtes maintenant un participant de l\u0027événement !"
+                  }
                 }
               }
             }
           }
+        },
+        "database": {
+          "mediator": {
+            "MatchmakingEventMediator": {
+              "eventMessage": {
+                "participants": "✅ - Participants (%d/%d)",
+                "reserve": "❔ - En réserve (%d)",
+                "date": "📅 - On se retrouve :",
+                "dateValue": "Sur le serveur : %s\nDans le salon vocal \u003c#%s\u003e\nle \u003ct:%s:f\u003e (\u003ct:%s:R\u003e)",
+                "local": "Cet évènement est %s",
+                "localValue": "local",
+                "joinButton": "Participer",
+                "reserveButton": "En réserve"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "kotlinx": {
+    "coroutines": {
+      "TimeoutCoroutine": {
+        "action": {
+          "event_diffusion_failed": "Aucun salon de diffusion n\u0027a été trouvé sur ce serveur !"
         }
       }
     }

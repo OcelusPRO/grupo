@@ -9,7 +9,7 @@ import org.jetbrains.exposed.sql.jodatime.CurrentDateTime
 import org.jetbrains.exposed.sql.jodatime.datetime
 import org.joda.time.DateTime
 
-object GuildEventsChannels : IntIdTable("guild_events_channel") {
+object GuildEventsChannels : IntIdTable("TBJ_GUILDEVENTCHANNEL_GLD_GME") {
     val guild: Column<EntityID<Int>> = reference("guild", GuildConfigurations)
     val game: Column<EntityID<Int>> = reference("game", Games)
     
@@ -20,15 +20,7 @@ object GuildEventsChannels : IntIdTable("guild_events_channel") {
 
 class GuildEventsChannel(id: EntityID<Int>) : IntEntity(id) {
     
-    companion object : IntEntityClass<GuildEventsChannel>(GuildEventsChannels) {
-        fun createChannelEvent(guild: GuildConfiguration, game: Game, channelId: Long) {
-            GuildEventsChannel.new {
-                this.guild = guild
-                this.game = game
-                this.channelId = channelId
-            }
-        }
-    }
+    companion object : IntEntityClass<GuildEventsChannel>(GuildEventsChannels)
     
     var guild by GuildConfiguration referencedOn GuildEventsChannels.guild
     var game by Game referencedOn GuildEventsChannels.game

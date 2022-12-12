@@ -1,24 +1,27 @@
 package fr.ftnl.grupo.core.commands.list.buttons
 
 import fr.ftnl.grupo.core.commands.IButtonCmd
-import fr.ftnl.grupo.database.models.MatchmakingEvent
+import fr.ftnl.grupo.database.mediator.MatchmakingEventMediator
+import fr.ftnl.grupo.database.mediator.ParticipantsMediator
+import fr.ftnl.grupo.database.mediator.UsersMediator
 import fr.ftnl.grupo.database.models.ParticipantType
-import fr.ftnl.grupo.database.models.User
 import fr.ftnl.grupo.extentions.toLang
 import fr.ftnl.grupo.lang.LangKey
 import net.dv8tion.jda.api.Permission
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent
+import org.jetbrains.exposed.sql.transactions.transaction
 
 class JoinEvent : IButtonCmd {
     override suspend fun action(event: ButtonInteractionEvent) {
         val eventId = event.componentId.split("::")[1].toInt()
-        val mEvent = MatchmakingEvent.cache.get(eventId)
+        val mEvent = MatchmakingEventMediator.cache.get(eventId)
             ?: return event.reply("L'événement n'existe plus").setEphemeral(true).queue()
-        val user = User.getUserByDiscordId(event.user.idLong, event.user.asTag)
-        val participation = mEvent.participants.find { it.user == user }
+        val user = UsersMediator.getUserByDiscordId(event.user.idLong, event.user.asTag)
+        val participants = MatchmakingEventMediator.getEventParticipants(mEvent)
+        val participation = participants.find { transaction { it.user } == user }
         when (participation?.type) {
             ParticipantType.WAITING     -> {
-                participation.editParticipantType(ParticipantType.PARTICIPANT)
+                ParticipantsMediator.editParticipantType(participation, ParticipantType.PARTICIPANT)
                 event.reply(
                     "Vous êtes maintenant un participant de l'événement !".toLang(
                         event.userLocale, LangKey.keyBuilder(this, "action", "typeChange")
@@ -27,7 +30,7 @@ class JoinEvent : IButtonCmd {
             }
             
             ParticipantType.PARTICIPANT -> {
-                mEvent.removeParticipant(user)
+                MatchmakingEventMediator.removeParticipant(user, mEvent)
                 event.reply(
                     "Vous avez quitté l'événement !".toLang(
                         event.userLocale, LangKey.keyBuilder(this, "action", "leaveEvent")
@@ -36,8 +39,8 @@ class JoinEvent : IButtonCmd {
             }
             
             null                        -> {
-                val count = mEvent.participants.count()
-                val gameMax = mEvent.game.players
+                val count = participants.size
+                val gameMax = transaction { mEvent.game.players }
                 if (count >= gameMax) {
                     event.reply(
                         "L'événement est complet !\n*Envisagez de vous inscrire en file d'attente !*".toLang(
@@ -45,7 +48,7 @@ class JoinEvent : IButtonCmd {
                         )
                     ).setEphemeral(true).queue()
                 } else {
-                    mEvent.addParticipant(user, ParticipantType.PARTICIPANT)
+                    MatchmakingEventMediator.addParticipant(user, ParticipantType.PARTICIPANT, mEvent)
                     event.reply(
                         "Vous êtes maintenant un participant de l'événement !".toLang(
                             event.userLocale, LangKey.keyBuilder(this, "action", "joinEvent")
@@ -54,8 +57,8 @@ class JoinEvent : IButtonCmd {
                 }
             }
         }
-        
-        mEvent.diffuseMessageUpdate(event.jda.shardManager!!)
+    
+        MatchmakingEventMediator.diffuseMessageUpdate(event.jda.shardManager!!, mEvent)
     }
     
     override val name: String

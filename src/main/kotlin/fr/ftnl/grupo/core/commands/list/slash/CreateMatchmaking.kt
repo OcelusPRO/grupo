@@ -4,10 +4,13 @@ import dev.minn.jda.ktx.coroutines.await
 import dev.minn.jda.ktx.events.await
 import dev.minn.jda.ktx.messages.MessageCreateBuilder
 import fr.ftnl.grupo.core.commands.ISlashCmd
+import fr.ftnl.grupo.database.mediator.MatchmakingEventMediator
 import fr.ftnl.grupo.database.models.Game
 import fr.ftnl.grupo.database.models.MatchmakingEvent
 import fr.ftnl.grupo.extentions.toLang
 import fr.ftnl.grupo.lang.LangKey
+import fr.ftnl.grupo.objects.EventGuildInfo
+import fr.ftnl.grupo.objects.EventTimeInfo
 import kotlinx.coroutines.withTimeoutOrNull
 import net.dv8tion.jda.api.Permission
 import net.dv8tion.jda.api.entities.Guild
@@ -128,28 +131,32 @@ class CreateMatchmaking : ISlashCmd {
             }
             when (e.componentId.split("-")[0]) {
                 "confirm" -> {
-                    val newEventId = MatchmakingEvent.createEvent(
-                        game = game,
-                        message = event.getOption("message")!!.asString,
-                        startDateTime = DateTime.parse(date.toInstant().toString()),
-                        guildInvite = invite,
-                        voiceChannelId = vc.id,
-                        guildId = event.guild!!.id,
-                        localEvent = event.getOption("local")!!.asBoolean,
-                        repeatableDays = event.getOption("repeat")?.asLong?.toInt()
+                    val newEventId = MatchmakingEventMediator.createEvent(
+                        game = game, message = event.getOption("message")!!.asString, localEvent = event.getOption("local")!!.asBoolean, guildInfo = EventGuildInfo(
+                            guildId = event.guild!!.idLong, guildInvite = invite, voiceChannelId = vc.idLong
+                        ), timeInfo = EventTimeInfo(
+                            startDateTime = DateTime.parse(date.toInstant().toString()), repeatableDays = event.getOption("repeat")?.asLong?.toInt()
+                        )
                     )
-                    val newEvent = MatchmakingEvent.cache.get(newEventId.id.value)
-                    if (newEvent?.diffuseEvent(event.guild!!) != true) {
+                    val newEvent = MatchmakingEventMediator.cache.get(newEventId.id.value)
+                    if (!MatchmakingEventMediator.diffuseEvent(event.guild!!, newEventId.id.value)) {
                         e.editMessage(
                             "Aucun salon de diffusion n'a été trouvé sur ce serveur !".toLang(
                                 event.userLocale, LangKey.keyBuilder(this, "action", "event_diffusion_failed")
                             )
                         ).queue()
-                    } else e.editMessage("Votre évènement a été enregistré !").setSuppressEmbeds(true).setComponents().queue()
+                    } else {
+                        e.editMessage("Votre évènement a été enregistré !").setSuppressEmbeds(true).setComponents().queue()
+                        return@withTimeoutOrNull newEvent
+                    }
                 }
     
                 "cancel"  -> {
                     e.editMessage("Votre évènement a été annulé !").setSuppressEmbeds(true).setComponents().queue()
+                }
+    
+                else      -> {
+                    null
                 }
             }
         } as? MatchmakingEvent
@@ -166,12 +173,12 @@ class CreateMatchmaking : ISlashCmd {
     override suspend fun action(event: CommandAutoCompleteInteractionEvent) {
         transaction {
             val games = Game.all()
+            println(games.count())
             val filteredGames = games.filter {
                 it.name.lowercase().contains(event.focusedOption.value.lowercase())
-            }.chunked(25).first()
-            val choices = filteredGames.map { Command.Choice(it.name, it.id.value.toString()) }
-            println(choices)
-            event.replyChoices(choices).queue()
+            }.chunked(25).firstOrNull()
+            val choices = filteredGames?.map { Command.Choice(it.name, it.id.value.toString()) }
+            if (choices != null) event.replyChoices(choices).queue()
         }
     }
     

@@ -9,7 +9,7 @@ import org.jetbrains.exposed.sql.jodatime.CurrentDateTime
 import org.jetbrains.exposed.sql.jodatime.datetime
 import org.joda.time.DateTime
 
-object Games : IntIdTable("games") {
+object Games : IntIdTable("TBL_GAME_GME") {
     val name: Column<String> = varchar("name", 255)
     val description: Column<String> = text("description")
     val image: Column<String> = text("image")

@@ -1,9 +1,9 @@
 package fr.ftnl.grupo.core.commands.list.slash
 
 import fr.ftnl.grupo.core.commands.ISlashCmd
+import fr.ftnl.grupo.database.mediator.GuildConfigurationMediator
+import fr.ftnl.grupo.database.mediator.GuildEventsChannelMediator
 import fr.ftnl.grupo.database.models.Game
-import fr.ftnl.grupo.database.models.GuildConfiguration
-import fr.ftnl.grupo.database.models.GuildEventsChannel
 import fr.ftnl.grupo.extentions.toLang
 import fr.ftnl.grupo.lang.LangKey
 import net.dv8tion.jda.api.Permission
@@ -26,19 +26,19 @@ class ChannelConfig : ISlashCmd {
         )
     
     override suspend fun action(event: SlashCommandInteractionEvent) {
-        val guildConfig = GuildConfiguration.findGuildConfiguration(event.guild!!.idLong)
+        val guildConfig = GuildConfigurationMediator.findGuildConfiguration(event.guild!!.idLong)
         val gameValue = event.getOption("game")!!.asString
         val game = transaction {
             Game.findById(event.getOption("game")!!.asString.toInt())!!
         }
-        
-        GuildEventsChannel.createChannelEvent(guildConfig, game, event.channel.idLong)
+    
+        GuildEventsChannelMediator.createChannelEvent(guildConfig, game, event.channel.idLong)
         event.reply(
             "Le salon %s est maintenant configuré pour afficher les événements de `%s`".toLang(
-                    event.userLocale, LangKey.keyBuilder(this, "action", "channelSet")
-                ).format(
-                    event.channel.asMention, game.name
-                )
+                event.userLocale, LangKey.keyBuilder(this, "action", "channelSet")
+            ).format(
+                event.channel.asMention, game.name
+            )
         ).setEphemeral(true).queue()
     }
     

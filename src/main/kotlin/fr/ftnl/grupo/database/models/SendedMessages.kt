@@ -9,7 +9,7 @@ import org.jetbrains.exposed.sql.jodatime.CurrentDateTime
 import org.jetbrains.exposed.sql.jodatime.datetime
 import org.joda.time.DateTime
 
-object SendedMessages : IntIdTable("sent_messages") {
+object SendedMessages : IntIdTable("TBL_SENDEDMESSAGES_SMS") {
     val matchmakingEvent: Column<EntityID<Int>> = reference("matchmaking_event", MatchmakingEvents)
     val messageId: Column<Long> = long("message_id")
     val channelId: Column<Long> = long("channel_id")

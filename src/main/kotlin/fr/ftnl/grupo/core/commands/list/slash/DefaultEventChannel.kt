@@ -1,7 +1,7 @@
 package fr.ftnl.grupo.core.commands.list.slash
 
 import fr.ftnl.grupo.core.commands.ISlashCmd
-import fr.ftnl.grupo.database.models.GuildConfiguration
+import fr.ftnl.grupo.database.mediator.GuildConfigurationMediator
 import fr.ftnl.grupo.extentions.toLang
 import fr.ftnl.grupo.lang.LangKey
 import net.dv8tion.jda.api.Permission
@@ -18,12 +18,11 @@ class DefaultEventChannel : ISlashCmd {
         get() = listOf()
     
     override suspend fun action(event: SlashCommandInteractionEvent) {
-        val guildConfig = GuildConfiguration.findGuildConfiguration(event.guild!!.idLong)
-        guildConfig.setDefaultEventChannel(event.channel.idLong)
+        GuildConfigurationMediator.setDefaultEventChannel(event.guild!!.idLong, event.channel.idLong)
         event.reply(
             "Le salon par défaut pour les événements est maintenant ${event.channel.asMention}".toLang(
-                    event.userLocale, LangKey.keyBuilder(this, "action", "defaultChannelSet")
-                )
+                event.userLocale, LangKey.keyBuilder(this, "action", "defaultChannelSet")
+            )
         ).setEphemeral(true).queue()
     }
     

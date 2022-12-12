@@ -1,8 +1,8 @@
 package fr.ftnl.grupo.core.commands.list.slash
 
 import fr.ftnl.grupo.core.commands.ISlashCmd
+import fr.ftnl.grupo.database.mediator.UsersMediator
 import fr.ftnl.grupo.database.models.GamePlatform
-import fr.ftnl.grupo.database.models.User
 import net.dv8tion.jda.api.Permission
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.interactions.DiscordLocale
@@ -26,8 +26,8 @@ class AddGameTag : ISlashCmd {
     override suspend fun action(event: SlashCommandInteractionEvent) {
         val platform = GamePlatform.getByValue(event.getOption("platform")?.asString!!)
         val tag = event.getOption("tag")?.asString!!
-        
-        val user = User.getUserByDiscordId(event.user.idLong, event.user.asTag)
+    
+        val user = UsersMediator.getUserByDiscordId(event.user.idLong, event.user.asTag)
         when (platform) {
             GamePlatform.PC_STEAM      -> transaction { user.steamGameTag = tag }
             GamePlatform.PC_ORIGIN     -> transaction { user.originGameTag = tag }

@@ -2,7 +2,7 @@ package fr.ftnl.grupo.core.commands.list.slash
 
 import dev.minn.jda.ktx.messages.Embed
 import fr.ftnl.grupo.core.commands.ISlashCmd
-import fr.ftnl.grupo.database.models.User
+import fr.ftnl.grupo.database.mediator.UsersMediator
 import net.dv8tion.jda.api.Permission
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.interactions.DiscordLocale
@@ -17,7 +17,7 @@ class MyProfile : ISlashCmd {
         get() = listOf()
 
     override suspend fun action(event: SlashCommandInteractionEvent) {
-        val user = User.getUserByDiscordId(event.user.idLong, event.user.asTag)
+        val user = UsersMediator.getUserByDiscordId(event.user.idLong, event.user.asTag)
         val embed = Embed {
             title = "Profile de ${event.user.asTag}"
             description = "Voici votre profile"
