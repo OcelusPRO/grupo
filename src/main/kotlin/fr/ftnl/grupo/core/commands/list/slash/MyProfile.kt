@@ -21,10 +21,10 @@ class MyProfile : ISlashCmd {
         val embed = Embed {
             title = "Profile de ${event.user.asTag}"
             description = "Voici votre profile"
-            user.getGameTagMap().forEach {
+            UsersMediator.getUserPlateformes(user).forEach {
                 field {
-                    name = it.key
-                    value = "|** **%-25s** **|".format("`" + it.value + "`")
+                    name = it.plateforme.showName
+                    value = "|** **%-25s** **|".format("`" + it.gametag + "`")
                 }
             }
         }

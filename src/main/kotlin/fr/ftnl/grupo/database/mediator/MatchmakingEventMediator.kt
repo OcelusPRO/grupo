@@ -22,7 +22,7 @@ import kotlin.time.Duration.Companion.minutes
 
 object MatchmakingEventMediator {
     val cache = Cache.Builder().expireAfterWrite(30.minutes).build<Int, MatchmakingEvent>()
-    
+
     fun createEvent(
         game: Game, message: String, localEvent: Boolean, guildInfo: EventGuildInfo, timeInfo: EventTimeInfo
     ): MatchmakingEvent {
@@ -41,7 +41,7 @@ object MatchmakingEventMediator {
         cache.put(event.id.value, event)
         return event
     }
-    
+
     fun updateCache() {
         cache.invalidateAll()
         transaction {
@@ -50,18 +50,17 @@ object MatchmakingEventMediator {
             }
         }
     }
-    
+
     /*
     *
     *
     *
     * */
-    
+
     fun getEventParticipants(event: MatchmakingEvent) = transaction { event.participants.toList() }
-    
-    
+
     private fun getMatchmakingEvent(id: Int) = cache.get(id)
-    
+
     suspend fun diffuseEvent(guild: Guild, eventId: Int): Boolean {
         val event = getMatchmakingEvent(eventId)
             ?: return false
@@ -77,26 +76,16 @@ object MatchmakingEventMediator {
         }
         return success
     }
-    
+
     private fun getParticipantsByType(type: ParticipantType, event: MatchmakingEvent): List<Participant> {
         return transaction { event.participants.filter { it.type == type } }
     }
-    
+
     private fun getParticipantsPlatformName(participant: Participant, game: Game): String {
-        return when (game.platform) {
-            GamePlatform.PC_EPIC       -> participant.user.epicGameTag
-            GamePlatform.PC_STEAM      -> participant.user.steamGameTag
-            GamePlatform.PS4           -> participant.user.psnGameTag
-            GamePlatform.XBOX          -> participant.user.xboxGameTag
-            GamePlatform.PC_BATTLE_NET -> participant.user.battleNetGameTag
-            GamePlatform.PC_ORIGIN     -> participant.user.originGameTag
-            GamePlatform.PC_UBISOFT    -> participant.user.ubisoftGameTag
-            GamePlatform.SWITCH        -> participant.user.switchGameTag
-            else                       -> null
-        }
+        return UsersMediator.getUserPlateformes(participant.user).find { it.plateforme == game.platform }?.gametag
             ?: participant.user.discordUsername
     }
-    
+
     fun makeEventMessage(locale: DiscordLocale, channelLink: String, event: MatchmakingEvent): MessageCreateData {
         val active = getParticipantsByType(ParticipantType.PARTICIPANT, event)
         val waiting = getParticipantsByType(ParticipantType.WAITING, event)
@@ -240,7 +229,7 @@ object MatchmakingEventMediator {
             ), Button.primary(
                 "MATCHMAKING_CONFIG::${event.id.value}", Emoji.fromUnicode("⚙️")
             ).asDisabled(),
-            
+    
             Button.danger(
                 "MATCHMAKING_CANCEL::${event.id.value}", Emoji.fromUnicode("🗑️")
             )

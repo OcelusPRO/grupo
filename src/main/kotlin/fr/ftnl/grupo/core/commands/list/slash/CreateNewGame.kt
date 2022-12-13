@@ -2,7 +2,7 @@ package fr.ftnl.grupo.core.commands.list.slash
 
 import fr.ftnl.grupo.core.commands.ISlashCmd
 import fr.ftnl.grupo.core.commands.list.modal.NewGame
-import fr.ftnl.grupo.database.models.GamePlatform
+import fr.ftnl.grupo.database.mediator.GamePlateformeMediator
 import net.dv8tion.jda.api.Permission
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.interactions.DiscordLocale
@@ -17,7 +17,7 @@ class CreateNewGame : ISlashCmd {
         get() = mapOf()
     override val options: List<OptionData>
         get() = listOf(
-            OptionData(OptionType.STRING, "plateforme", "Sur quel plateforme est le jeu", true).addChoices(GamePlatform.values().map { Command.Choice(it.showValue, it.value) }),
+            OptionData(OptionType.STRING, "plateforme", "Sur quel plateforme est le jeu", true).addChoices(GamePlateformeMediator.allPlateformes().map { Command.Choice(it.showName, it.name) }),
             OptionData(OptionType.INTEGER, "nombre-de-joueurs", "Combien de joueurs sont nécessaire pour jouer", true),
         )
     

@@ -25,12 +25,14 @@ class DBManager(cfg: Configuration = CONFIG) {
         transaction {
             SchemaUtils.createMissingTablesAndColumns(
                 Games,
+                GamePlateformes,
                 MatchmakingEvents,
                 Participants,
                 Users,
                 GuildConfigurations,
                 GuildEventsChannels,
                 SendedMessages,
+                UserGametags,
             )
         }
     }

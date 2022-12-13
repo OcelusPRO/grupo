@@ -24,4 +24,6 @@ object UsersMediator {
         cache.put(id, NullableObject(final))
         return final
     }
+    
+    fun getUserPlateformes(user: User) = transaction { user.gametags.toList() }
 }

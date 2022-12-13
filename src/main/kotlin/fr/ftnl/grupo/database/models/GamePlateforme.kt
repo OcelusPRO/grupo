@@ -9,20 +9,19 @@ import org.jetbrains.exposed.sql.jodatime.CurrentDateTime
 import org.jetbrains.exposed.sql.jodatime.datetime
 import org.joda.time.DateTime
 
-object Users : IntIdTable("TBL_USER_USR") {
-    val discordId: Column<Long> = long("discord_id")
-    val discordUsername: Column<String> = varchar("discord_username", 40)
+object GamePlateformes : IntIdTable("TBL_GAMEPLATEFORME_GMP") {
+    val name: Column<String> = varchar("name", 20)
+    val showName: Column<String> = varchar("show_name", 50)
     
     val createdAt: Column<DateTime> = datetime("created_at").defaultExpression(CurrentDateTime)
 }
 
-class User(id: EntityID<Int>) : IntEntity(id) {
-    companion object : IntEntityClass<User>(Users)
+class GamePlateforme(id: EntityID<Int>) : IntEntity(id) {
     
-    var discordId by Users.discordId
-    var discordUsername by Users.discordUsername
+    companion object : IntEntityClass<GamePlateforme>(GamePlateformes)
     
-    val gametags by UserGametag referrersOn UserGametags.user
+    var name by GamePlateformes.name
+    var showName by GamePlateformes.showName
     
-    val createdAt by Users.createdAt
+    val createdAt by GamePlateformes.createdAt
 }

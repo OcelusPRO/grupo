@@ -4,34 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="♻️ Reformat code. -- add user reply">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/mediator/GameMediator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/mediator/GuildConfigurationMediator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/mediator/GuildEventsChannelMediator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/mediator/MatchmakingEventMediator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/mediator/ParticipantsMediator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/mediator/SendedMessagesMediator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/mediator/UsersMediator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/objects/EventGuildInfo.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/objects/EventTimeInfo.kt" afterDir="false" />
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="♻️ Refactor code. -- global refactor">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/mediator/GamePlateformeMediator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/mediator/UserGametagsMediator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/GamePlateforme.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/UserGametags.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lang/fr.json" beforeDir="false" afterPath="$PROJECT_DIR$/lang/fr.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/buttons/ConfigEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/buttons/ConfigEvent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/buttons/DeleteEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/buttons/DeleteEvent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/buttons/JoinEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/buttons/JoinEvent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/buttons/WaitingEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/buttons/WaitingEvent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/modal/NewGame.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/modal/NewGame.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/AddGameTag.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/AddGameTag.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/ChannelConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/ChannelConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/CreateMatchmaking.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/CreateMatchmaking.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/DefaultEventChannel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/DefaultEventChannel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/CreateNewGame.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/CreateNewGame.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/MyProfile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/core/commands/list/slash/MyProfile.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/DBManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/DBManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/mediator/MatchmakingEventMediator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/mediator/MatchmakingEventMediator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/mediator/UsersMediator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/mediator/UsersMediator.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Games.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Games.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/GuildConfiguration.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/GuildConfiguration.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/GuildEventsChannel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/GuildEventsChannel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/MatchmakingEvent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Participants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Participants.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/SendedMessages.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/SendedMessages.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Users.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/Users.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,9 +69,9 @@
       <list>
         <option value="Kotlin Interface" />
         <option value="Kotlin Data Class" />
-        <option value="Kotlin Class" />
-        <option value="Kotlin Object" />
         <option value="Kotlin File" />
+        <option value="Kotlin Object" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -305,14 +291,7 @@
       <workItem from="1670487506947" duration="11103000" />
       <workItem from="1670662038211" duration="12399000" />
       <workItem from="1670775867604" duration="9840000" />
-      <workItem from="1670865432464" duration="6342000" />
-    </task>
-    <task id="LOCAL-00005" summary=":wrench: Add logger configuration file">
-      <created>1669808722719</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1669808722719</updated>
+      <workItem from="1670865432464" duration="10651000" />
     </task>
     <task id="LOCAL-00006" summary="✨ Introduce new features -- GSON serialization">
       <created>1669809265959</created>
@@ -650,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670688196189</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="♻️ Refactor code. -- global refactor">
+      <created>1670876465751</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1670876465753</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -672,7 +658,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="♻️ Reformat code. -- by detekt and IDE" />
     <MESSAGE value="✨ Introduce new features. -- Profile utilisateurs" />
     <MESSAGE value="♻️ Reformat code." />
     <MESSAGE value=":triangular_flag_on_post: Ajout du type de participation dans les participants" />
@@ -697,7 +682,8 @@
     <MESSAGE value="✨ Introduce new features. -- Delete event button" />
     <MESSAGE value="✨ Introduce new features. -- Channels configuration" />
     <MESSAGE value="✨ Introduce new features. -- Add game command" />
-    <option name="LAST_COMMIT_MESSAGE" value="✨ Introduce new features. -- Add game command" />
+    <MESSAGE value="♻️ Refactor code. -- global refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="♻️ Refactor code. -- global refactor" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

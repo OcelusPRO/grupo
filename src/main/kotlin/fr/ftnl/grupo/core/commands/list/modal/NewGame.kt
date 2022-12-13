@@ -2,8 +2,8 @@ package fr.ftnl.grupo.core.commands.list.modal
 
 import dev.minn.jda.ktx.interactions.components.TextInputBuilder
 import fr.ftnl.grupo.core.commands.IModalCmd
+import fr.ftnl.grupo.database.mediator.GamePlateformeMediator
 import fr.ftnl.grupo.database.models.Game
-import fr.ftnl.grupo.database.models.GamePlatform
 import net.dv8tion.jda.api.Permission
 import net.dv8tion.jda.api.events.interaction.ModalInteractionEvent
 import net.dv8tion.jda.api.interactions.components.text.TextInputStyle
@@ -35,11 +35,12 @@ class NewGame : IModalCmd {
         val gameDescription = event.getValue("description")!!.asString
         val gameImage = event.getValue("image")!!.asString
         val gameUrl = event.getValue("url")!!.asString
-        
+    
         val platformeName = event.modalId.split("::")[1]
         val gamePlayers = event.modalId.split("::")[2].toInt()
-        
-        val gamePlatform = GamePlatform.getByValue(platformeName)
+    
+        val gamePlatform = GamePlateformeMediator.findByName(platformeName)
+            ?: return event.reply("Cette plateforme n'existe pas").setEphemeral(true).queue()
     
         transaction {
             Game.new {
