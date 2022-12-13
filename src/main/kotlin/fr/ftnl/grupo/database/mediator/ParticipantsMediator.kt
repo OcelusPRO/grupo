@@ -1,7 +1,7 @@
 package fr.ftnl.grupo.database.mediator
 
-import fr.ftnl.grupo.database.models.Participant
-import fr.ftnl.grupo.database.models.ParticipantType
+import fr.ftnl.grupo.database.models.tbj.Participant
+import fr.ftnl.grupo.database.models.tbj.ParticipantType
 import org.jetbrains.exposed.sql.transactions.transaction
 
 object ParticipantsMediator {

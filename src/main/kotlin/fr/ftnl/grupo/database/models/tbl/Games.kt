@@ -1,4 +1,4 @@
-package fr.ftnl.grupo.database.models
+package fr.ftnl.grupo.database.models.tbl
 
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
@@ -9,7 +9,7 @@ import org.jetbrains.exposed.sql.jodatime.CurrentDateTime
 import org.jetbrains.exposed.sql.jodatime.datetime
 import org.joda.time.DateTime
 
-object Games : IntIdTable("TBL_GAME_GME") {
+object Games : IntIdTable("TBL_GAMES_GME") {
     val name: Column<String> = varchar("name", 255)
     val description: Column<String> = text("description")
     val image: Column<String> = text("image")

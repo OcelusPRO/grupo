@@ -3,7 +3,7 @@ package fr.ftnl.grupo.core.commands.list.modal
 import dev.minn.jda.ktx.interactions.components.TextInputBuilder
 import fr.ftnl.grupo.core.commands.IModalCmd
 import fr.ftnl.grupo.database.mediator.GamePlateformeMediator
-import fr.ftnl.grupo.database.models.Game
+import fr.ftnl.grupo.database.models.tbl.Game
 import net.dv8tion.jda.api.Permission
 import net.dv8tion.jda.api.events.interaction.ModalInteractionEvent
 import net.dv8tion.jda.api.interactions.components.text.TextInputStyle

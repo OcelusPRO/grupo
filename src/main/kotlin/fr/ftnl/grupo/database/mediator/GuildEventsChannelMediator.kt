@@ -1,8 +1,8 @@
 package fr.ftnl.grupo.database.mediator
 
-import fr.ftnl.grupo.database.models.Game
-import fr.ftnl.grupo.database.models.GuildConfiguration
-import fr.ftnl.grupo.database.models.GuildEventsChannel
+import fr.ftnl.grupo.database.models.tbj.GuildEventsChannel
+import fr.ftnl.grupo.database.models.tbl.Game
+import fr.ftnl.grupo.database.models.tbl.GuildConfiguration
 
 object GuildEventsChannelMediator {
     fun createChannelEvent(guild: GuildConfiguration, game: Game, channelId: Long) {

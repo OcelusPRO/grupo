@@ -2,7 +2,9 @@ package fr.ftnl.grupo.database.mediator
 
 import dev.minn.jda.ktx.coroutines.await
 import dev.minn.jda.ktx.messages.MessageCreate
-import fr.ftnl.grupo.database.models.*
+import fr.ftnl.grupo.database.models.tbj.Participant
+import fr.ftnl.grupo.database.models.tbj.ParticipantType
+import fr.ftnl.grupo.database.models.tbl.*
 import fr.ftnl.grupo.extentions.toLang
 import fr.ftnl.grupo.lang.LangKey
 import fr.ftnl.grupo.objects.EventGuildInfo

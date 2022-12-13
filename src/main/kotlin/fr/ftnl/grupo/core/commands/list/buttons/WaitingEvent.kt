@@ -4,7 +4,7 @@ import fr.ftnl.grupo.core.commands.IButtonCmd
 import fr.ftnl.grupo.database.mediator.MatchmakingEventMediator
 import fr.ftnl.grupo.database.mediator.ParticipantsMediator
 import fr.ftnl.grupo.database.mediator.UsersMediator
-import fr.ftnl.grupo.database.models.ParticipantType
+import fr.ftnl.grupo.database.models.tbj.ParticipantType
 import fr.ftnl.grupo.extentions.toLang
 import fr.ftnl.grupo.lang.LangKey
 import net.dv8tion.jda.api.Permission

@@ -1,7 +1,7 @@
 package fr.ftnl.grupo.database.mediator
 
-import fr.ftnl.grupo.database.models.GamePlateforme
-import fr.ftnl.grupo.database.models.GamePlateformes
+import fr.ftnl.grupo.database.models.tbl.GamePlateforme
+import fr.ftnl.grupo.database.models.tbl.GamePlateformes
 import org.jetbrains.exposed.sql.or
 import org.jetbrains.exposed.sql.transactions.transaction
 

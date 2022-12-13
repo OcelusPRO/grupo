@@ -1,5 +1,7 @@
-package fr.ftnl.grupo.database.models
+package fr.ftnl.grupo.database.models.tbl
 
+import fr.ftnl.grupo.database.models.tbj.Participant
+import fr.ftnl.grupo.database.models.tbj.Participants
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.id.EntityID
@@ -9,7 +11,7 @@ import org.jetbrains.exposed.sql.jodatime.CurrentDateTime
 import org.jetbrains.exposed.sql.jodatime.datetime
 import org.joda.time.DateTime
 
-object MatchmakingEvents : IntIdTable("TBL_MATCHMAKINGEVENT_MEV") {
+object MatchmakingEvents : IntIdTable("TBL_MATCHMAKINGEVENTS_MEV") {
     val game: Column<EntityID<Int>> = reference("game", Games)
     
     val message: Column<String> = text("message")

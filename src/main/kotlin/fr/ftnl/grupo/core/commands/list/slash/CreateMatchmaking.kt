@@ -5,8 +5,8 @@ import dev.minn.jda.ktx.events.await
 import dev.minn.jda.ktx.messages.MessageCreateBuilder
 import fr.ftnl.grupo.core.commands.ISlashCmd
 import fr.ftnl.grupo.database.mediator.MatchmakingEventMediator
-import fr.ftnl.grupo.database.models.Game
-import fr.ftnl.grupo.database.models.MatchmakingEvent
+import fr.ftnl.grupo.database.models.tbl.Game
+import fr.ftnl.grupo.database.models.tbl.MatchmakingEvent
 import fr.ftnl.grupo.extentions.toLang
 import fr.ftnl.grupo.lang.LangKey
 import fr.ftnl.grupo.objects.EventGuildInfo

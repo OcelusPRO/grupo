@@ -1,5 +1,9 @@
-package fr.ftnl.grupo.database.models
+package fr.ftnl.grupo.database.models.tbj
 
+import fr.ftnl.grupo.database.models.tbl.GamePlateforme
+import fr.ftnl.grupo.database.models.tbl.GamePlateformes
+import fr.ftnl.grupo.database.models.tbl.User
+import fr.ftnl.grupo.database.models.tbl.Users
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.id.EntityID
@@ -9,7 +13,7 @@ import org.jetbrains.exposed.sql.jodatime.CurrentDateTime
 import org.jetbrains.exposed.sql.jodatime.datetime
 import org.joda.time.DateTime
 
-object UserGametags : IntIdTable("TBJ_USERGAMETAG_USR_GMP") {
+object UserGametags : IntIdTable("TBJ_USR_USERGAMETAGS_GMP_UGT") {
     val user: Column<EntityID<Int>> = reference("user", Users)
     val plateforme: Column<EntityID<Int>> = reference("plateforme", GamePlateformes)
     val gametag: Column<String> = varchar("gametag", 80)

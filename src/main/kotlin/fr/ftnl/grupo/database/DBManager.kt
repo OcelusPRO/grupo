@@ -2,7 +2,10 @@ package fr.ftnl.grupo.database
 
 import fr.ftnl.grupo.CONFIG
 import fr.ftnl.grupo.config.Configuration
-import fr.ftnl.grupo.database.models.*
+import fr.ftnl.grupo.database.models.tbj.GuildEventsChannels
+import fr.ftnl.grupo.database.models.tbj.Participants
+import fr.ftnl.grupo.database.models.tbj.UserGametags
+import fr.ftnl.grupo.database.models.tbl.*
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction

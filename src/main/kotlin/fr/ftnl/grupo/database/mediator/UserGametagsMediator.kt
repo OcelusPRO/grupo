@@ -1,8 +1,8 @@
 package fr.ftnl.grupo.database.mediator
 
-import fr.ftnl.grupo.database.models.GamePlateforme
-import fr.ftnl.grupo.database.models.User
-import fr.ftnl.grupo.database.models.UserGametag
+import fr.ftnl.grupo.database.models.tbj.UserGametag
+import fr.ftnl.grupo.database.models.tbl.GamePlateforme
+import fr.ftnl.grupo.database.models.tbl.User
 import org.jetbrains.exposed.sql.transactions.transaction
 
 object UserGametagsMediator {

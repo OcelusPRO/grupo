@@ -3,7 +3,7 @@ package fr.ftnl.grupo.core.commands.list.slash
 import fr.ftnl.grupo.core.commands.ISlashCmd
 import fr.ftnl.grupo.database.mediator.GuildConfigurationMediator
 import fr.ftnl.grupo.database.mediator.GuildEventsChannelMediator
-import fr.ftnl.grupo.database.models.Game
+import fr.ftnl.grupo.database.models.tbl.Game
 import fr.ftnl.grupo.extentions.toLang
 import fr.ftnl.grupo.lang.LangKey
 import net.dv8tion.jda.api.Permission

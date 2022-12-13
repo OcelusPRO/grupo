@@ -1,7 +1,7 @@
 package fr.ftnl.grupo.database.mediator
 
-import fr.ftnl.grupo.database.models.User
-import fr.ftnl.grupo.database.models.Users
+import fr.ftnl.grupo.database.models.tbl.User
+import fr.ftnl.grupo.database.models.tbl.Users
 import fr.ftnl.grupo.objects.NullableObject
 import io.github.reactivecircus.cache4k.Cache
 import org.jetbrains.exposed.sql.transactions.transaction

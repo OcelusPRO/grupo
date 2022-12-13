@@ -1,4 +1,4 @@
-package fr.ftnl.grupo.database.models
+package fr.ftnl.grupo.database.models.tbl
 
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
