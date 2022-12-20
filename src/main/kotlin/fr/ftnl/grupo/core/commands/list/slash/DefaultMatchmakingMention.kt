@@ -23,10 +23,10 @@ class DefaultMatchmakingMention : ISlashCmd {
     override suspend fun action(event: SlashCommandInteractionEvent) {
         val role = event.getOption("role")!!.asRole
         GuildConfigurationMediator.setDefaultMatchmakingMention(event.guild!!.idLong, role.idLong)
-        event.reply( // TODO extract role mention from lang
-            "Le rôle mentionné par defaut est maintenant ${role.asMention}".toLang(
+        event.reply(
+            "Le rôle mentionné par defaut est maintenant %s".toLang(
                 event.userLocale, LangKey.keyBuilder(this, "action", "defaultChannelSet")
-            )
+            ).format(role.asMention)
         ).setEphemeral(true).queue()
     }
     

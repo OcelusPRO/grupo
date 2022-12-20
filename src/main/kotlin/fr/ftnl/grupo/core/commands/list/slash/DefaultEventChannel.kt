@@ -20,9 +20,9 @@ class DefaultEventChannel : ISlashCmd {
     override suspend fun action(event: SlashCommandInteractionEvent) {
         GuildConfigurationMediator.setDefaultEventChannel(event.guild!!.idLong, event.channel.idLong)
         event.reply(
-            "Le salon par défaut pour les événements est maintenant ${event.channel.asMention}".toLang(
+            "Le salon par défaut pour les événements est maintenant %s".toLang(
                 event.userLocale, LangKey.keyBuilder(this, "action", "defaultChannelSet")
-            )
+            ).format(event.channel.asMention)
         ).setEphemeral(true).queue()
     }
     
