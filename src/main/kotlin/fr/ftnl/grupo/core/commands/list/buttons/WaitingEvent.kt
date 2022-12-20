@@ -9,6 +9,7 @@ import fr.ftnl.grupo.extentions.toLang
 import fr.ftnl.grupo.lang.LangKey
 import net.dv8tion.jda.api.Permission
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent
+import org.jetbrains.exposed.sql.transactions.transaction
 
 class WaitingEvent : IButtonCmd {
     override suspend fun action(event: ButtonInteractionEvent) {
@@ -16,7 +17,7 @@ class WaitingEvent : IButtonCmd {
         val mEvent = MatchmakingEventMediator.cache.get(eventId)
             ?: return event.reply("L'événement n'existe plus").setEphemeral(true).queue()
         val user = UsersMediator.getUserByDiscordId(event.user.idLong, event.user.asTag)
-        val participation = mEvent.participants.find { it.user == user }
+        val participation = transaction { mEvent.participants.find { it.user.discordId == user.discordId } }
         when (participation?.type) {
             ParticipantType.WAITING     -> {
                 MatchmakingEventMediator.removeParticipant(user, mEvent)
@@ -45,6 +46,7 @@ class WaitingEvent : IButtonCmd {
                 ).setEphemeral(true).queue()
             }
         }
+        MatchmakingEventMediator.diffuseMessageUpdate(event.jda.shardManager!!, mEvent)
     }
     
     override val name: String
