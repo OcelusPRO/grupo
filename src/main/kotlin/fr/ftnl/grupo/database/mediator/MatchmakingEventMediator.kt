@@ -10,6 +10,7 @@ import fr.ftnl.grupo.lang.LangKey
 import fr.ftnl.grupo.objects.EventGuildInfo
 import fr.ftnl.grupo.objects.EventTimeInfo
 import io.github.reactivecircus.cache4k.Cache
+import kotlinx.coroutines.runBlocking
 import net.dv8tion.jda.api.entities.Guild
 import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel
 import net.dv8tion.jda.api.entities.emoji.Emoji
@@ -78,22 +79,34 @@ object MatchmakingEventMediator {
         }
         return success
     }
-
+    
     private fun getParticipantsByType(type: ParticipantType, event: MatchmakingEvent): List<Participant> {
         return transaction { event.participants.filter { it.type == type } }
     }
-
+    
     private fun getParticipantsPlatformName(participant: Participant, game: Game): String {
         return UsersMediator.getUserPlateformes(participant.user).find { it.plateforme == game.platform }?.gametag
             ?: participant.user.discordUsername
     }
-
-    fun makeEventMessage(locale: DiscordLocale, channelLink: String, event: MatchmakingEvent): MessageCreateData {
+    
+    suspend fun makeEventMessage(guild: Guild, channelLink: String, event: MatchmakingEvent, forGuild: Guild? = null): MessageCreateData {
         val active = getParticipantsByType(ParticipantType.PARTICIPANT, event)
         val waiting = getParticipantsByType(ParticipantType.WAITING, event)
         val game = transaction { event.game }
+        val config = GuildConfigurationMediator.getGuildConfiguration(guild.idLong)
+        
+        val mention = transaction {
+            config.eventsRoles.find { it.game == event.game }
+                ?: config.defaultEventRole
+        }
+        
+        var message = event.message.replace("@", "@\u200B")
+        if (mention != null) message = message.replace("<ROLE_MENTION>", "<@&${config.id}>")
+        
         return MessageCreate {
-            content = event.message
+            
+            content = message
+            
             embed {
                 title = game.name
                 description = game.description
@@ -102,45 +115,48 @@ object MatchmakingEventMediator {
                 color = 0x000000
                 field {
                     name = "✅ - Participants (%d/%d)".toLang(
-                        locale, LangKey.keyBuilder(this@MatchmakingEventMediator, "eventMessage", "participants")
+                        guild.locale, LangKey.keyBuilder(this@MatchmakingEventMediator, "eventMessage", "participants")
                     ).format(active.size, game.players)
                     value = active.joinToString("\n") { p ->
                         "`-` [${getParticipantsPlatformName(p, game)}]($channelLink \"${p.user.discordUsername}\")"
                     }
+                    inline = true
                 }
                 field {
                     name = "❔ - En réserve (%d)".toLang(
-                        locale, LangKey.keyBuilder(this@MatchmakingEventMediator, "eventMessage", "reserve")
+                        guild.locale, LangKey.keyBuilder(this@MatchmakingEventMediator, "eventMessage", "reserve")
                     ).format(waiting.size)
                     value = waiting.joinToString("\n") { p ->
                         "`-` [${getParticipantsPlatformName(p, game)}]($channelLink \"${p.user.discordUsername}\")"
                     }
+                    inline = true
                 }
                 field {
                     name = "📅 - On se retrouve :".toLang(
-                        locale, LangKey.keyBuilder(this@MatchmakingEventMediator, "eventMessage", "date")
+                        guild.locale, LangKey.keyBuilder(this@MatchmakingEventMediator, "eventMessage", "date")
                     )
                     value = """
                         Sur le serveur : %s
                         Dans le salon vocal <#%s>
                         le <t:%s:f> (<t:%s:R>)
                     """.trimIndent().toLang(
-                        locale, LangKey.keyBuilder(this@MatchmakingEventMediator, "eventMessage", "dateValue")
+                        guild.locale, LangKey.keyBuilder(this@MatchmakingEventMediator, "eventMessage", "dateValue")
                     ).format(
                         event.guildInvite, event.voiceChannelId, event.startDateTime.millis / 1000, event.startDateTime.millis / 1000
                     )
+                    inline = false
                 }
                 footer {
                     name = "Cet évènement est %s".toLang(
-                        locale, LangKey.keyBuilder(this@MatchmakingEventMediator, "eventMessage", "local")
+                        guild.locale, LangKey.keyBuilder(this@MatchmakingEventMediator, "eventMessage", "local")
                     ).format(
                         if (event.localEvent) {
                             "local".toLang(
-                                locale, LangKey.keyBuilder(this@MatchmakingEventMediator, "eventMessage", "localValue")
+                                guild.locale, LangKey.keyBuilder(this@MatchmakingEventMediator, "eventMessage", "localValue")
                             )
                         } else {
                             "global".toLang(
-                                locale, LangKey.keyBuilder(this@MatchmakingEventMediator, "eventMessage", "globalValue")
+                                guild.locale, LangKey.keyBuilder(this@MatchmakingEventMediator, "eventMessage", "globalValue")
                             )
                         }
                     )
@@ -243,28 +259,10 @@ object MatchmakingEventMediator {
         chanel as MessageChannel
         chanel.sendMessage(
             makeEventMessage(
-                guild.locale, "https://discord.com/channels/${guild.id}/$channelId", event
+                guild, "https://discord.com/channels/${guild.id}/$channelId", event
             )
         ).addActionRow(
-            Button.success(
-                "MATCHMAKING_JOIN::${event.id.value}", Emoji.fromUnicode("✅")
-            ).withLabel(
-                "Participer".toLang(
-                    guild.locale, LangKey.keyBuilder(this, "eventMessage", "joinButton")
-                )
-            ), Button.secondary(
-                "MATCHMAKING_WAIT::${event.id.value}", Emoji.fromUnicode("❔")
-            ).withLabel(
-                "En réserve".toLang(
-                    guild.locale, LangKey.keyBuilder(this, "eventMessage", "reserveButton")
-                )
-            ), Button.primary(
-                "MATCHMAKING_CONFIG::${event.id.value}", Emoji.fromUnicode("⚙️")
-            ).asDisabled(),
-    
-            Button.danger(
-                "MATCHMAKING_CANCEL::${event.id.value}", Emoji.fromUnicode("🗑️")
-            )
+            buttons(event, chanel.guild.locale)
         ).queue {
             transaction {
                 SendedMessage.new {
