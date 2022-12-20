@@ -39,4 +39,11 @@ object GuildConfigurationMediator {
         }
     }
     
+    suspend fun setDefaultMatchmakingMention(guildId: Long, role: Long) {
+        val config = getGuildConfiguration(guildId)
+        transaction {
+            config.defaultEventRole = role
+        }
+    }
+    
 }
