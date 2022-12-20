@@ -179,23 +179,53 @@ object MatchmakingEventMediator {
     
     suspend fun diffuseMessageUpdate(manager: ShardManager, event: MatchmakingEvent) {
         val msg = transaction { event.sendedMessages }
-        msg.forEach {
-            val channel = manager.getTextChannelById(transaction { it.channelId })
-            if (channel != null) {
-                try {
-                    val message = channel.retrieveMessageById(transaction { it.messageId }).await()
-                    message.editMessage(
-                        MessageEditBuilder.fromCreateData(
-                            makeEventMessage(
-                                channel.guild.locale, "https://discord.com/channels/${channel.guild.id}/${channel.id}", event
-                            )
-                        ).build()
-                    ).queue()
-                } catch (ignored: Exception) { /*ignored*/
-                }
+        transaction {
+            msg.forEach {
+                runBlocking { messageEditor(manager, it, event) }
             }
         }
     }
+    
+    private suspend fun messageEditor(manager: ShardManager, it: SendedMessage, event: MatchmakingEvent) {
+        val channel = manager.getTextChannelById(transaction { it.channelId })
+        if (channel != null) {
+            try {
+                val message = runBlocking { channel.retrieveMessageById(transaction { it.messageId }).await() }
+                message.editMessage(
+                    MessageEditBuilder.fromCreateData(
+                        makeEventMessage(
+                            channel.guild, "https://discord.com/channels/${channel.guild.id}/${channel.id}", event
+                        )
+                    ).build()
+                ).setActionRow(
+                        buttons(event, channel.guild.locale)
+                    ).queue()
+            } catch (ignored: Exception) { /*ignored*/
+            }
+        }
+    }
+    
+    private fun buttons(event: MatchmakingEvent, locale: DiscordLocale) = listOf(
+        Button.success(
+            "MATCHMAKING_JOIN::${event.id.value}", Emoji.fromUnicode("✅")
+        ).withLabel(
+            "Participer".toLang(
+                locale, LangKey.keyBuilder(this, "eventMessage", "joinButton")
+            )
+        ), Button.secondary(
+            "MATCHMAKING_WAIT::${event.id.value}", Emoji.fromUnicode("❔")
+        ).withLabel(
+            "En réserve".toLang(
+                locale, LangKey.keyBuilder(this, "eventMessage", "reserveButton")
+            )
+        ), Button.primary(
+            "MATCHMAKING_CONFIG::${event.id.value}", Emoji.fromUnicode("⚙️")
+        ).asDisabled(),
+        
+        Button.danger(
+            "MATCHMAKING_CANCEL::${event.id.value}", Emoji.fromUnicode("🗑️")
+        )
+    )
     
     private suspend fun sendEventMessage(guild: Guild, localGuild: Boolean, event: MatchmakingEvent): Boolean {
         val config = GuildConfigurationMediator.getGuildConfiguration(guild.idLong)

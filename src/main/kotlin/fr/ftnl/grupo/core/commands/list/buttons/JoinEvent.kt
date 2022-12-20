@@ -18,7 +18,7 @@ class JoinEvent : IButtonCmd {
             ?: return event.reply("L'événement n'existe plus").setEphemeral(true).queue()
         val user = UsersMediator.getUserByDiscordId(event.user.idLong, event.user.asTag)
         val participants = MatchmakingEventMediator.getEventParticipants(mEvent)
-        val participation = participants.find { transaction { it.user } == user }
+        val participation = transaction { mEvent.participants.find { it.user.discordId == user.discordId } }
         when (participation?.type) {
             ParticipantType.WAITING     -> {
                 ParticipantsMediator.editParticipantType(participation, ParticipantType.PARTICIPANT)

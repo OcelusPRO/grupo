@@ -18,7 +18,8 @@ object UsersMediator {
                     discordUsername = username
                 }
             }
-        if (final.discordUsername != username) {
+        val fusername = transaction { final.discordUsername }
+        if (fusername != username) {
             transaction { final.discordUsername = username }
         }
         cache.put(id, NullableObject(final))
