@@ -16,15 +16,26 @@ import org.jetbrains.exposed.sql.transactions.transaction
  */
 class DBManager(cfg: Configuration = CONFIG) {
     val connection: Database
-
+    
+    private fun driverSelector(dbType: String): Pair<String, String> {
+        return when (dbType) {
+            "mysql"      -> Pair("com.mysql.cj.jdbc.Driver", "jdbc:mysql")
+            "PostgreSQL" -> Pair("org.postgresql.Driver", "jdbc:postgresql")
+            "pgjdbc-ng"  -> Pair("com.impossibl.postgres.jdbc.PGDriver", "jdbc:pgsql")
+            "sqlserver"  -> Pair("com.microsoft.sqlserver.jdbc.SQLServerDriver", "jdbc:sqlserver")
+            else         -> throw IllegalArgumentException("Database type not supported")
+        }
+    }
+    
     init {
+        val dbInfo = driverSelector(cfg.dbConfig.dbType)
         connection = Database.connect(
-            url = "jdbc:mysql://${cfg.dbConfig.host}:${cfg.dbConfig.port}/${cfg.dbConfig.database}?useSSL=false",
+            url = "${dbInfo.second}://${cfg.dbConfig.host}:${cfg.dbConfig.port}/${cfg.dbConfig.database}",
             driver = "com.mysql.cj.jdbc.Driver",
             user = cfg.dbConfig.user,
             password = cfg.dbConfig.password,
         )
-
+        
         transaction {
             SchemaUtils.createMissingTablesAndColumns(
                 Games,
