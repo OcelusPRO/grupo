@@ -33,7 +33,7 @@ class DefaultMatchmakingMention : ISlashCmd {
     override val localizedNames: Map<DiscordLocale, String>
         get() = mapOf()
     override val name: String
-        get() = "default-event-channel"
+        get() = "default-event-mention"
     override val userPermissions: List<Permission>
         get() = listOf(Permission.MANAGE_EVENTS)
     override val allowDM: Boolean
