@@ -12,7 +12,7 @@ import org.jetbrains.exposed.sql.jodatime.datetime
 import org.joda.time.DateTime
 
 object Users : IntIdTable("TBL_USERS_USR") {
-    val discordId: Column<Long> = long("discord_id")
+    val discordId: Column<Long> = long("discord_id").uniqueIndex()
     val discordUsername: Column<String> = varchar("discord_username", 40)
     
     val createdAt: Column<DateTime> = datetime("created_at").defaultExpression(CurrentDateTime)

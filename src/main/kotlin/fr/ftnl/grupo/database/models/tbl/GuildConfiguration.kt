@@ -14,7 +14,7 @@ import org.jetbrains.exposed.sql.jodatime.datetime
 import org.joda.time.DateTime
 
 object GuildConfigurations : IntIdTable("TBL_GUILDCONFIGS_GLD") {
-    val guildId: Column<Long> = long("guild_id")
+    val guildId: Column<Long> = long("guild_id").uniqueIndex()
     val defaultEventsChannel: Column<Long?> = long("default_events_channel").nullable().default(null)
     val defaultEventRoleID: Column<Long?> = long("default_event_role_id").nullable().default(null)
     val createdAt: Column<DateTime> = datetime("created_at").defaultExpression(CurrentDateTime)

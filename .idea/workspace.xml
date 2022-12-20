@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="✏️ Fix typos. -- extract variable to fix translations">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="🐛 Fix a bug. -- rename command">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/config/dependent/DatabaseConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/config/dependent/DatabaseConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/DBManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/DBManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/GuildConfiguration.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/GuildConfiguration.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/SendedMessages.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/SendedMessages.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/Users.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/Users.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,28 +292,7 @@
       <workItem from="1671123161707" duration="6000" />
       <workItem from="1671490477919" duration="10244000" />
       <workItem from="1671532814412" duration="467000" />
-      <workItem from="1671536750456" duration="1853000" />
-    </task>
-    <task id="LOCAL-00014" summary="🌐 Internationalization and localization. -- add base lang files">
-      <created>1669905387498</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1669905387498</updated>
-    </task>
-    <task id="LOCAL-00015" summary="🔧 Add or update configuration files. -- add config sample to git">
-      <created>1669905553298</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1669905553298</updated>
-    </task>
-    <task id="LOCAL-00016" summary=".🙈 update a .gitignore file. -- ignore config file">
-      <created>1669905601557</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1669905601557</updated>
+      <workItem from="1671536750456" duration="4025000" />
     </task>
     <task id="LOCAL-00017" summary="✨ Introduce new features. -- CommandManager">
       <created>1669906422196</created>
@@ -638,7 +616,28 @@
       <option name="project" value="LOCAL" />
       <updated>1671529907196</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="🗃️ Perform database related changes. -- Add multi database server support">
+      <created>1671539878559</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1671539878559</updated>
+    </task>
+    <task id="LOCAL-00064" summary="🗃️ Perform database related changes. -- Add multi database server support">
+      <created>1671539890679</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1671539890679</updated>
+    </task>
+    <task id="LOCAL-00065" summary="🐛 Fix a bug. -- rename command">
+      <created>1671539911749</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1671539911749</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -660,8 +659,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="️ Start bot and database connection" />
-    <MESSAGE value=" Improve structure / format of the code. -- new line on table creation" />
     <MESSAGE value=" Improve structure / format of the code. -- Add getGameTagMap() function for user profile" />
     <MESSAGE value=" Write bad code that needs to be improved. -- start event command" />
     <MESSAGE value=" Improve structure / format of the code. -- Show a good representation of event embed" />
@@ -685,7 +682,9 @@
     <MESSAGE value=" Add or update text. -- Remove message mentions and add default role mention, fix embed inline fields" />
     <MESSAGE value="✨ Introduce new features. -- GuildEventsRoles" />
     <MESSAGE value="✏️ Fix typos. -- extract variable to fix translations" />
-    <option name="LAST_COMMIT_MESSAGE" value="✏️ Fix typos. -- extract variable to fix translations" />
+    <MESSAGE value="️ Perform database related changes. -- Add multi database server support" />
+    <MESSAGE value=" Fix a bug. -- rename command" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Fix a bug. -- rename command" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
