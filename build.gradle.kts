@@ -8,8 +8,8 @@ plugins {
 }
 
 group = "fr.ftnl"
-var botVersion = "1.0.0_0"
-var mainClassName : String = "${group}.MainKt"
+var botVersion = "1.0.0_1"
+var mainClassName: String = "${group}.MainKt"
 
 repositories {
     mavenCentral()
@@ -65,7 +65,7 @@ tasks.test {
 
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "17"
+    kotlinOptions.jvmTarget = "11"
     kotlinOptions.freeCompilerArgs = listOf(
         "-Xjvm-default=all",  // use default methods in interfaces
         "-Xlambdas=indy"      // use invoke-dynamic lambdas instead of synthetic classes
@@ -86,7 +86,7 @@ tasks.withType<ShadowJar> {
         buildFile.writeText(s)
     }
     
-    archiveBaseName.set("FTNL-MOD")
+    archiveBaseName.set("Grupo")
     archiveClassifier.set("")
     archiveVersion.set(botVersion)
 }
