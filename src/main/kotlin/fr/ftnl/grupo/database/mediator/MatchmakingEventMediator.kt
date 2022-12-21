@@ -49,6 +49,9 @@ object MatchmakingEventMediator {
         cache.invalidateAll()
         transaction {
             MatchmakingEvent.find { MatchmakingEvents.startDateTime greaterEq DateTime.now().minusHours(24) }.forEach {
+                if (it.startDateTime.isBefore(DateTime.now().minusHours(12))) {
+                    endEvent(it)
+                }
                 cache.put(it.id.value, it)
             }
         }

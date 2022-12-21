@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="🗃️ Perform database related changes.-- add unique index contrain">
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment=":memo: Update README.md and set java version to 11">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/abstract/BaseIntEntity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/abstract/BaseIntEntityClass.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/abstract/BaseIntIdTable.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/mediator/MatchmakingEventMediator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/mediator/MatchmakingEventMediator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/GamePlateforme.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/GamePlateforme.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/Games.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/Games.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/GuildConfiguration.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/GuildConfiguration.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/MatchmakingEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/MatchmakingEvent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/SendedMessages.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/SendedMessages.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/Users.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fr/ftnl/grupo/database/models/tbl/Users.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +158,7 @@
       <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo\src\main\kotlin\fr\ftnl\grupo\database\abstract" />
       <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo\src\main\kotlin\fr\ftnl\grupo\database\models\tbl" />
       <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo\src\main\kotlin\fr\ftnl\grupo\database\models\tbj" />
       <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo" />
@@ -247,8 +256,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.grupo [shadowJar]" />
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Gradle.grupo [shadowJar]" />
         <item itemvalue="Kotlin.DateTimeUtilsKt" />
         <item itemvalue="Gradle.Tests.languages tests (1)" />
         <item itemvalue="Gradle.Tests.database connection test" />
@@ -289,14 +298,8 @@
       <workItem from="1671123161707" duration="6000" />
       <workItem from="1671490477919" duration="10244000" />
       <workItem from="1671532814412" duration="467000" />
-      <workItem from="1671536750456" duration="8181000" />
-    </task>
-    <task id="LOCAL-00018" summary=":recycle: Reformat code by IDE">
-      <created>1669906467523</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1669906467523</updated>
+      <workItem from="1671536750456" duration="10451000" />
+      <workItem from="1671633038973" duration="1840000" />
     </task>
     <task id="LOCAL-00019" summary=":fountain: Add github workflow and dependabot.yml">
       <created>1669907213178</created>
@@ -634,7 +637,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671553717843</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary=":memo: Update README.md and set java version to 11">
+      <created>1671566033182</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1671566033182</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -656,8 +666,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value=" Write bad code that needs to be improved. -- start event command" />
-    <MESSAGE value=" Improve structure / format of the code. -- Show a good representation of event embed" />
     <MESSAGE value=":memo: Add README.md file" />
     <MESSAGE value=":camera_flash: Add gource export video" />
     <MESSAGE value=" Improve user experience / usability. -- use channel link for matchmaking pseudo link" />
@@ -681,7 +689,9 @@
     <MESSAGE value="️ Perform database related changes. -- Add multi database server support" />
     <MESSAGE value=" Fix a bug. -- rename command" />
     <MESSAGE value="️ Perform database related changes.-- add unique index contrain" />
-    <option name="LAST_COMMIT_MESSAGE" value="️ Perform database related changes.-- add unique index contrain" />
+    <MESSAGE value=":memo: Update README.mdand set java version to 11" />
+    <MESSAGE value=":memo: Update README.md and set java version to 11" />
+    <option name="LAST_COMMIT_MESSAGE" value=":memo: Update README.md and set java version to 11" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
