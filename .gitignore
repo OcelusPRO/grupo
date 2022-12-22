@@ -43,3 +43,4 @@ bin/
 
 .idea/sonarlint/*
 config.json
+/output.mp4

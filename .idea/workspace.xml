@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="update ✅ update tests. -- remove useless assert not equals">
+    <list default="true" id="d99451a2-5920-40af-9c15-7838bdcc855c" name="Changes" comment="🔧 Remove config.sample.json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DetektSettingsMigration">
+    <option name="stateVersion" value="2" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -51,14 +54,20 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Kotlin Interface" />
         <option value="Kotlin Data Class" />
         <option value="Kotlin File" />
-        <option value="Kotlin Interface" />
+        <option value="Kotlin Object" />
         <option value="Kotlin Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="OcelusPRO &lt;ocelus1999@hotmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -105,54 +114,55 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/OcelusPRO/IdeaProjects/FTNL&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "TODO_SCOPE": "All Places",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/OcelusPRO/IdeaProjects/grupo/src/main/kotlin/fr/ftnl/grupo/database/models/tbj",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.customizations",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "greenplum",
+      "postgresql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo\src\main\kotlin\fr\ftnl\grupo\database\models\tbj" />
+      <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo\src\main\kotlin\fr\ftnl\grupo\database\models" />
+      <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo" />
+      <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo\src\main\kotlin\fr\ftnl\grupo\database\abstract" />
+      <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo\src\main\kotlin\fr\ftnl\grupo\database\models\tbl" />
+      <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo\src\main\kotlin\fr\ftnl\grupo\database\models\tbj" />
       <recent name="C:\Users\OcelusPRO\IdeaProjects\grupo" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="fr.ftnl.grupo.core.commands.list.slash" />
       <recent name="fr.ftnl.grupo" />
     </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="fr.ftnl.grupo.core.commands.list.slash" />
+      <recent name="fr.ftnl.grupo.core.commands.list.buttons" />
+    </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests">
-    <configuration name="Tests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;fr.ftnl.grupo.Tests&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="Tests.database connection test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -199,28 +209,33 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Tests.languages tests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="grupo [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;Tests.languages tests&quot;" />
+            <option value="shadowJar" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
+    </configuration>
+    <configuration name="DateTimeUtilsKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.ftnl.grupo.core.utils.DateTimeUtilsKt" />
+      <module name="grupo.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="fr.ftnl.grupo.MainKt" />
@@ -231,11 +246,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests" />
+        <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Gradle.grupo [shadowJar]" />
+        <item itemvalue="Kotlin.DateTimeUtilsKt" />
         <item itemvalue="Gradle.Tests.languages tests (1)" />
         <item itemvalue="Gradle.Tests.database connection test" />
-        <item itemvalue="Gradle.Tests.languages tests" />
-        <item itemvalue="Kotlin.MainKt" />
       </list>
     </recent_temporary>
   </component>
@@ -252,154 +267,30 @@
       <workItem from="1669842250010" duration="2715000" />
       <workItem from="1669902798686" duration="6487000" />
       <workItem from="1669911253973" duration="10034000" />
-      <workItem from="1669970162316" duration="910000" />
-    </task>
-    <task id="LOCAL-00001" summary="🎉 Begin a project.">
-      <created>1669806667582</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1669806667582</updated>
-    </task>
-    <task id="LOCAL-00002" summary="🎉 Begin a project.">
-      <created>1669806767683</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1669806767683</updated>
-    </task>
-    <task id="LOCAL-00003" summary="🎉 Begin a project.">
-      <created>1669806784447</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1669806784447</updated>
-    </task>
-    <task id="LOCAL-00004" summary="➕ Add project dependency's.">
-      <created>1669808593873</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1669808593873</updated>
-    </task>
-    <task id="LOCAL-00005" summary=":wrench: Add logger configuration file">
-      <created>1669808722719</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1669808722719</updated>
-    </task>
-    <task id="LOCAL-00006" summary="✨ Introduce new features -- GSON serialization">
-      <created>1669809265959</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1669809265959</updated>
-    </task>
-    <task id="LOCAL-00007" summary="✨ Introduce new features -- Lang manager">
-      <created>1669809585479</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1669809585479</updated>
-    </task>
-    <task id="LOCAL-00008" summary="✨ Introduce new features -- Configuration manager">
-      <created>1669810204999</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1669810204999</updated>
-    </task>
-    <task id="LOCAL-00009" summary="✨ Introduce new features -- Bot discord connection + event dispatcher">
-      <created>1669810992487</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1669810992487</updated>
-    </task>
-    <task id="LOCAL-00010" summary="✨ Introduce new features -- Database connection">
-      <created>1669811003032</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1669811003032</updated>
-    </task>
-    <task id="LOCAL-00011" summary="✅ Add tests. -- setup first tests">
-      <created>1669905146452</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1669905146452</updated>
-    </task>
-    <task id="LOCAL-00012" summary="🙈 update .gitignore file. -- remove sonarlint files">
-      <created>1669905240106</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1669905240106</updated>
-    </task>
-    <task id="LOCAL-00013" summary="🔥 Remove files. -- index.pb -- sonarlint">
-      <created>1669905312599</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1669905312599</updated>
-    </task>
-    <task id="LOCAL-00014" summary="🌐 Internationalization and localization. -- add base lang files">
-      <created>1669905387498</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1669905387498</updated>
-    </task>
-    <task id="LOCAL-00015" summary="🔧 Add or update configuration files. -- add config sample to git">
-      <created>1669905553298</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1669905553298</updated>
-    </task>
-    <task id="LOCAL-00016" summary=".🙈 update a .gitignore file. -- ignore config file">
-      <created>1669905601557</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1669905601557</updated>
-    </task>
-    <task id="LOCAL-00017" summary="✨ Introduce new features. -- CommandManager">
-      <created>1669906422196</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1669906422196</updated>
-    </task>
-    <task id="LOCAL-00018" summary=":recycle: Reformat code by IDE">
-      <created>1669906467523</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1669906467523</updated>
-    </task>
-    <task id="LOCAL-00019" summary=":fountain: Add github workflow and dependabot.yml">
-      <created>1669907213178</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1669907213179</updated>
-    </task>
-    <task id="LOCAL-00020" summary=":fountain: Update github workflow. -- Add permission to execute command">
-      <created>1669907477575</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1669907477575</updated>
-    </task>
-    <task id="LOCAL-00021" summary=":fountain: Update github workflow. -- Change build to shadowJar action">
-      <created>1669907979666</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1669907979666</updated>
+      <workItem from="1669970162316" duration="8347000" />
+      <workItem from="1669987382505" duration="57000" />
+      <workItem from="1669987455028" duration="22767000" />
+      <workItem from="1670058941847" duration="2915000" />
+      <workItem from="1670153264268" duration="8660000" />
+      <workItem from="1670171317617" duration="53000" />
+      <workItem from="1670171423185" duration="5999000" />
+      <workItem from="1670233306115" duration="22336000" />
+      <workItem from="1670326479246" duration="2914000" />
+      <workItem from="1670400533092" duration="76000" />
+      <workItem from="1670400682531" duration="477000" />
+      <workItem from="1670401179331" duration="99000" />
+      <workItem from="1670401308676" duration="9933000" />
+      <workItem from="1670487506947" duration="11103000" />
+      <workItem from="1670662038211" duration="12399000" />
+      <workItem from="1670775867604" duration="9840000" />
+      <workItem from="1670865432464" duration="18090000" />
+      <workItem from="1671041489352" duration="1191000" />
+      <workItem from="1671123161707" duration="6000" />
+      <workItem from="1671490477919" duration="10244000" />
+      <workItem from="1671532814412" duration="467000" />
+      <workItem from="1671536750456" duration="10451000" />
+      <workItem from="1671633038973" duration="3506000" />
+      <workItem from="1671636961650" duration="1902000" />
     </task>
     <task id="LOCAL-00022" summary=":fountain: Update github workflow. -- Change build to shadowJar action">
       <created>1669911327006</created>
@@ -422,11 +313,336 @@
       <option name="project" value="LOCAL" />
       <updated>1669938072692</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="🔥 Remove files. -- detekt.yml">
+      <created>1669971201242</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1669971201242</updated>
+    </task>
+    <task id="LOCAL-00026" summary="♻️ Reformat code with detekt plugin">
+      <created>1669988787417</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1669988787417</updated>
+    </task>
+    <task id="LOCAL-00027" summary="🗃️ DAO. -- Création des schémas">
+      <created>1669995329445</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1669995329445</updated>
+    </task>
+    <task id="LOCAL-00028" summary="♻️ Reformat code. -- by detekt and IDE">
+      <created>1669995820048</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1669995820048</updated>
+    </task>
+    <task id="LOCAL-00029" summary="♻️ Reformat code. -- by detekt and IDE">
+      <created>1669995895746</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1669995895746</updated>
+    </task>
+    <task id="LOCAL-00030" summary="✨ Introduce new features. -- Profile utilisateurs">
+      <created>1670000591103</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1670000591103</updated>
+    </task>
+    <task id="LOCAL-00031" summary="♻️ Reformat code.">
+      <created>1670007985248</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1670007985248</updated>
+    </task>
+    <task id="LOCAL-00032" summary=":triangular_flag_on_post: Ajout du type de participation dans les participants">
+      <created>1670015988066</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1670015988066</updated>
+    </task>
+    <task id="LOCAL-00033" summary=":triangular_flag_on_post: Ajout de la génération du message avec embed pour l'évènement">
+      <created>1670016045662</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1670016045662</updated>
+    </task>
+    <task id="LOCAL-00034" summary="🎨 Improve structure / format of the code.">
+      <created>1670162818720</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1670162818720</updated>
+    </task>
+    <task id="LOCAL-00035" summary="🗃️ Perform database related changes. -- remove table prefix">
+      <created>1670162872011</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1670162872011</updated>
+    </task>
+    <task id="LOCAL-00036" summary="🗃️ Perform database related changes. -- add transaction on AddGameTag command">
+      <created>1670162930886</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1670162930886</updated>
+    </task>
+    <task id="LOCAL-00037" summary="🎨 Improve structure / format of the code. -- Add EventPassthrough for command logs">
+      <created>1670163785613</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1670163785613</updated>
+    </task>
+    <task id="LOCAL-00038" summary="🗃️ Start bot and database connection">
+      <created>1670163845928</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1670163845928</updated>
+    </task>
+    <task id="LOCAL-00039" summary="🎨 Improve structure / format of the code. -- Add getGameTagMap() function for user profile">
+      <created>1670166769904</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1670166769904</updated>
+    </task>
+    <task id="LOCAL-00040" summary="💩 Write bad code that needs to be improved. -- start event command">
+      <created>1670282551181</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1670282551181</updated>
+    </task>
+    <task id="LOCAL-00041" summary="🎨 Improve structure / format of the code. -- Show a good representation of event embed">
+      <created>1670326074109</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1670326074109</updated>
+    </task>
+    <task id="LOCAL-00042" summary=":memo: Add README.md file">
+      <created>1670331778756</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1670331778757</updated>
+    </task>
+    <task id="LOCAL-00043" summary=":camera_flash: Add gource export video">
+      <created>1670402321087</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1670402321087</updated>
+    </task>
+    <task id="LOCAL-00044" summary="🚸 Improve user experience / usability. -- use channel link for matchmaking pseudo link">
+      <created>1670419354508</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1670419354508</updated>
+    </task>
+    <task id="LOCAL-00045" summary="✨ Introduce new features. -- update eventMessage every minutes">
+      <created>1670422329110</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1670422329110</updated>
+    </task>
+    <task id="LOCAL-00046" summary="✨ Introduce new features. -- update eventMessage every minutes">
+      <created>1670422367736</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1670422367736</updated>
+    </task>
+    <task id="LOCAL-00047" summary="✨ Introduce new features. -- send message to guilds">
+      <created>1670600529546</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1670600529546</updated>
+    </task>
+    <task id="LOCAL-00048" summary="📦️ Move slash commands to dedicated packages.">
+      <created>1670685290821</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1670685290821</updated>
+    </task>
+    <task id="LOCAL-00049" summary=":card_file_box: Make mutable Participant class variables">
+      <created>1670685396869</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1670685396870</updated>
+    </task>
+    <task id="LOCAL-00050" summary="✨ Introduce new features. -- Add, Remove and update event participants">
+      <created>1670685459394</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1670685459394</updated>
+    </task>
+    <task id="LOCAL-00051" summary="✨ Introduce new features. -- Delete event button">
+      <created>1670685479278</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1670685479278</updated>
+    </task>
+    <task id="LOCAL-00052" summary="✨ Introduce new features. -- Channels configuration">
+      <created>1670686768098</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1670686768098</updated>
+    </task>
+    <task id="LOCAL-00053" summary="✨ Introduce new features. -- Add game command">
+      <created>1670688196189</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1670688196189</updated>
+    </task>
+    <task id="LOCAL-00054" summary="♻️ Refactor code. -- global refactor">
+      <created>1670876465751</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1670876465753</updated>
+    </task>
+    <task id="LOCAL-00055" summary="🗃️ Perform database related changes. -- improve database structure">
+      <created>1670924721206</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1670924721206</updated>
+    </task>
+    <task id="LOCAL-00056" summary="🗃️ Perform database related changes. -- fix typo on tables name + move packages">
+      <created>1670943730502</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1670943730502</updated>
+    </task>
+    <task id="LOCAL-00057" summary=":egg: Add github gource action">
+      <created>1670943826952</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1670943826952</updated>
+    </task>
+    <task id="LOCAL-00058" summary="🐛 Fix a bug. -- add transaction and diffuse message">
+      <created>1671528269007</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1671528269007</updated>
+    </task>
+    <task id="LOCAL-00059" summary="🐛 Fix a bug. -- add missing transaction">
+      <created>1671528339523</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1671528339523</updated>
+    </task>
+    <task id="LOCAL-00060" summary="💬 Add or update text. -- Remove message mentions and add default role mention, fix embed inline fields">
+      <created>1671528496390</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1671528496390</updated>
+    </task>
+    <task id="LOCAL-00061" summary="✨ Introduce new features. -- GuildEventsRoles">
+      <created>1671528568582</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1671528568582</updated>
+    </task>
+    <task id="LOCAL-00062" summary="✏️ Fix typos. -- extract variable to fix translations">
+      <created>1671529907196</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1671529907196</updated>
+    </task>
+    <task id="LOCAL-00063" summary="🗃️ Perform database related changes. -- Add multi database server support">
+      <created>1671539878559</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1671539878559</updated>
+    </task>
+    <task id="LOCAL-00064" summary="🗃️ Perform database related changes. -- Add multi database server support">
+      <created>1671539890679</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1671539890679</updated>
+    </task>
+    <task id="LOCAL-00065" summary="🐛 Fix a bug. -- rename command">
+      <created>1671539911749</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1671539911749</updated>
+    </task>
+    <task id="LOCAL-00066" summary="🗃️ Perform database related changes.-- add unique index contrain">
+      <created>1671553717843</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1671553717843</updated>
+    </task>
+    <task id="LOCAL-00067" summary=":memo: Update README.md and set java version to 11">
+      <created>1671566033182</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1671566033182</updated>
+    </task>
+    <task id="LOCAL-00068" summary="🗃️ Perform database related changes. -- Add updated at on database tables">
+      <created>1671635479917</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1671635479917</updated>
+    </task>
+    <task id="LOCAL-00069" summary="🗃️ Perform database related changes. -- Add updated at on database tables">
+      <created>1671636129552</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1671636129552</updated>
+    </task>
+    <task id="LOCAL-00070" summary="🔧 Remove config.sample.json">
+      <created>1671636844805</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1671636844805</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -440,27 +656,46 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" Begin a project." />
-    <MESSAGE value="➕ Add project dependency's." />
-    <MESSAGE value=":wrench: Add logger configuration file" />
-    <MESSAGE value="✨ Introduce new features -- GSON serialization" />
-    <MESSAGE value="✨ Introduce new features -- Lang manager" />
-    <MESSAGE value="✨ Introduce new features -- Configuration manager" />
-    <MESSAGE value="✨ Introduce new features -- Bot discord connection + event dispatcher" />
-    <MESSAGE value="✨ Introduce new features -- Database connection" />
-    <MESSAGE value="✅ Add tests. -- setup first tests" />
-    <MESSAGE value=" update .gitignore file. -- remove sonarlint files" />
-    <MESSAGE value=" Remove files. -- index.pb -- sonarlint" />
-    <MESSAGE value=" Internationalization and localization. -- add base lang files" />
-    <MESSAGE value=" Add or update configuration files. -- add config sample to git" />
-    <MESSAGE value=". update a .gitignore file. -- ignore config file" />
-    <MESSAGE value="✨ Introduce new features. -- CommandManager" />
-    <MESSAGE value=":recycle: Reformat code by IDE" />
-    <MESSAGE value=":fountain: Add github workflow and dependabot.yml" />
-    <MESSAGE value=":fountain: Update github workflow. -- Add permission to execute command" />
-    <MESSAGE value=":fountain: Update github workflow. -- Change build to shadowJar action" />
-    <MESSAGE value="♻️ Refactor code. -- Command manager - add cooldown to commands" />
-    <MESSAGE value="update ✅ update tests. -- remove useless assert not equals" />
-    <option name="LAST_COMMIT_MESSAGE" value="update ✅ update tests. -- remove useless assert not equals" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value=" Improve user experience / usability. -- use channel link for matchmaking pseudo link" />
+    <MESSAGE value="✨ Introduce new features. -- update eventMessage every minutes" />
+    <MESSAGE value="✨ Introduce new features. -- send message to guilds" />
+    <MESSAGE value="️ Move slash commands to dedicated packages." />
+    <MESSAGE value=":card_file_box: Make mutable Participant class variables" />
+    <MESSAGE value="✨ Introduce new features. -- Add, Remove and update event participants" />
+    <MESSAGE value="✨ Introduce new features. -- Delete event button" />
+    <MESSAGE value="✨ Introduce new features. -- Channels configuration" />
+    <MESSAGE value="✨ Introduce new features. -- Add game command" />
+    <MESSAGE value="♻️ Refactor code. -- global refactor" />
+    <MESSAGE value="️ Perform database related changes. -- improve database structure" />
+    <MESSAGE value="️ Perform database related changes. -- fix typo on tables name + move packages" />
+    <MESSAGE value=":egg: Add github gource action" />
+    <MESSAGE value=" Fix a bug. -- add transaction and diffuse message" />
+    <MESSAGE value=" Fix a bug. -- add missing transaction" />
+    <MESSAGE value=" Add or update text. -- Remove message mentions and add default role mention, fix embed inline fields" />
+    <MESSAGE value="✨ Introduce new features. -- GuildEventsRoles" />
+    <MESSAGE value="✏️ Fix typos. -- extract variable to fix translations" />
+    <MESSAGE value="️ Perform database related changes. -- Add multi database server support" />
+    <MESSAGE value=" Fix a bug. -- rename command" />
+    <MESSAGE value="️ Perform database related changes.-- add unique index contrain" />
+    <MESSAGE value=":memo: Update README.mdand set java version to 11" />
+    <MESSAGE value=":memo: Update README.md and set java version to 11" />
+    <MESSAGE value="️ Perform database related changes. -- Add updated at on database tables" />
+    <MESSAGE value=" Remove config.sample.json" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Remove config.sample.json" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="fr.ftnl.grupo.core.commands.list.modal.NewGame" memberName="modal" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
