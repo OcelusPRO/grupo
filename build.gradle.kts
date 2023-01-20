@@ -45,7 +45,7 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-dao:0.41.1")
     
     //drivers
-    implementation("mysql:mysql-connector-java:8.0.31")
+    implementation("mysql:mysql-connector-java:8.0.32")
     implementation("org.postgresql:postgresql:42.5.1")
     implementation("com.impossibl.pgjdbc-ng:pgjdbc-ng:0.8.9")
     implementation("com.microsoft.sqlserver:mssql-jdbc:6.4.0.jre7")
