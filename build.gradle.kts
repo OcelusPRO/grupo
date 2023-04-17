@@ -52,7 +52,7 @@ dependencies {
     
     
     // Cache
-    implementation("io.github.reactivecircus.cache4k:cache4k:0.9.0")
+    implementation("io.github.reactivecircus.cache4k:cache4k:0.10.0")
     
     implementation(kotlin("scripting-jsr223"))
     
