@@ -20,7 +20,7 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
     
     // discord
-    implementation("net.dv8tion:JDA:5.0.0-beta.7") { exclude("opus-java") }
+    implementation("net.dv8tion:JDA:5.0.0-beta.9") { exclude("opus-java") }
     implementation("com.github.minndevelopment:jda-ktx:17eb77a")
     
     // TODO : Débatre de l'utilisation d'un webhook pour posté les messages
